@@ -22,13 +22,14 @@ Each data instance from our sampled PIQA/BINPIQA will be augmented with the qual
 The sample execution above will also show one data instance to have a peak. In general it should look like:
 
 ```bash
-{ 'annotations': { '1. choice': [1, 1],
-                   '2. confidence': [100.0, 100.0],
-                   '3. others agreement': [90.0, 90.0],
-                   '4. if common sense': [1, 1],
-                   '5. education level': [0, 0],
-                   '6. clearness': [0, 0],
-                   '7. category': [[0, 4], [0, 4], [0, 4], [0, 4]]},
+Qualtric ID: 10_Q10
+{ 'annotations': { '1. choice': [1],
+                   '2. confidence': [100.0],
+                   '3. others agreement': [90.0],
+                   '4. if common sense': [1],
+                   '5. education level': [0],
+                   '6. clearness': [0],
+                   '7. category': [[0, 4]]},
   'goal': 'To learn how to ride a bike.',
   'gt_label': 1,
   'id': '3e2db322-eca6-4f1d-807e-0fb02e193e7d',

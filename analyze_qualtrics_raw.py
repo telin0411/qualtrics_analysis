@@ -286,7 +286,7 @@ def read_qualtric_raw_csv(qualtrics_csv, qualt_sorted_dict, args, pp):
                             if qualtric_sub_id_TEXT in row:
                                 if len(row[qualtric_sub_id_TEXT]) > 0:
                                     answer_ids = [CATEGORIES["None of the above"]]
-                                curr_annot_dict["7. category"].append(answer_ids)
+                                    curr_annot_dict["7. category"].append(answer_ids)
                     
                     # pp.pprint(qualt_sorted_dict[qualtric_id])
             pass
