@@ -293,7 +293,6 @@ def read_qualtric_raw_csv(qualtrics_csv, qualt_sorted_dict, args, pp):
             ####
 
     qualtrics_csv_file.close()
-    row_cnt -= 4
     print ("[INFO] This part has been annotated by {} annotators".format(row_cnt))
 
     return qualt_sorted_dict
@@ -321,6 +320,9 @@ def display_categorical(arr, data_type, data_type_str):
 # some simple statistics function
 def simple_analysis(qualt_sorted_dict):
 
+    # generals
+    num_annotators_per_question = 0
+
     # statistics holders
     correct_cnt = 0
     total_cnt = 0
@@ -330,6 +332,13 @@ def simple_analysis(qualt_sorted_dict):
     edu_level = []
     clearness = []
     categories = []
+
+    which_correct_iaa = []
+    which_correct_iaa_and_correct = []
+
+    if_common_sense_iaa = []
+    if_common_sense_iaa_cs_and_correct = []
+    if_common_sense_iaa_not_cs_and_correct = []
 
     for qualt_id in qualt_sorted_dict:
         curr_annots = qualt_sorted_dict[qualt_id]["annotations"]
@@ -344,6 +353,22 @@ def simple_analysis(qualt_sorted_dict):
             if choice ==  gt:
                 correct_cnt += 1
         total_cnt += len(choices)
+        num_annotators_per_question = max(len(choices), num_annotators_per_question)
+        if len(choices) > 1:
+            which_correct_iaa.append(sum(choices))
+            # FIXME can't be 0.5 in the future
+            if float(sum(choices)) / float(len(choices)) > 0.5:
+                for choice in choices:
+                    if choice == gt:
+                        which_correct_iaa_and_correct.append(1)
+                    else:
+                        which_correct_iaa_and_correct.append(0)
+            elif float(sum(choices)) / float(len(choices)) < 0.5:
+                for choice in choices:
+                    if choice == gt:
+                        which_correct_iaa_and_correct.append(1)
+                    else:
+                        which_correct_iaa_and_correct.append(0)
 
         # confidences
         confs = curr_annots["2. confidence"]
@@ -356,6 +381,22 @@ def simple_analysis(qualt_sorted_dict):
         # if common sense
         if_cs = curr_annots["4. if common sense"]
         if_common_sense += if_cs
+        if len(if_cs) > 1:
+            if_common_sense_iaa.append(sum(if_cs))
+            # if IAA >= 50% and answered correctly
+            # FIXME can't be 0.5 in the future
+            if float(sum(if_cs)) / float(len(if_cs)) > 0.5:
+                for choice in choices:
+                    if choice == gt:
+                        if_common_sense_iaa_cs_and_correct.append(1)
+                    else:
+                        if_common_sense_iaa_cs_and_correct.append(0)
+            elif float(sum(if_cs)) / float(len(if_cs)) < 0.5:
+                for choice in choices:
+                    if choice == gt:
+                        if_common_sense_iaa_not_cs_and_correct.append(1)
+                    else:
+                        if_common_sense_iaa_not_cs_and_correct.append(0)
 
         # educational level
         edu = curr_annots["5. education level"]
@@ -398,6 +439,31 @@ def simple_analysis(qualt_sorted_dict):
     display_categorical(clearness, CLEARNESS_ID, "CLEARNESS")
     print ('.'*50)
     display_categorical(categories, CATEGORIES_ID, "CATEGORIES")
+
+    print ('-'*50)
+    print ('[IAA]')
+    print ("Num Annotators per Question: {}".format(num_annotators_per_question))
+    if_cs_bins = list(range(0, num_annotators_per_question+2))
+    if_cs_hist, _ = np.histogram(if_common_sense_iaa, bins=if_cs_bins)
+    print (if_cs_hist, _)
+    print (if_cs_hist / np.sum(if_cs_hist) * 100.)
+    if_common_sense_iaa_cs_and_correct = np.asarray(if_common_sense_iaa_cs_and_correct)
+    if_common_sense_iaa_cs_and_correct_acc = np.mean(if_common_sense_iaa_cs_and_correct)
+    if_common_sense_iaa_not_cs_and_correct = np.asarray(if_common_sense_iaa_not_cs_and_correct)
+    if_common_sense_iaa_not_cs_and_correct_acc = np.mean(if_common_sense_iaa_not_cs_and_correct)
+    print (len(if_common_sense_iaa_cs_and_correct))
+    print (if_common_sense_iaa_cs_and_correct_acc)
+    print (len(if_common_sense_iaa_not_cs_and_correct))
+    print (if_common_sense_iaa_not_cs_and_correct_acc)
+
+    which_correct_bins = list(range(0, num_annotators_per_question+2))
+    which_correct_hist, _ = np.histogram(which_correct_iaa, bins=which_correct_bins)
+    print (which_correct_hist, _)
+    print (which_correct_hist / np.sum(which_correct_hist) * 100.)
+    which_correct_iaa_and_correct = np.asarray(which_correct_iaa_and_correct)
+    which_correct_iaa_and_correct_acc = np.mean(which_correct_iaa_and_correct)
+    print (len(which_correct_iaa_and_correct))
+    print (which_correct_iaa_and_correct_acc)
 
     return None
 
