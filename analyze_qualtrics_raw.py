@@ -43,6 +43,12 @@ CATEGORIES = {
 CATEGORIES_ID = {v: u for u, v in CATEGORIES.items()}
 
 
+TASK_ABR = {
+    "physicaliqa": "piqa",
+    "physicalbinqa": "binpiqa",
+}
+
+
 # arguments
 def get_parser():
     def str2bool(v):
@@ -65,6 +71,8 @@ def get_parser():
                         help='the input qualtrics csv files')
     parser.add_argument('--num_questions_each', type=int, default=30)
     parser.add_argument('--num_total_blocks', type=int, default=20)
+    parser.add_argument('--out_dir', type=str, default='outputs',
+                        help='dir to save output files')
     parser.add_argument('--verbose', type=str2bool, default=False,
                         help='if verbose')
     return parser
@@ -318,7 +326,7 @@ def display_categorical(arr, data_type, data_type_str):
 
 
 # some simple statistics function
-def simple_analysis(qualt_sorted_dict):
+def simple_analysis(qualt_sorted_dict, args):
 
     # generals
     num_annotators_per_question = 0
@@ -340,12 +348,16 @@ def simple_analysis(qualt_sorted_dict):
     if_common_sense_iaa_cs_and_correct = []
     if_common_sense_iaa_not_cs_and_correct = []
 
+    if_cs_ids_f = open(os.path.join(args.out_dir, "{}_common_sense_iaa_ids.txt".format(TASK_ABR[args.task])), "w")
+    if_not_cs_ids_f = open(os.path.join(args.out_dir, "{}_not_common_sense_iaa_ids.txt".format(TASK_ABR[args.task])), "w")
+
     for qualt_id in qualt_sorted_dict:
         curr_annots = qualt_sorted_dict[qualt_id]["annotations"]
         if len(curr_annots) == 0: # not yet annotated!
             continue
 
         gt = qualt_sorted_dict[qualt_id]["gt_label"]
+        id_curr = qualt_sorted_dict[qualt_id]["id"]
 
         # human accuracies
         choices = curr_annots["1. choice"]
@@ -391,12 +403,15 @@ def simple_analysis(qualt_sorted_dict):
                         if_common_sense_iaa_cs_and_correct.append(1)
                     else:
                         if_common_sense_iaa_cs_and_correct.append(0)
+                if_cs_ids_f.write(id_curr+'\n')
+
             elif float(sum(if_cs)) / float(len(if_cs)) < 0.5:
                 for choice in choices:
                     if choice == gt:
                         if_common_sense_iaa_not_cs_and_correct.append(1)
                     else:
                         if_common_sense_iaa_not_cs_and_correct.append(0)
+                if_not_cs_ids_f.write(id_curr+'\n')
 
         # educational level
         edu = curr_annots["5. education level"]
@@ -465,6 +480,10 @@ def simple_analysis(qualt_sorted_dict):
     print (len(which_correct_iaa_and_correct))
     print (which_correct_iaa_and_correct_acc)
 
+    # close files
+    if_cs_ids_f.close()
+    if_not_cs_ids_f.close()
+
     return None
 
 
@@ -504,7 +523,7 @@ def analyze_pipeline(args):
     print ('-'*50)
 
     # get some quick statistics
-    simple_analysis(qualt_sorted_dict)
+    simple_analysis(qualt_sorted_dict, args)
 
     # TODO: add models performances here
     pass
@@ -520,6 +539,10 @@ def analyze_pipeline(args):
 if __name__ == "__main__":
     parser = get_parser()
     args = parser.parse_args()
+
+    # output dir
+    if not os.path.exists(args.out_dir):
+        os.makedirs(args.out_dir)
     
     # main analysis pipeline
     analyze_pipeline(args)
