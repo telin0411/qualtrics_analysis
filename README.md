@@ -16,7 +16,7 @@ Currently in the example it is only taking the one from `Part1`, it can handle `
 
 the rest should be easy to modify in the script.
 
-* Legacy File
+### Legacy File  
 Use the following command to transform files under `legacy_files` folder to the usual format.  
 (Qualtrics legacy exporter exports fields a bit different from normal exporter.)
 ```bash
