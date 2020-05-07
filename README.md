@@ -16,6 +16,14 @@ Currently in the example it is only taking the one from `Part1`, it can handle `
 
 the rest should be easy to modify in the script.
 
+* Legacy File
+Use the following command to transform files under `legacy_files` folder to the usual format.  
+(Qualtrics legacy exporter exports fields a bit different from normal exporter.)
+```bash
+python3 transform_legacy.py --input_legacy_file legacy_files/PIQASurveyTeLinToDistributePart2.csv --out_file_path files/PIQASurveyTeLinToDistributePart2.csv --num_blocks 24
+```
+
+
 ## Functions & Data Schema
 In `analyze_qualtrics_raw.py`, refer to the function `analyze_pipeline` for the analysis engine.  
 Each data instance from our sampled PIQA/BINPIQA will be augmented with the qualtrics results, as `qualt_sorted_dict`.  
