@@ -10,6 +10,7 @@ import numpy as np
 import argparse
 import glob
 import pprint
+from collections import Counter
 
 
 # dicts for each categorical selections
@@ -326,7 +327,7 @@ def display_categorical(arr, data_type, data_type_str):
 
 
 # some simple statistics function
-def simple_analysis(qualt_sorted_dict, args):
+def simple_analysis(qualt_sorted_dict, args, pp):
 
     # generals
     num_annotators_per_question = 0
@@ -348,8 +349,31 @@ def simple_analysis(qualt_sorted_dict, args):
     if_common_sense_iaa_cs_and_correct = []
     if_common_sense_iaa_not_cs_and_correct = []
 
+    edu_level_iaa = []
+    edu_level_iaa_counts = []
+    edu_level_iaa_perf = {}
+
+    cat_iaa = {
+        0: {"cnt": 0, "correct": 0},
+        1: {"cnt": 0, "correct": 0},
+        2: {"cnt": 0, "correct": 0},
+        3: {"cnt": 0, "correct": 0},
+        4: {"cnt": 0, "correct": 0},
+        5: {"cnt": 0, "correct": 0},
+    }
+    cat_iaa_ids = {
+        0: [],
+        1: [],
+        2: [],
+        3: [],
+        4: [],
+        5: [],
+    }
+
     if_cs_ids_f = open(os.path.join(args.out_dir, "{}_common_sense_iaa_ids.txt".format(TASK_ABR[args.task])), "w")
     if_not_cs_ids_f = open(os.path.join(args.out_dir, "{}_not_common_sense_iaa_ids.txt".format(TASK_ABR[args.task])), "w")
+    if_cs_ids_dict = {}
+    if_not_cs_ids_dict = {}
 
     for qualt_id in qualt_sorted_dict:
         curr_annots = qualt_sorted_dict[qualt_id]["annotations"]
@@ -398,24 +422,45 @@ def simple_analysis(qualt_sorted_dict, args):
             # if IAA >= 50% and answered correctly
             # FIXME can't be 0.5 in the future
             if float(sum(if_cs)) / float(len(if_cs)) > 0.5:
+                if id_curr not in if_cs_ids_dict:
+                    if_cs_ids_dict[id_curr] = {"gt": gt, "human_preds": []}
                 for choice in choices:
                     if choice == gt:
                         if_common_sense_iaa_cs_and_correct.append(1)
                     else:
                         if_common_sense_iaa_cs_and_correct.append(0)
+                    if_cs_ids_dict[id_curr]["human_preds"].append(choice)
                 if_cs_ids_f.write(id_curr+'\n')
 
             elif float(sum(if_cs)) / float(len(if_cs)) < 0.5:
+                if id_curr not in if_not_cs_ids_dict:
+                    if_not_cs_ids_dict[id_curr] = {"gt": gt, "human_preds": []}
                 for choice in choices:
                     if choice == gt:
                         if_common_sense_iaa_not_cs_and_correct.append(1)
                     else:
                         if_common_sense_iaa_not_cs_and_correct.append(0)
+                    if_not_cs_ids_dict[id_curr]["human_preds"].append(choice)
                 if_not_cs_ids_f.write(id_curr+'\n')
 
         # educational level
         edu = curr_annots["5. education level"]
         edu_level += edu
+        if len(edu) > 1:
+            edu_counter = Counter(edu)
+            edu_iaa_curr = edu_counter.most_common(1)[0]
+            edu_iaa_ele, edu_iaa_cnt = edu_iaa_curr
+            if edu_iaa_cnt > len(edu) // 2:
+                edu_level_iaa.append(edu_iaa_ele)
+                edu_level_iaa_counts.append(1)
+                for choice in choices:
+                    if choice == gt:
+                        if edu_iaa_ele not in edu_level_iaa_perf:
+                            edu_level_iaa_perf[edu_iaa_ele] = 1
+                        else:
+                            edu_level_iaa_perf[edu_iaa_ele] += 1
+            else:
+                edu_level_iaa_counts.append(0)
 
         # question clearness
         if "6. clearness" in curr_annots:
@@ -425,8 +470,24 @@ def simple_analysis(qualt_sorted_dict, args):
         # categories
         if "7. category" in curr_annots:
             ctrg = curr_annots["7. category"]
+            ctrg_curr = []
             for ctrg_user in ctrg:
                 categories += ctrg_user
+                ctrg_curr += ctrg_user
+
+            if len(ctrg) > 1:
+                ctrg_curr = Counter(ctrg_curr)
+                for ctrg_num in ctrg_curr:
+                    ctrg_num_cnt = ctrg_curr[ctrg_num]
+                    if ctrg_num_cnt > len(ctrg) // 2:
+                        cat_iaa[ctrg_num]["cnt"] += 1
+                        cat_iaa_ids[ctrg_num].append(id_curr)
+                        for choice in choices:
+                            if choice == gt:
+                                cat_iaa[ctrg_num]["correct"] += 1
+            pass
+
+    ###########################################################################
 
     # post processing
     confidences = np.asarray(confidences)
@@ -470,6 +531,7 @@ def simple_analysis(qualt_sorted_dict, args):
     print (if_common_sense_iaa_cs_and_correct_acc)
     print (len(if_common_sense_iaa_not_cs_and_correct))
     print (if_common_sense_iaa_not_cs_and_correct_acc)
+    print ('-'*50)
 
     which_correct_bins = list(range(0, num_annotators_per_question+2))
     which_correct_hist, _ = np.histogram(which_correct_iaa, bins=which_correct_bins)
@@ -479,10 +541,29 @@ def simple_analysis(qualt_sorted_dict, args):
     which_correct_iaa_and_correct_acc = np.mean(which_correct_iaa_and_correct)
     print (len(which_correct_iaa_and_correct))
     print (which_correct_iaa_and_correct_acc)
+    print ('-'*50)
+
+    print (len(edu_level_iaa))
+    edu_level_bins = list(range(0, len(EDUCATION_LEVEL_ID)+2))
+    edu_level_hist, _ = np.histogram(edu_level_iaa, bins=edu_level_bins)
+    print (edu_level_hist, _)
+    print (edu_level_hist / np.sum(edu_level_hist) * 100.)
+    print (float(sum(edu_level_iaa_counts)) / float(len(edu_level_iaa_counts))* 100.)
+    pp.pprint(edu_level_iaa_perf)
+
+    print ('-'*50)
+    pp.pprint(cat_iaa)
 
     # close files
     if_cs_ids_f.close()
     if_not_cs_ids_f.close()
+
+    # dump files
+    json.dump(cat_iaa_ids, open(os.path.join("files", "{}_cat_ids.json".format(args.task)), "w"))
+    if_cs_ids_json = open(os.path.join(args.out_dir, "{}_common_sense_iaa_ids.json".format(TASK_ABR[args.task])), "w")
+    if_not_cs_ids_json = open(os.path.join(args.out_dir, "{}_not_common_sense_iaa_ids.json".format(TASK_ABR[args.task])), "w")
+    json.dump(if_cs_ids_dict, if_cs_ids_json)
+    json.dump(if_not_cs_ids_dict, if_not_cs_ids_json)
 
     return None
 
@@ -523,7 +604,7 @@ def analyze_pipeline(args):
     print ('-'*50)
 
     # get some quick statistics
-    simple_analysis(qualt_sorted_dict, args)
+    simple_analysis(qualt_sorted_dict, args, pp)
 
     # TODO: add models performances here
     pass
