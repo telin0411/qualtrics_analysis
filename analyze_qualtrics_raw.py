@@ -354,12 +354,17 @@ def simple_analysis(qualt_sorted_dict, args, pp):
     clearness = []
     categories = []
 
+    confidences_when_correct = []
+    confidences_when_wrong = []
+
     which_correct_iaa = []
     which_correct_iaa_and_correct = []
 
     if_common_sense_iaa = []
     if_common_sense_iaa_cs_and_correct = []
     if_common_sense_iaa_not_cs_and_correct = []
+    if_common_sense_iaa_cs_confs = []
+    if_common_sense_iaa_not_cs_confs = []
 
     edu_level_iaa = []
     edu_level_iaa_counts = []
@@ -426,6 +431,12 @@ def simple_analysis(qualt_sorted_dict, args, pp):
         # confidences
         confs = curr_annots["2. confidence"]
         confidences += confs
+        for choice_idx in range(len(choices)):
+            choice = choices[choice_idx]
+            if choice == gt:
+                confidences_when_correct.append(confs[choice_idx])
+            else:
+                confidences_when_wrong.append(confs[choice_idx])
 
         # others agreements
         agrees = curr_annots["3. others agreement"]
@@ -441,6 +452,7 @@ def simple_analysis(qualt_sorted_dict, args, pp):
             if float(sum(if_cs)) / float(len(if_cs)) > 0.5:
                 if id_curr not in if_cs_ids_dict:
                     if_cs_ids_dict[id_curr] = {"gt": gt, "human_preds": []}
+
                 for choice in choices:
                     if choice == gt:
                         if_common_sense_iaa_cs_and_correct.append(1)
@@ -449,9 +461,12 @@ def simple_analysis(qualt_sorted_dict, args, pp):
                     if_cs_ids_dict[id_curr]["human_preds"].append(choice)
                 if_cs_ids_f.write(id_curr+'\n')
 
+                if_common_sense_iaa_cs_confs += confs
+
             elif float(sum(if_cs)) / float(len(if_cs)) < 0.5:
                 if id_curr not in if_not_cs_ids_dict:
                     if_not_cs_ids_dict[id_curr] = {"gt": gt, "human_preds": []}
+
                 for choice in choices:
                     if choice == gt:
                         if_common_sense_iaa_not_cs_and_correct.append(1)
@@ -459,6 +474,8 @@ def simple_analysis(qualt_sorted_dict, args, pp):
                         if_common_sense_iaa_not_cs_and_correct.append(0)
                     if_not_cs_ids_dict[id_curr]["human_preds"].append(choice)
                 if_not_cs_ids_f.write(id_curr+'\n')
+
+                if_common_sense_iaa_not_cs_confs += confs
 
         # educational level
         edu = curr_annots["5. education level"]
@@ -513,17 +530,29 @@ def simple_analysis(qualt_sorted_dict, args, pp):
     edu_level = np.asarray(edu_level)
     clearness = np.asarray(clearness)
     categories = np.asarray(categories)
+    confidences_when_correct = np.asarray(confidences_when_correct)
+    confidences_when_wrong = np.asarray(confidences_when_wrong)
+    if_common_sense_iaa_cs_confs = np.asarray(if_common_sense_iaa_cs_confs)
+    if_common_sense_iaa_not_cs_confs = np.asarray(if_common_sense_iaa_not_cs_confs)
 
     # results
     human_acc = float(correct_cnt) / float(total_cnt) * 100.0
     mean_confidences = np.mean(confidences)
     mean_agreements = np.mean(agreements)
     mean_if_cs = np.mean(if_common_sense) * 100.0
+    mean_conf_when_correct = np.mean(confidences_when_correct)
+    mean_conf_when_wrong = np.mean(confidences_when_wrong)
+    mean_if_cs_iaa_cs_confs = np.mean(if_common_sense_iaa_cs_confs)
+    mean_if_cs_iaa_not_cs_confs = np.mean(if_common_sense_iaa_not_cs_confs)
 
     print ("[Analysis] Human Accuracy: {:.2f} %".format(human_acc))
     print ("[Analysis] Mean Confidence: {:.2f} %".format(mean_confidences))
     print ("[Analysis] Mean Others Agree: {:.2f} %".format(mean_agreements))
     print ("[Analysis] Mean If Common Sense: {:.2f} %".format(mean_if_cs))
+    print ("[Analysis] Mean Confidence when Correct: {:.2f} %".format(mean_conf_when_correct))
+    print ("[Analysis] Mean Confidence when Wrong: {:.2f} %".format(mean_conf_when_wrong))
+    print ("[Analysis] Mean Confidence Common Sense: {:.2f} %".format(mean_if_cs_iaa_cs_confs))
+    print ("[Analysis] Mean Confidence Not Common Sense: {:.2f} %".format(mean_if_cs_iaa_not_cs_confs))
 
     # display histograms of categorical data
     print ('.'*50)
