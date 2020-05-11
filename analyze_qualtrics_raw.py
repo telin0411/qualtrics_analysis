@@ -188,8 +188,13 @@ def read_qualtric_raw_csv(qualtrics_csv, qualt_sorted_dict, args, pp):
 
     if args.start_block is None:
         start_block = 2
+    else:
+        start_block = max(2, args.start_block)
+
     if args.end_block is None:
         end_block = args.num_total_blocks + 2
+    else:
+        end_block = min(args.num_total_blocks + 2, args.end_block)
     
     row_cnt = 0
     for row in csv_reader:
@@ -383,6 +388,11 @@ def simple_analysis(qualt_sorted_dict, args, pp):
     if_not_cs_ids_dict = {}
 
     for qualt_id in qualt_sorted_dict:
+    
+        # TODO: sometimes we can analyze a range of results
+        if "annotations" not in qualt_sorted_dict[qualt_id]:
+            continue
+
         curr_annots = qualt_sorted_dict[qualt_id]["annotations"]
         if len(curr_annots) == 0: # not yet annotated!
             continue
