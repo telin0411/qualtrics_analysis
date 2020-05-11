@@ -42,15 +42,24 @@ def transform_legacy(args):
 
     for row in csv_reader:
 
-        assert "\ufeffV1" in row
-        assert "V6" in row
-        assert "V6" in row
-        if row["\ufeffV1"] == "ResponseID":
-            continue
+        assert "\ufeffV1" in row or "ResponseID" in row
+        assert "V6" in row or "RecipientLastName" in row
+        if "\ufeffV1" in row:
+            if row["\ufeffV1"] == "ResponseID":
+                continue
+        elif "ResponseID" in row:
+            if row["ResponseID"] == "ResponseID":
+                continue
+        if "V5" in row:
+            if len(row["V5"]) == 0: # empty email address
+                continue
+        elif "RecipientEmail" in row:
+            if len(row["RecipientEmail"]) == 0: # empty email address
+                continue
 
-        email_address = row["V5"]
+        email_address = row["V5"] if "V5" in row else row["RecipientEmail"]
         new_row = {}
-        new_row["RecipientEmail"] = row["V5"]
+        new_row["RecipientEmail"] = email_address
         new_row["DistributionChannel"] = "email"
 
         for key in row:

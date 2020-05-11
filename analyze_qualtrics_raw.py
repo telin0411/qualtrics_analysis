@@ -71,7 +71,9 @@ def get_parser():
     parser.add_argument('--input_csv_files', nargs="+", default=None,
                         help='the input qualtrics csv files')
     parser.add_argument('--num_questions_each', type=int, default=30)
-    parser.add_argument('--num_total_blocks', type=int, default=20)
+    parser.add_argument('--num_total_blocks', type=int, default=24)
+    parser.add_argument('--start_block', type=int, default=None)
+    parser.add_argument('--end_block', type=int, default=None)
     parser.add_argument('--out_dir', type=str, default='outputs',
                         help='dir to save output files')
     parser.add_argument('--verbose', type=str2bool, default=False,
@@ -183,6 +185,11 @@ def read_qualtric_raw_csv(qualtrics_csv, qualt_sorted_dict, args, pp):
 
     qualtrics_csv_file = open(qualtrics_csv, "r")
     csv_reader = csv.DictReader(qualtrics_csv_file)
+
+    if args.start_block is None:
+        start_block = 2
+    if args.end_block is None:
+        end_block = args.num_total_blocks + 2
     
     row_cnt = 0
     for row in csv_reader:
@@ -191,7 +198,7 @@ def read_qualtric_raw_csv(qualtrics_csv, qualt_sorted_dict, args, pp):
         if row["DistributionChannel"] == "email":
             row_cnt += 1
 
-            for block_idx in range(2, args.num_total_blocks+2):
+            for block_idx in range(start_block, end_block):
                 for question_idx in range(1, args.num_questions_each+1):
 
                     # annotation dict
