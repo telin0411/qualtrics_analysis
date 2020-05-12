@@ -599,6 +599,11 @@ def simple_analysis(qualt_sorted_dict, args, pp):
 
     print ('-'*50)
     pp.pprint(cat_iaa)
+    cat_counts_l = np.asarray([cat_iaa[cat]["cnt"] for cat in cat_iaa])
+    cat_corrects_l = np.asarray([cat_iaa[cat]["correct"] for cat in cat_iaa])
+    cat_corrects_l = cat_corrects_l / num_annotators_per_question
+    cat_corrects_acc = cat_corrects_l / cat_counts_l * 100.0
+    print (cat_corrects_acc)
 
     # close files
     if_cs_ids_f.close()
