@@ -726,11 +726,10 @@ def top_k_words_hist(d, ai2_ids2data, args, tags_prefix=None):
             tokens = [w for (w, v) in top_k_words]
 
             # TODO: plotting
-            fig = plt.figure(figsize=(14, 10))
+            fig = plt.figure(figsize=(20, 10))
             plt.bar(range(len(values)), values, align='center')
             plt.xticks(range(len(tokens)), tokens)
-            plt.xticks(fontsize=12)
-            # plt.xticks(rotation=90, fontsize=14)
+            plt.xticks(rotation=90, fontsize=12)
             title = CAT_NAMES[cat_key] + ": " + CAT_ID_DICTS[cat_key][cat]
             plt.title(title)
             print (title)
