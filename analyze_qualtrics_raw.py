@@ -434,6 +434,7 @@ def simple_analysis(qualt_sorted_dict, args, pp):
         "edu": {c: [] for c in EDUCATION_LEVEL_ID},
         "cat": {c: [] for c in CATEGORIES_ID},
         "com": {c: [] for c in IF_COMMON_SENSE_ID},
+        "all": []
     }
     ai2_ids2data = {}
 
@@ -450,6 +451,8 @@ def simple_analysis(qualt_sorted_dict, args, pp):
 
         gt = qualt_sorted_dict[qualt_id]["gt_label"]
         id_curr = qualt_sorted_dict[qualt_id]["id"]
+        all_cat_data_ids["all"].append(id_curr)
+
         ai2_ids2data[id_curr] = {"goal": qualt_sorted_dict[qualt_id]["goal"]}
         if args.task == "physicaliqa":
             ai2_ids2data[id_curr]["sol1"] = qualt_sorted_dict[qualt_id]["sol1"]
