@@ -12,6 +12,16 @@ import glob
 import pprint
 from collections import Counter
 
+import matplotlib; matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+import seaborn as sns
+sns.set(color_codes=True)
+
+import nltk
+from nltk import sent_tokenize
+from nltk.corpus import words
+from nltk.tokenize import word_tokenize
+
 
 # dicts for each categorical selections
 EDUCATION_LEVEL = {
@@ -23,6 +33,7 @@ EDUCATION_LEVEL = {
 }
 EDUCATION_LEVEL_ID = {v: u for u, v in EDUCATION_LEVEL.items()}
 
+
 CLEARNESS = {
     "everything": 0,
     "did not understand": 1,
@@ -32,6 +43,7 @@ CLEARNESS = {
     "None of the above": 5,
 }
 CLEARNESS_ID = {v: u for u, v in CLEARNESS.items()}
+
 
 CATEGORIES = {
     "Typical Functions": 0,
@@ -44,9 +56,28 @@ CATEGORIES = {
 CATEGORIES_ID = {v: u for u, v in CATEGORIES.items()}
 
 
+IF_COMMON_SENSE = {
+    "Yes": 1,
+    "No": 0,
+}
+IF_COMMON_SENSE_ID = {v: u for u, v in IF_COMMON_SENSE.items()}
+
+
 TASK_ABR = {
     "physicaliqa": "piqa",
     "physicalbinqa": "binpiqa",
+}
+
+
+CAT_NAMES = {
+    "edu": "Educational Levels",
+    "cat": "Physical Common Sense Categories",
+    "com": "If Common Sense",
+}
+CAT_ID_DICTS = {
+    "edu": EDUCATION_LEVEL_ID,
+    "cat": CATEGORIES_ID,
+    "com": IF_COMMON_SENSE_ID,
 }
 
 
@@ -76,6 +107,12 @@ def get_parser():
     parser.add_argument('--end_block', type=int, default=None)
     parser.add_argument('--out_dir', type=str, default='outputs',
                         help='dir to save output files')
+    parser.add_argument('--figs_dir', type=str, default='figs',
+                        help='dir to save output figures')
+    parser.add_argument('--top_k_words', type=int, default=30,
+                        help='top k words to show')
+    parser.add_argument('--start_k', type=int, default=None)
+    parser.add_argument('--end_k', type=int, default=None)
     parser.add_argument('--verbose', type=str2bool, default=False,
                         help='if verbose')
     return parser
@@ -392,6 +429,15 @@ def simple_analysis(qualt_sorted_dict, args, pp):
     if_cs_ids_dict = {}
     if_not_cs_ids_dict = {}
 
+    # TODO: all categorical data
+    all_cat_data_ids = {
+        "edu": {c: [] for c in EDUCATION_LEVEL_ID},
+        "cat": {c: [] for c in CATEGORIES_ID},
+        "com": {c: [] for c in IF_COMMON_SENSE_ID},
+    }
+    ai2_ids2data = {}
+
+    # looping the data
     for qualt_id in qualt_sorted_dict:
     
         # TODO: sometimes we can analyze a range of results
@@ -404,6 +450,12 @@ def simple_analysis(qualt_sorted_dict, args, pp):
 
         gt = qualt_sorted_dict[qualt_id]["gt_label"]
         id_curr = qualt_sorted_dict[qualt_id]["id"]
+        ai2_ids2data[id_curr] = {"goal": qualt_sorted_dict[qualt_id]["goal"]}
+        if args.task == "physicaliqa":
+            ai2_ids2data[id_curr]["sol1"] = qualt_sorted_dict[qualt_id]["sol1"]
+            ai2_ids2data[id_curr]["sol2"] = qualt_sorted_dict[qualt_id]["sol2"]
+        elif args.task == "physicalbinqa":
+            ai2_ids2data[id_curr]["sol"] = qualt_sorted_dict[qualt_id]["sol"]
 
         # human accuracies
         choices = curr_annots["1. choice"]
@@ -460,6 +512,7 @@ def simple_analysis(qualt_sorted_dict, args, pp):
                         if_common_sense_iaa_cs_and_correct.append(0)
                     if_cs_ids_dict[id_curr]["human_preds"].append(choice)
                 if_cs_ids_f.write(id_curr+'\n')
+                all_cat_data_ids["com"][1].append(id_curr)
 
                 if_common_sense_iaa_cs_confs += confs
 
@@ -474,6 +527,7 @@ def simple_analysis(qualt_sorted_dict, args, pp):
                         if_common_sense_iaa_not_cs_and_correct.append(0)
                     if_not_cs_ids_dict[id_curr]["human_preds"].append(choice)
                 if_not_cs_ids_f.write(id_curr+'\n')
+                all_cat_data_ids["com"][0].append(id_curr)
 
                 if_common_sense_iaa_not_cs_confs += confs
 
@@ -487,6 +541,7 @@ def simple_analysis(qualt_sorted_dict, args, pp):
             if edu_iaa_cnt > len(edu) // 2:
                 edu_level_iaa.append(edu_iaa_ele)
                 edu_level_iaa_counts.append(1)
+                all_cat_data_ids["edu"][edu_iaa_ele].append(id_curr)
                 for choice in choices:
                     if choice == gt:
                         if edu_iaa_ele not in edu_level_iaa_perf:
@@ -515,6 +570,7 @@ def simple_analysis(qualt_sorted_dict, args, pp):
                     ctrg_num_cnt = ctrg_curr[ctrg_num]
                     if ctrg_num_cnt > len(ctrg) // 2:
                         cat_iaa[ctrg_num]["cnt"] += 1
+                        all_cat_data_ids["cat"][ctrg_num].append(id_curr)
                         cat_iaa_ids[ctrg_num].append(id_curr)
                         for choice in choices:
                             if choice == gt:
@@ -615,6 +671,73 @@ def simple_analysis(qualt_sorted_dict, args, pp):
     if_not_cs_ids_json = open(os.path.join(args.out_dir, "{}_not_common_sense_iaa_ids.json".format(TASK_ABR[args.task])), "w")
     json.dump(if_cs_ids_dict, if_cs_ids_json)
     json.dump(if_not_cs_ids_dict, if_not_cs_ids_json)
+
+    # plotting top-k words histograms
+    top_k_words_hist(all_cat_data_ids, ai2_ids2data, args, tags_prefix=['N', 'V'])
+
+    return None
+
+
+def top_k_words_hist(d, ai2_ids2data, args, tags_prefix=None):
+    print ('-'*50)
+    print ("Saving various figures to {}".format(args.figs_dir))
+
+    if args.start_k is None:
+        start_k = 0
+    else:
+        start_k = max(0, args.start_k)
+    if args.end_k is None:
+        end_k = args.top_k_words
+    else:
+        end_k = args.end_k
+
+    cat_keys = ["com", "edu", "cat"]
+    for cat_key in cat_keys:
+        figs_root = os.path.join(args.figs_dir, args.task, cat_key)
+        if not os.path.exists(figs_root):
+            os.makedirs(figs_root)
+
+        for cat in sorted(d[cat_key]):
+            cat_words_list = []
+            for id_ in d[cat_key][cat]:
+                sents = []
+                goal = ai2_ids2data[id_]["goal"]
+                if args.task == "physicaliqa":
+                    sol1 = ai2_ids2data[id_]["sol1"]
+                    sol2 = ai2_ids2data[id_]["sol2"]
+                    sents = [goal, sol1, sol2]
+                elif args.task == "physicalbinqa":
+                    sol = ai2_ids2data[id_]["sol"]
+                    sents = [goal, sol]
+
+                # FIXME: currently only doing simple word tokenize, can do
+                # ner/pos tag in the future as well, if more informative
+                for sent in sents:
+                    tokens = word_tokenize(sent)
+                    tokens_and_tags = nltk.pos_tag(tokens)
+                    if tags_prefix is not None:
+                        tokens = [w for w, t in tokens_and_tags if t[0] in tags_prefix]
+                    cat_words_list += tokens
+
+            cat_words_dict = Counter(cat_words_list)
+            top_k_words = cat_words_dict.most_common(len(cat_words_dict))
+            top_k_words = top_k_words[start_k:end_k]
+            values = [v for (w, v) in top_k_words]
+            tokens = [w for (w, v) in top_k_words]
+
+            # TODO: plotting
+            fig = plt.figure(figsize=(14, 10))
+            plt.bar(range(len(values)), values, align='center')
+            plt.xticks(range(len(tokens)), tokens)
+            plt.xticks(fontsize=12)
+            # plt.xticks(rotation=90, fontsize=14)
+            title = CAT_NAMES[cat_key] + ": " + CAT_ID_DICTS[cat_key][cat]
+            plt.title(title)
+            print (title)
+            save_name = cat_key + "_" + str(cat) + ".png"
+            save_path = os.path.join(figs_root, save_name)
+            fig.savefig(save_path)
+            plt.close(fig)
 
     return None
 
