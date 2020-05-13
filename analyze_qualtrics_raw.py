@@ -329,6 +329,10 @@ def read_qualtric_raw_csv(qualtrics_csv, qualt_sorted_dict, args, pp):
                                         len(curr_annot_dict["6. clearness"]) == 0:
                                     curr_annot_dict["6. clearness"].append(CLEARNESS["None of the above"])
 
+                                if "6.1. Missing Words" not in curr_annot_dict:
+                                    curr_annot_dict["6.1. Missing Words"] = []
+                                curr_annot_dict["6.1. Missing Words"].append(answer)
+
                         # categories of the data instance
                         if sub_question_idx == 9:
                             if "7. category" not in curr_annot_dict:
@@ -437,6 +441,8 @@ def simple_analysis(qualt_sorted_dict, args, pp):
         "all": []
     }
     ai2_ids2data = {}
+
+    missing_words_list = []
 
     # looping the data
     for qualt_id in qualt_sorted_dict:
@@ -578,7 +584,15 @@ def simple_analysis(qualt_sorted_dict, args, pp):
                         for choice in choices:
                             if choice == gt:
                                 cat_iaa[ctrg_num]["correct"] += 1
-            pass
+
+        pass
+
+        if "6.1. Missing Words" in curr_annots:
+            for missing_words_curr in curr_annots["6.1. Missing Words"]:
+                if 'n/a' not in missing_words_curr and 'N/a' not in missing_words_curr:
+                    missing_words_list.append(missing_words_curr)
+        
+        pass
 
     ###########################################################################
 
@@ -685,6 +699,9 @@ def simple_analysis(qualt_sorted_dict, args, pp):
 
     # saving all the categorical ids file
     json.dump(all_cat_data_ids, open(os.path.join(args.out_dir, "{}_all_cat_ids.json".format(TASK_ABR[args.task])), "w"))
+    
+    # missing terms
+    pp.pprint(missing_words_list)
 
     return None
 
