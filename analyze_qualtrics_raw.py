@@ -729,13 +729,13 @@ def top_k_words_hist(d, ai2_ids2data, args, tags_prefix=None):
             fig = plt.figure(figsize=(20, 10))
             plt.bar(range(len(values)), values, align='center')
             plt.xticks(range(len(tokens)), tokens)
-            plt.xticks(rotation=90, fontsize=12)
+            plt.xticks(rotation=90, fontsize=14)
             title = CAT_NAMES[cat_key] + ": " + CAT_ID_DICTS[cat_key][cat]
             plt.title(title)
             print (title)
             save_name = cat_key + "_" + str(cat) + ".png"
             save_path = os.path.join(figs_root, save_name)
-            fig.savefig(save_path)
+            fig.savefig(save_path, bbox_inches="tight")
             plt.close(fig)
 
     return None
