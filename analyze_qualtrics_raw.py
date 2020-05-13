@@ -652,6 +652,11 @@ def simple_analysis(qualt_sorted_dict, args, pp):
     print (edu_level_hist / np.sum(edu_level_hist) * 100.)
     print (float(sum(edu_level_iaa_counts)) / float(len(edu_level_iaa_counts))* 100.)
     pp.pprint(edu_level_iaa_perf)
+    edu_level_iaa_perf_l = [edu_level_iaa_perf[c] for c in sorted(edu_level_iaa_perf)]
+    edu_level_iaa_perf_l = np.asarray(edu_level_iaa_perf_l) / num_annotators_per_question
+    edu_level_hist_l = np.asarray([x for x in edu_level_hist if x > 0])
+    edu_level_hist_acc = edu_level_iaa_perf_l / edu_level_hist_l * 100.0
+    print (edu_level_hist_acc)
 
     print ('-'*50)
     pp.pprint(cat_iaa)
@@ -674,6 +679,9 @@ def simple_analysis(qualt_sorted_dict, args, pp):
 
     # plotting top-k words histograms
     top_k_words_hist(all_cat_data_ids, ai2_ids2data, args, tags_prefix=['N', 'V'])
+
+    # saving all the categorical ids file
+    json.dump(all_cat_data_ids, open(os.path.join(args.out_dir, "{}_all_cat_ids.json".format(TASK_ABR[args.task])), "w"))
 
     return None
 
