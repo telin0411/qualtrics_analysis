@@ -21,6 +21,7 @@ import nltk
 from nltk import sent_tokenize
 from nltk.corpus import words
 from nltk.tokenize import word_tokenize
+from nltk import agreement
 
 
 # dicts for each categorical selections
@@ -93,12 +94,35 @@ def get_parser():
     parser.add_argument('--task', type=str, default='physicalbinqa',
                         choices=["physicaliqa", "physicalbinqa"],
                         help='the task name')
-    parser.add_argument('--samples_csv', type=str, default=None, required=True,
-                        help='sampled questions csv file')
+    # for joint analysis
+    parser.add_argument('--mcq_samples_csv', type=str, default=None, required=True,
+                        help='sampled questions csv file for mcq-piqa')
+    parser.add_argument('--bin_samples_csv', type=str, default=None, required=True,
+                        help='sampled questions csv file for bin-piqa')
     parser.add_argument('--data_jsonl', type=str, default=None,
                         help='original questions jsonl file')
     parser.add_argument('--data_lst', type=str, default=None,
                         help='original questions label file')
+    parser.add_argument('--mcq_data_jsonl', type=str, default=None,
+                        help='original questions jsonl file')
+    parser.add_argument('--mcq_data_lst', type=str, default=None,
+                        help='original questions label file')
+    parser.add_argument('--bin_data_jsonl', type=str, default=None,
+                        help='original questions jsonl file')
+    parser.add_argument('--bin_data_lst', type=str, default=None,
+                        help='original questions label file')
+    parser.add_argument('--mcq_processed_ids_json_file', default=None,
+                        help='the processed json files for ids')
+    parser.add_argument('--bin_processed_ids_json_file', default=None,
+                        help='the processed json files for ids')
+    parser.add_argument('--mcq_qualt_dict', default=None,
+                        help='the processed json files')
+    parser.add_argument('--bin_qualt_dict', default=None,
+                        help='the processed json files')
+    parser.add_argument('--num_examples_to_show', type=int, default=5)
+    # for single analysis
+    parser.add_argument('--samples_csv', type=str, default=None,
+                        help='sampled questions csv file')
     parser.add_argument('--input_csv_files', nargs="+", default=None,
                         help='the input qualtrics csv files')
     parser.add_argument('--num_questions_each', type=int, default=30)
@@ -210,9 +234,12 @@ def label_samples(args):
     print ("[INFO] Num Total Blocks: {}".format(start_block_num-2))
     assert start_block_num - 2 == args.num_total_blocks
     assert end_qa_num - 1 == args.num_questions_each
-    
+
     f.close()
-    return qualt_sorted_dict, qualt_id_ai2_id_mapping
+
+    ai2_id_qualt_id_mapping = {v: u for u, v in qualt_id_ai2_id_mapping.items()}
+    
+    return qualt_sorted_dict, qualt_id_ai2_id_mapping, ai2_id_qualt_id_mapping
 
  
 # reading the qualtrics csv files
@@ -783,6 +810,187 @@ def top_k_words_hist(d, ai2_ids2data, args, tags_prefix=None):
     return None
 
 
+def joint_qualitative_if_cs(mcq_res_ids, bin_res_ids, mqc_qualt_sorted_dict, 
+                            bin_qualt_sorted_dict, ai2_id_qualt_id_mapping,
+                            mcq_qualt_dict, bin_qualt_dict,
+                            args=None):
+    print ('-'*50)
+    print ("[If Common Sense]")
+
+    mcq_cs_ids = mcq_res_ids["com"]["1"]
+    mcq_not_cs_ids = mcq_res_ids["com"]["0"]
+    bin_cs_ids = bin_res_ids["com"]["1"]
+    bin_not_cs_ids = bin_res_ids["com"]["0"]
+
+    mcq_cs_ids = set(mcq_cs_ids)
+    mcq_not_cs_ids = set(mcq_not_cs_ids)
+    bin_cs_ids = set(bin_cs_ids)
+    bin_not_cs_ids = set(bin_not_cs_ids)
+
+    joint_cs_ids = mcq_cs_ids & bin_cs_ids
+    joint_not_cs_ids = mcq_not_cs_ids & bin_not_cs_ids
+
+    mcq_cs_bin_not_cs = mcq_cs_ids & bin_not_cs_ids
+    bin_cs_mcq_not_cs = bin_cs_ids & mcq_not_cs_ids
+
+    print ()
+    print ('.'*50)
+    print ("MCQ CS BIN Not CS Examples")
+    print ('.'*50)
+    show_cnt = 1
+    for id_ in list(mcq_cs_bin_not_cs):
+        if show_cnt > args.num_examples_to_show:
+            break
+        qualt_id = ai2_id_qualt_id_mapping[id_]
+        goal_mcq = mqc_qualt_sorted_dict[qualt_id]["goal"]
+        goal_bin = bin_qualt_sorted_dict[qualt_id]["goal"]
+        assert goal_mcq == goal_bin
+        sol1 = mqc_qualt_sorted_dict[qualt_id]["sol1"]
+        sol2 = mqc_qualt_sorted_dict[qualt_id]["sol2"]
+        sol = bin_qualt_sorted_dict[qualt_id]["sol"]
+        print ('{}: {}'.format(show_cnt, goal_mcq))
+        print ('mcq_sol1: {}'.format(sol1))
+        print ('mcq_sol2: {}'.format(sol2))
+        print ('bin_sol:  {}'.format(sol))
+        print ('mcq_gt:   sol{}'.format(mqc_qualt_sorted_dict[qualt_id]["gt_label"]+1))
+        print ('mcq_pred: {}'.format(mcq_qualt_dict[qualt_id]["annotations"]["1. choice"]))
+        print ('bin_pred: {}'.format(bin_qualt_dict[qualt_id]["annotations"]["1. choice"]))
+        print ('.'*50)
+        show_cnt += 1
+
+    print ()
+    print ("BIN CS MCQ Not CS Examples")
+    print ('.'*50)
+    show_cnt = 1
+    for id_ in list(bin_cs_mcq_not_cs):
+        if show_cnt > args.num_examples_to_show:
+            break
+        qualt_id = ai2_id_qualt_id_mapping[id_]
+        goal_mcq = mqc_qualt_sorted_dict[qualt_id]["goal"]
+        goal_bin = bin_qualt_sorted_dict[qualt_id]["goal"]
+        assert goal_mcq == goal_bin
+        sol1 = mqc_qualt_sorted_dict[qualt_id]["sol1"]
+        sol2 = mqc_qualt_sorted_dict[qualt_id]["sol2"]
+        sol = bin_qualt_sorted_dict[qualt_id]["sol"]
+        print ('{}: {}'.format(show_cnt, goal_mcq))
+        print ('mcq_sol1: {}'.format(sol1))
+        print ('mcq_sol2: {}'.format(sol2))
+        print ('bin_sol:  {}'.format(sol))
+        print ('mcq_gt:   sol{}'.format(mqc_qualt_sorted_dict[qualt_id]["gt_label"]+1))
+        print ('mcq_pred: {}'.format(mcq_qualt_dict[qualt_id]["annotations"]["1. choice"]))
+        print ('bin_pred: {}'.format(bin_qualt_dict[qualt_id]["annotations"]["1. choice"]))
+        print ('.'*50)
+        show_cnt += 1
+
+    print ()
+    print ("MCQ CS:     {}".format(len(mcq_cs_ids)))
+    print ("MCQ Not CS: {}".format(len(mcq_not_cs_ids)))
+    print ("BIN CS:     {}".format(len(bin_cs_ids)))
+    print ("BIN Not CS: {}".format(len(bin_not_cs_ids)))
+    print ('.'*50)
+    print ('ALL CS:     {}'.format(len(joint_cs_ids)))
+    print ('ALL Not CS: {}'.format(len(joint_not_cs_ids)))
+    print ('.'*50)
+    print ('MCQ CS BIN Not CS: {}'.format(len(mcq_cs_bin_not_cs)))
+    print ('BIN CS MCQ Not CS: {}'.format(len(bin_cs_mcq_not_cs)))
+
+    return None
+
+
+def computer_iaas(mcq_qualt_dict, bin_qualt_dict, args, mode="mcq"):
+    assert mode in ["mcq", "bin", "joint"]
+
+    # decide the number of annotators
+    num_annotators_per_question = 0
+    len_data = len(mcq_qualt_dict)
+    assert len(mcq_qualt_dict) == len(bin_qualt_dict)
+
+    for key in mcq_qualt_dict:
+        annots = mcq_qualt_dict[key]["annotations"]["1. choice"]
+        num_annots = len(annots)
+        num_annotators_per_question = max(num_annotators_per_question, num_annots)
+
+    if mode == "joint":
+        num_iaas = num_annotators_per_question * 2
+    else:
+        num_iaas = num_annotators_per_question
+
+    print ()
+    print ('-'*50)
+    print ("Number of Annotators: {}".format(num_annotators_per_question))
+    print ("IAA of mode: {}".format(mode))
+
+    choices = np.zeros((len_data, num_iaas))
+    if_cs = np.zeros((len_data, num_iaas))
+    entry_count = [0 for i in range(num_iaas)]
+
+    qualt_ids = sorted(list(mcq_qualt_dict.keys()))
+    assert qualt_ids == sorted(list(bin_qualt_dict.keys()))
+
+    if mode == "mcq" or mode == "joint":
+        
+        for i in range(len_data):
+            qualt_id = qualt_ids[i]
+            mcq_annots = mcq_qualt_dict[qualt_id]
+            res_choice = mcq_annots["annotations"]["1. choice"]
+            res_if_com = mcq_annots["annotations"]["4. if common sense"]
+            if len(res_choice) < num_annotators_per_question:
+                continue
+            res_choice = np.asarray(res_choice)
+            res_if_com = np.asarray(res_if_com)
+            choices[i, :num_annotators_per_question] = res_choice
+            if_cs[i, :num_annotators_per_question] = res_if_com
+
+        pass
+
+    if mode == "bin" or mode == "joint":
+        
+        for i in range(len_data):
+            qualt_id = qualt_ids[i]
+            bin_annots = bin_qualt_dict[qualt_id]
+            res_choice = bin_annots["annotations"]["1. choice"]
+            res_if_com = bin_annots["annotations"]["4. if common sense"]
+            if len(res_choice) < num_annotators_per_question:
+                continue
+            res_choice = np.asarray(res_choice)
+            res_if_com = np.asarray(res_if_com)
+            if mode == "bin":
+                choices[i, :num_annotators_per_question] = res_choice
+                if_cs[i, :num_annotators_per_question] = res_if_com
+            elif mode == "joint":
+                choices[i, num_annotators_per_question:] = res_choice
+                if_cs[i, num_annotators_per_question:] = res_if_com
+
+        pass
+
+    choices = np.transpose(choices).astype(np.int32)
+    if_cs = np.transpose(if_cs).astype(np.int32)
+
+    taskdata_choices = []
+    taskdata_if_cs = []
+    for i in range(num_iaas):
+        tmp = [[i, str(j), str(choices[i][j])] for j in range(len_data)]
+        taskdata_choices += tmp
+        tmp = [[i, str(j), str(if_cs[i][j])] for j in range(len_data)]
+        taskdata_if_cs += tmp
+
+    rating_choices = agreement.AnnotationTask(data=taskdata_choices)
+    rating_if_cs = agreement.AnnotationTask(data=taskdata_if_cs)
+
+    print ('.'*50)
+    print ("Choices:")
+    print ("kappa: {}".format(rating_choices.kappa()))
+    print ("fleiss: {}".format(rating_choices.multi_kappa()))
+    # print ("alpha: {}".format(rating_choices.alpha()))
+    # print ("scotts: {}".format(rating_choices.pi()))
+    print ("If Common Sense:")
+    print ("kappa: {}".format(rating_if_cs.kappa()))
+    print ("fleiss: {}".format(rating_if_cs.multi_kappa()))
+    print ('-'*50)
+
+    return None
+
+
 # the main function
 def analyze_pipeline(args):
     pp = pprint.PrettyPrinter(indent=2)
@@ -792,42 +1000,56 @@ def analyze_pipeline(args):
     print ("[INFO] Task: {}".format(args.task))
 
     # get the qualtrics question id dict and the qualtrics-id to ai2-id mappings
-    qualt_sorted_dict, qualt_id_ai2_id_mapping = label_samples(args)
+    mcq_qualt_dict = json.load(open(args.mcq_qualt_dict, "r"))
+    bin_qualt_dict = json.load(open(args.bin_qualt_dict, "r"))
+
+    # mcq
+    args.task = "physicaliqa"
+    args.data_jsonl = args.mcq_data_jsonl
+    args.data_lst = args.mcq_data_lst
+    args.samples_csv = args.mcq_samples_csv
+    mqc_qualt_sorted_dict, qualt_id_ai2_id_mapping, ai2_id_qualt_id_mapping = label_samples(args)
+    
+    # bin
+    args.task = "physicalbinqa"
+    args.data_jsonl = args.bin_data_jsonl
+    args.data_lst = args.bin_data_lst
+    args.samples_csv = args.bin_samples_csv
+    bin_qualt_sorted_dict, _, _ = label_samples(args)
 
     # looping over the given qualtrics csv files
-    for qualtrics_csv in args.input_csv_files:
-        qualt_sorted_dict = read_qualtric_raw_csv(qualtrics_csv,
-            qualt_sorted_dict, args, pp)
+    # for qualtrics_csv in args.input_csv_files:
+    #     qualt_sorted_dict = read_qualtric_raw_csv(qualtrics_csv,
+    #         qualt_sorted_dict, args, pp)
     
-    # show one example processed instance
-    # entries are:
-    # { "annotations": {
-    #         "1. choice": ,
-    #         "2. confidence": ,
-    #         "3. others agreement": ,
-    #         "4. if common sense": ,
-    #         "5. education level": ,
-    #         "6. clearness": ,
-    #         "7. category": ,
-    #     }
-    # }
-    print ('-'*50)
-    print ("[INFO] Showing one examplar processed data instance ...")
-    exp_key = sorted(list(qualt_sorted_dict.keys()))[0]
-    print ("Qualtric ID: {}".format(exp_key))
-    pp.pprint(qualt_sorted_dict[exp_key])
-    print ('-'*50)
-
-    # saving the output results
-    quat_d_path = os.path.join(args.out_dir, "{}_qualt_sorted_dict.json".format(TASK_ABR[args.task]))
-    json.dump(qualt_sorted_dict, open(quat_d_path, "w"))
+    # print ('-'*50)
+    # print ("[INFO] Showing one examplar processed data instance ...")
+    # exp_key = sorted(list(qualt_sorted_dict.keys()))[0]
+    # print ("Qualtric ID: {}".format(exp_key))
+    # pp.pprint(qualt_sorted_dict[exp_key])
+    # print ('-'*50)
 
     # get some quick statistics
-    simple_analysis(qualt_sorted_dict, args, pp)
+    # simple_analysis(qualt_sorted_dict, args, pp)
+
+    # TODO: Main joint analysis
+    mcq_res_ids = json.load(open(args.mcq_processed_ids_json_file, "r"))
+    bin_res_ids = json.load(open(args.bin_processed_ids_json_file, "r"))
+
+    # TODO: if common sense
+    joint_qualitative_if_cs(mcq_res_ids, bin_res_ids, mqc_qualt_sorted_dict,
+                            bin_qualt_sorted_dict, ai2_id_qualt_id_mapping,
+                            mcq_qualt_dict, bin_qualt_dict, args)
+
+    # IAAs
+    computer_iaas(mcq_qualt_dict, bin_qualt_dict, args, mode="mcq")
+    computer_iaas(mcq_qualt_dict, bin_qualt_dict, args, mode="bin")
+    computer_iaas(mcq_qualt_dict, bin_qualt_dict, args, mode="joint")
 
     # TODO: add models performances here
     pass
 
+    print ()
     print ('-'*50)
     print ("[INFO] Analysis Done!")
     print ('-'*50)
