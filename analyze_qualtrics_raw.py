@@ -484,6 +484,15 @@ def simple_analysis(qualt_sorted_dict, args, pp):
         if len(choices) > 1:
             which_correct_iaa.append(sum(choices))
             # FIXME can't be 0.5 in the future
+            choices_counter = Counter(choices)
+            choices_iaa_curr = choices_counter.most_common(1)[0]
+            choices_iaa_ele, choices_iaa_cnt = choices_iaa_curr
+            if choices_iaa_cnt > num_annotators_per_question // 2:
+                if choices_iaa_ele == gt:
+                    which_correct_iaa_and_correct.append(1)
+                else:
+                    which_correct_iaa_and_correct.append(0)
+            """
             if float(sum(choices)) / float(len(choices)) > 0.5:
                 for choice in choices:
                     if choice == gt:
@@ -496,6 +505,7 @@ def simple_analysis(qualt_sorted_dict, args, pp):
                         which_correct_iaa_and_correct.append(1)
                     else:
                         which_correct_iaa_and_correct.append(0)
+            """
 
         # confidences
         confs = curr_annots["2. confidence"]
