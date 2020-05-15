@@ -927,6 +927,13 @@ def computer_iaas(mcq_qualt_dict, bin_qualt_dict, args, mode="mcq"):
     qualt_ids = sorted(list(mcq_qualt_dict.keys()))
     assert qualt_ids == sorted(list(bin_qualt_dict.keys()))
 
+    joint_cs_correct_mcq = 0
+    joint_not_cs_correct_mcq = 0
+    joint_cs_correct_bin = 0
+    joint_not_cs_correct_bin = 0
+    joint_cs_cnt = 0
+    joint_not_cs_cnt = 0
+
     if mode == "mcq" or mode == "joint":
         
         for i in range(len_data):
@@ -961,6 +968,21 @@ def computer_iaas(mcq_qualt_dict, bin_qualt_dict, args, mode="mcq"):
                 choices[i, num_annotators_per_question:] = res_choice
                 if_cs[i, num_annotators_per_question:] = res_if_com
 
+                mcq_gt = mcq_qualt_dict[qualt_id]["gt_label"]
+                bin_gt = bin_qualt_dict[qualt_id]["gt_label"]
+                if sum(if_cs[i]) == num_iaas * 1:
+                    if sum(choices[i, :num_annotators_per_question]) == num_annotators_per_question * mcq_gt:
+                        joint_cs_correct_mcq += 1
+                    if sum(choices[i, num_annotators_per_question:]) == num_annotators_per_question * bin_gt:
+                        joint_cs_correct_bin += 1
+                    joint_cs_cnt += 1
+                elif sum(if_cs[i]) == num_iaas * 0:
+                    if sum(choices[i, :num_annotators_per_question]) == num_annotators_per_question * mcq_gt:
+                        joint_not_cs_correct_mcq += 1
+                    if sum(choices[i, num_annotators_per_question:]) == num_annotators_per_question * bin_gt:
+                        joint_not_cs_correct_bin += 1
+                    joint_not_cs_cnt += 1
+
         pass
 
     choices = np.transpose(choices).astype(np.int32)
@@ -986,6 +1008,18 @@ def computer_iaas(mcq_qualt_dict, bin_qualt_dict, args, mode="mcq"):
     print ("If Common Sense:")
     print ("kappa: {}".format(rating_if_cs.kappa()))
     print ("fleiss: {}".format(rating_if_cs.multi_kappa()))
+
+    if mode == "joint":
+        print ('.'*50)
+        joint_cs_correct_mcq_acc = float(joint_cs_correct_mcq) / float(joint_cs_cnt) * 100.
+        joint_not_cs_correct_mcq_acc = float(joint_not_cs_correct_mcq) / float(joint_not_cs_cnt) * 100.
+        joint_cs_correct_bin_acc = float(joint_cs_correct_bin) / float(joint_cs_cnt) * 100.
+        joint_not_cs_correct_bin_acc = float(joint_not_cs_correct_bin) / float(joint_not_cs_cnt) * 100.
+        print ("Joint CS MCQ Correct =     {}/{} = {}%".format(joint_cs_correct_mcq, joint_cs_cnt, joint_cs_correct_mcq_acc))
+        print ("Joint Not CS MCQ Correct = {}/{} = {}%".format(joint_not_cs_correct_mcq, joint_not_cs_cnt, joint_not_cs_correct_mcq_acc))
+        print ("Joint CS BIN Correct =     {}/{} = {}%".format(joint_cs_correct_bin, joint_cs_cnt, joint_cs_correct_bin_acc))
+        print ("Joint Not CS BIN Correct = {}/{} = {}%".format(joint_not_cs_correct_bin, joint_not_cs_cnt, joint_cs_correct_bin_acc))
+
     print ('-'*50)
 
     return None
