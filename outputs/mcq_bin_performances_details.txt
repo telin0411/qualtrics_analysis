@@ -1,0 +1,4486 @@
+--------------------------------------------------
+MCQ Goal: To learn how to ride a bike.
+MCQ Sol1: Just get on the bike and start riding to learn how to do it consistently.
+MCQ SOl2: Start with training wheels to help will balance while moving then gradually take them off.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: To learn how to ride a bike.
+BIN SOl:  Start with training wheels to help will balance while moving then gradually take them off.
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: To mark lines in a piece of dough, you can
+MCQ Sol1: Use the blunt side of a knife
+MCQ SOl2: Use the handle of a hammer
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: To mark lines in a piece of dough, you can
+BIN SOl:  Use the handle of a hammer
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: floor
+MCQ Sol1: can hold a plastic bag on top of it
+MCQ SOl2: can hide a plastic bag 
+MCQ GT: 0
+MCQ Model Pred: 1 (Incorrect)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: floor
+BIN SOl:  can hold a plastic bag on top of it
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: Choose the right fish for your tank.
+MCQ Sol1: Decide what kind of fish you would like to have and do a little research online to see how much they grow. Purchase your tank for the size they will be.
+MCQ SOl2: Decide what size of fish tank you would like to have and do a little research online to see how much water it holds. Purchase your tank and add the fish.
+MCQ GT: 0
+MCQ Model Pred: 1 (Incorrect)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: Choose the right fish for your tank.
+BIN SOl:  Decide what kind of fish you would like to have and do a little research online to see how much they grow. Purchase your tank for the size they will be.
+BIN GT: 1
+BIN Model Pred: 0 (Incorrect)
+BIN Humans Pred: [1, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: How to remove a stuck light bulb.
+MCQ Sol1: Press the center of a foot-long strip of duct tape onto the middle of the bulb. Fold each loose end in half so it sticks onto itself. Gripping each end between your thumb and index finger, give a clockwise twist to loosen the bulb.
+MCQ SOl2: Press the center of a foot-long strip of duct tape onto the middle of the bulb. Fold each loose end in half so it sticks onto itself. Gripping each end between your thumb and index finger, give a counterclockwise twist to loosen the bulb.
+MCQ GT: 1
+MCQ Model Pred: 0 (Incorrect)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: How to remove a stuck light bulb.
+BIN SOl:  Press the center of a foot-long strip of duct tape onto the middle of the bulb. Fold each loose end in half so it sticks onto itself. Gripping each end between your thumb and index finger, give a counterclockwise twist to loosen the bulb.
+BIN GT: 1
+BIN Model Pred: 0 (Incorrect)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 0 (No)
+--------------------------------------------------
+MCQ Goal: how to winterize windows
+MCQ Sol1: put weather stripping around them to stop air from escaping and air from coming in
+MCQ SOl2: put weather stripping around them to stop air from escaping and air from coming into the dishwasher
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: how to winterize windows
+BIN SOl:  put weather stripping around them to stop air from escaping and air from coming into the dishwasher
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: fridge
+MCQ Sol1: prevents meat from spoiling
+MCQ SOl2: prevents live plants from spoiling
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: fridge
+BIN SOl:  prevents live plants from spoiling
+BIN GT: 0
+BIN Model Pred: 1 (Incorrect)
+BIN Humans Pred: [1, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: What can you do to the mold if you want to remove gummies easily later?
+MCQ Sol1: You need to cover a mould with plastic wrap.
+MCQ SOl2: You need to cover a mould with paper towels.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: What can you do to the mold if you want to remove gummies easily later?
+BIN SOl:  You need to cover a mould with plastic wrap.
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 0 (No)
+--------------------------------------------------
+MCQ Goal: How do you steep tea?
+MCQ Sol1: Fill a teabag with hot water, then submerge a teabag in the water until it reaches the flavor of strength you desire.
+MCQ SOl2: Fill a teacup with hot water, then submerge a teabag in the water until it reaches the flavor of strength you desire.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: How do you steep tea?
+BIN SOl:  Fill a teacup with hot water, then submerge a teabag in the water until it reaches the flavor of strength you desire.
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: To dust your ceiling fan
+MCQ Sol1: Use a pillow case, and put it over each blade individually, and pull towards you to keep the dust inside of the pillow case.
+MCQ SOl2: Use a leaf blower, point it towards each blade individually, and turn it on to spray the dust around the room.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: To dust your ceiling fan
+BIN SOl:  Use a leaf blower, point it towards each blade individually, and turn it on to spray the dust around the room.
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: How can I give a home made dog bed shape?
+MCQ Sol1: Roll quilts around a pool raft.
+MCQ SOl2: Roll quilts around a pool noodle.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [0, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: How can I give a home made dog bed shape?
+BIN SOl:  Roll quilts around a pool raft.
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: old shirt
+MCQ Sol1: can be donated to homeless people
+MCQ SOl2: can be donated to dead people
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: old shirt
+BIN SOl:  can be donated to homeless people
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: To protect a dish while it's in the fridge
+MCQ Sol1: Cover it in house tarp
+MCQ SOl2: Cover it in plastic wrap
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: To protect a dish while it's in the fridge
+BIN SOl:  Cover it in house tarp
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: Is there a product that helps keep dirt and grime from sticking to my car?
+MCQ Sol1: Yes, you can try Water Armour. It helps with tar and grime and makes cleaning easier.
+MCQ SOl2: Yes, you can try putting baby oil on your car and it will repel things from sticking to your car.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: Is there a product that helps keep dirt and grime from sticking to my car?
+BIN SOl:  Yes, you can try Water Armour. It helps with tar and grime and makes cleaning easier.
+BIN GT: 1
+BIN Model Pred: 0 (Incorrect)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 0 (No)
+--------------------------------------------------
+MCQ Goal: how do you marinade meat?
+MCQ Sol1: put seasoning all over it.
+MCQ SOl2: put your meat in a tupperware container and put barbecue sauce all in it, and stir it around.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 0 (No)
+..................................................
+BIN Goal: how do you marinade meat?
+BIN SOl:  put seasoning all over it.
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [1, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: how do you eat boiled egg?
+MCQ Sol1: just eat the egg itself.
+MCQ SOl2: cut off the white that is around the yolk and eat the yolk.
+MCQ GT: 0
+MCQ Model Pred: 1 (Incorrect)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: how do you eat boiled egg?
+BIN SOl:  just eat the egg itself.
+BIN GT: 1
+BIN Model Pred: 0 (Incorrect)
+BIN Humans Pred: [1, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: How to make fried ice cream
+MCQ Sol1: Start with frozen scoops of ice cream, roll them into a mixture of cornflake crumbs and cinnamon that you have mixed in a bowl already. Then drop ice cream balls one at a time into deep fryer or skillet with oil and cook for 8-10 seconds
+MCQ SOl2: Start with frozen scoops of ice cream, roll them into a mixture of cornflake crumbs and cinnamon that you have mixed in a bowl already. Then drop ice cream balls one at a time into deep fryer or skillet with oil and cook for 8-10 minutes
+MCQ GT: 0
+MCQ Model Pred: 1 (Incorrect)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: How to make fried ice cream
+BIN SOl:  Start with frozen scoops of ice cream, roll them into a mixture of cornflake crumbs and cinnamon that you have mixed in a bowl already. Then drop ice cream balls one at a time into deep fryer or skillet with oil and cook for 8-10 minutes
+BIN GT: 0
+BIN Model Pred: 1 (Incorrect)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 0 (No)
+--------------------------------------------------
+MCQ Goal: To melt chocolate, you can
+MCQ Sol1: Place in a metal pot over the stove
+MCQ SOl2: Place in a metal pot in the microwave
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: To melt chocolate, you can
+BIN SOl:  Place in a metal pot over the stove
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: Make house smell like a bakery.
+MCQ Sol1: Heat up a pan of water with vanilla extract and cinnamon.
+MCQ SOl2: Heat up a pan of water with vanilla ice cream and cinnamon.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: Make house smell like a bakery.
+BIN SOl:  Heat up a pan of water with vanilla ice cream and cinnamon.
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: To peel the shell off of a hard boiled egg.
+MCQ Sol1: To begin peeling your eggs lightly tap the egg on some paper towel and crack the shell all over. Then with your thumb begin to peel the shell towards the egg.
+MCQ SOl2: To begin peeling your eggs lightly tap the egg on some paper towel and crack the shell all over. Then with your thumb begin to peel the shell away from the egg.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: To peel the shell off of a hard boiled egg.
+BIN SOl:  To begin peeling your eggs lightly tap the egg on some paper towel and crack the shell all over. Then with your thumb begin to peel the shell away from the egg.
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: To keep taco fillings from spilling out.
+MCQ Sol1: Line your taco shells with a napkin. Then when your shell breaks, the napkin will catch the rest of the fillings.
+MCQ SOl2: Line your taco shells with a lettuce leaf. Then when your shell breaks, the lettuce leaf will catch the rest of the fillings.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: To keep taco fillings from spilling out.
+BIN SOl:  Line your taco shells with a lettuce leaf. Then when your shell breaks, the lettuce leaf will catch the rest of the fillings.
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: To make your own pop up card,
+MCQ Sol1: attach folded strips of paper to the back of each cut out and the face of the card.
+MCQ SOl2: cut the shapes out of a folded piece of paper and leave loosely arranged in the card.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: To make your own pop up card,
+BIN SOl:  cut the shapes out of a folded piece of paper and leave loosely arranged in the card.
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: How to open an electronic gadget's case
+MCQ Sol1: Use a thick guitar pick as a pry along the edges of the case to open it.
+MCQ SOl2: Use a thick water pick as a pry along the edges of the case to open it.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: How to open an electronic gadget's case
+BIN SOl:  Use a thick water pick as a pry along the edges of the case to open it.
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [1, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: How do you pour metal safely into molds?
+MCQ Sol1: Pouring molten metal can be exceedingly dangerous.  Please take the time to research it thoroughly and use appropriate safety gear. You do not want to drop a crucible of liquid metal on your foot.
+MCQ SOl2: Pouring molten metal can be exceedingly dangerous.  Please take the time to research it thoroughly and use appropriate safety gear. You want to drop a crucible of liquid metal on your foot.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: How do you pour metal safely into molds?
+BIN SOl:  Pouring molten metal can be exceedingly dangerous.  Please take the time to research it thoroughly and use appropriate safety gear. You want to drop a crucible of liquid metal on your foot.
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: How to puncture a hole in the bottom of a soda can.
+MCQ Sol1: Take a dart and drive it through the side.
+MCQ SOl2: Take a dart and drive it through the bottom.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: How to puncture a hole in the bottom of a soda can.
+BIN SOl:  Take a dart and drive it through the side.
+BIN GT: 0
+BIN Model Pred: 1 (Incorrect)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: How to hide scratches on leather furniture.
+MCQ Sol1: Use a different color shoe polish to cover the scratches. Rub off any excess.
+MCQ SOl2: Use the same color shoe polish to cover the scratches. Rub off any excess.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: How to hide scratches on leather furniture.
+BIN SOl:  Use a different color shoe polish to cover the scratches. Rub off any excess.
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: ziplock bag
+MCQ Sol1: can be used to hold  lego bricks if it has a small hole
+MCQ SOl2: can be used to hold  water if it has a small hole
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: ziplock bag
+BIN SOl:  can be used to hold  lego bricks if it has a small hole
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [0, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: How to fill up mason jar with water.
+MCQ Sol1: Place jar under the faucet and turn faucet off. Fill 3/4 of the jar with water and then  turn the faucet off.
+MCQ SOl2: Place jar under the faucet and turn faucet on. Fill 3/4 of the jar with water and then  turn the faucet off.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: How to fill up mason jar with water.
+BIN SOl:  Place jar under the faucet and turn faucet off. Fill 3/4 of the jar with water and then  turn the faucet off.
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: Stop a key from sticking in a lock, or from being difficult to put into a lock.
+MCQ Sol1: Use a paper towel and apply some glue to the key.  Wipe the key almost clean, a small amount of glue will be left behind allowing the key to slide in and out easily.
+MCQ SOl2: Use a paper towel and apply some oil to the key.  Wipe the key almost clean, a small amount of oil will be left behind allowing the key to slide in and out easily.
+MCQ GT: 1
+MCQ Model Pred: 0 (Incorrect)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: Stop a key from sticking in a lock, or from being difficult to put into a lock.
+BIN SOl:  Use a paper towel and apply some glue to the key.  Wipe the key almost clean, a small amount of glue will be left behind allowing the key to slide in and out easily.
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: How can you decorate an old shirt to give it new life?
+MCQ Sol1: Old shirts can be given new life by using fabric paint or markers to add designs, or even slogans.
+MCQ SOl2: Old shirts can be given new life by using automotive paint or markers to add designs, or even slogans.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: How can you decorate an old shirt to give it new life?
+BIN SOl:  Old shirts can be given new life by using automotive paint or markers to add designs, or even slogans.
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [1, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: After staining wood, you should
+MCQ Sol1: Allow it to sit for several hours so the stain can dry
+MCQ SOl2: Allow it to sit for several months so the stain can dry
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: After staining wood, you should
+BIN SOl:  Allow it to sit for several hours so the stain can dry
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: Supplement a possible bad gift.
+MCQ Sol1: Include a cheap greeting card with it.
+MCQ SOl2: Include a funny greeting card with it.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: Supplement a possible bad gift.
+BIN SOl:  Include a cheap greeting card with it.
+BIN GT: 0
+BIN Model Pred: 1 (Incorrect)
+BIN Humans Pred: [0, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: how do you open a wrapped present?
+MCQ Sol1: tear off all the wrapping.
+MCQ SOl2: cut off the wrapping paper.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: how do you open a wrapped present?
+BIN SOl:  cut off the wrapping paper.
+BIN GT: 0
+BIN Model Pred: 1 (Incorrect)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: Organize restaurant delivery menus.
+MCQ Sol1: Mount a cap holder to wall or inside door.
+MCQ SOl2: Mount a brochure holder to wall or inside door.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: Organize restaurant delivery menus.
+BIN SOl:  Mount a brochure holder to wall or inside door.
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: how do you use a diving board?
+MCQ Sol1: jump off of it into the pool
+MCQ SOl2: slide off of it into the pool.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: how do you use a diving board?
+BIN SOl:  jump off of it into the pool
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: What supplies are needed to make flubber soap?
+MCQ Sol1: Cornstarch         Vegetable oil (or whatever oil you have on hand)        Pretty smelling liquid soap or shampoo        Hair dye (optional)        A bowl and spoon
+MCQ SOl2: Cornstarch         Vegetable oil (or whatever oil you have on hand)        Pretty smelling liquid soap or shampoo        Food dye (optional)        A bowl and spoon
+MCQ GT: 1
+MCQ Model Pred: 0 (Incorrect)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 0 (No)
+..................................................
+BIN Goal: What supplies are needed to make flubber soap?
+BIN SOl:  Cornstarch         Vegetable oil (or whatever oil you have on hand)        Pretty smelling liquid soap or shampoo        Food dye (optional)        A bowl and spoon
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: How can I mark walls for hanging or placing something?
+MCQ Sol1: Use white chalk because the chalk will make easy to see marks that will quickly disappear when wiped with a damp paper towel.
+MCQ SOl2: Use black  permanent marker because the chalk will make easy to see marks that will quickly disappear when wiped with a damp paper towel.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: How can I mark walls for hanging or placing something?
+BIN SOl:  Use black  permanent marker because the chalk will make easy to see marks that will quickly disappear when wiped with a damp paper towel.
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: To build a giant Jenga set
+MCQ Sol1: Get a few set of Jenga and clear the floor from toys and clutter and make sure you have enough space to build the set.
+MCQ SOl2: Put the Jenga set on the floor.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: To build a giant Jenga set
+BIN SOl:  Put the Jenga set on the floor.
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 1]
+BIN If Common Sense: 0 (No)
+--------------------------------------------------
+MCQ Goal: Establish a health history for new puppy.
+MCQ Sol1: Take to the vet right away.
+MCQ SOl2: Take to the vet after a few months.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: Establish a health history for new puppy.
+BIN SOl:  Take to the vet after a few months.
+BIN GT: 0
+BIN Model Pred: 1 (Incorrect)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: Scrub tough grime off kitchen counter tops.
+MCQ Sol1: Use a vegetable mesh bag to clean.
+MCQ SOl2: Use a vegetable plastic bag to clean.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: Scrub tough grime off kitchen counter tops.
+BIN SOl:  Use a vegetable plastic bag to clean.
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: To reduce the amount of bubbles in concrete, you can
+MCQ Sol1: Tap the concrete all over with a rubber mallet before pouring it
+MCQ SOl2: Tap the concrete all over with a rubber mallet after pouring it
+MCQ GT: 1
+MCQ Model Pred: 0 (Incorrect)
+MCQ Humans Pred: [1, 0]
+MCQ If Common Sense: 0 (No)
+..................................................
+BIN Goal: To reduce the amount of bubbles in concrete, you can
+BIN SOl:  Tap the concrete all over with a rubber mallet after pouring it
+BIN GT: 1
+BIN Model Pred: 0 (Incorrect)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 0 (No)
+--------------------------------------------------
+MCQ Goal: shampoo
+MCQ Sol1: cleans hair from dirt
+MCQ SOl2: cleans clothes from dirt
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: shampoo
+BIN SOl:  cleans clothes from dirt
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: how to make smoky pretzel mix
+MCQ Sol1: Mix Melt 1/2 stick butter with 3 tablespoons brown sugar, 1 teaspoon smoked apple and cherry wood chips and 1/4 teaspoon cayenne. Toss with 3 cups mini pretzels and 2 cups mixed nuts. Spread on a baking sheet and bake 20 minutes at 325 degrees F, stirring.
+MCQ SOl2: Mix Melt 1/2 stick butter with 3 tablespoons brown sugar, 1 teaspoon smoked paprika and 1/4 teaspoon cayenne. Toss with 3 cups mini pretzels and 2 cups mixed nuts. Spread on a baking sheet and bake 20 minutes at 325 degrees F, stirring.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 0 (No)
+..................................................
+BIN Goal: how to make smoky pretzel mix
+BIN SOl:  Mix Melt 1/2 stick butter with 3 tablespoons brown sugar, 1 teaspoon smoked paprika and 1/4 teaspoon cayenne. Toss with 3 cups mini pretzels and 2 cups mixed nuts. Spread on a baking sheet and bake 20 minutes at 325 degrees F, stirring.
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 0 (No)
+--------------------------------------------------
+MCQ Goal: To add light to a project on a circuit board, you can
+MCQ Sol1: Attach a chandelier to the project
+MCQ SOl2: Attach an LED to the project
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: To add light to a project on a circuit board, you can
+BIN SOl:  Attach a chandelier to the project
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: Will rising prices correct a recession?
+MCQ Sol1: Rising prices are a sign of inflation, but do not necessarily correlate with a correction in recession. The worst case scenario is a recession accompanied by rising cost of living due to inflation of prices and costs related to production and services.
+MCQ SOl2: Rising prices can signal a deflation, but do not necessarily cause a correction in recession. The worst case scenario of all would be rising prices and unemployment concurrently. Rising cost of living relates to rising costs of production and services.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 1]
+MCQ If Common Sense: 0 (No)
+..................................................
+BIN Goal: Will rising prices correct a recession?
+BIN SOl:  Rising prices are a sign of inflation, but do not necessarily correlate with a correction in recession. The worst case scenario is a recession accompanied by rising cost of living due to inflation of prices and costs related to production and services.
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 0 (No)
+--------------------------------------------------
+MCQ Goal: ice pick
+MCQ Sol1: can poke through metal armor 
+MCQ SOl2: can poke through cloth 
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: ice pick
+BIN SOl:  can poke through metal armor 
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: pot and lid
+MCQ Sol1: can cook food on the ground. 
+MCQ SOl2: can cook food on the stove. 
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: pot and lid
+BIN SOl:  can cook food on the stove. 
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: Upholster a piece of padded wooden furniture.
+MCQ Sol1: Sew the fabric to the wooden piece on one edge, then stretch the fabric taut as you work around the piece, sewing as you go.
+MCQ SOl2: Staple the fabric to the wooden piece on one edge, then stretch the fabric taut as you work around the piece, stapling as you go.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: Upholster a piece of padded wooden furniture.
+BIN SOl:  Sew the fabric to the wooden piece on one edge, then stretch the fabric taut as you work around the piece, sewing as you go.
+BIN GT: 0
+BIN Model Pred: 1 (Incorrect)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 0 (No)
+--------------------------------------------------
+MCQ Goal: mop
+MCQ Sol1: has a blade 
+MCQ SOl2: has a long handle 
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: mop
+BIN SOl:  has a blade 
+BIN GT: 0
+BIN Model Pred: 1 (Incorrect)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: shot glass
+MCQ Sol1: can type on a tablet 
+MCQ SOl2: can sit on a tablet 
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: shot glass
+BIN SOl:  can type on a tablet 
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: how do you gain arm muscle?
+MCQ Sol1: work out your chest.
+MCQ SOl2: work out your arms.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: how do you gain arm muscle?
+BIN SOl:  work out your chest.
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: To save cookie dough to use at a later date, you can
+MCQ Sol1: Store it in the oven until you need it again
+MCQ SOl2: Store it in the refrigerator until you need it again
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: To save cookie dough to use at a later date, you can
+BIN SOl:  Store it in the refrigerator until you need it again
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [0, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: Remove paper cover from a book.
+MCQ Sol1: Put palm down on first page of book and with scissors cut the cover from the binding. Turn the book over and repeat.
+MCQ SOl2: Put palm down on first page of book and with your other hand slowly pull the cover from the binding. Turn the book over and repeat.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: Remove paper cover from a book.
+BIN SOl:  Put palm down on first page of book and with your other hand slowly pull the cover from the binding. Turn the book over and repeat.
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: To allow yourself to make edits, while writing by hand.
+MCQ Sol1: Use a pencil, instead of a pen, so you can erase any mistakes.
+MCQ SOl2: Use a pen, instead of a pencil, so you can erase any mistakes.
+MCQ GT: 0
+MCQ Model Pred: 1 (Incorrect)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: To allow yourself to make edits, while writing by hand.
+BIN SOl:  Use a pencil, instead of a pen, so you can erase any mistakes.
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: To keep the sun out of your face while outside on a sunny day,
+MCQ Sol1: wear a wide brimmed hat on your hip and angle your head so that it blocks the sun.
+MCQ SOl2: wear a wide brimmed hat on your head and angle your head so that it blocks the sun.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: To keep the sun out of your face while outside on a sunny day,
+BIN SOl:  wear a wide brimmed hat on your hip and angle your head so that it blocks the sun.
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: how do you get a dog to fetch?
+MCQ Sol1: throw a ball away from the dog and yell "fetch"
+MCQ SOl2: pick an object away from the dog and yell "fetch"
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: how do you get a dog to fetch?
+BIN SOl:  pick an object away from the dog and yell "fetch"
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: Finish the concrete patio.
+MCQ Sol1: Using a float make side to side sweeps across the poured concrete until it is level.
+MCQ SOl2: Level the concrete using sweeps with float purchased from a local hardware store.
+MCQ GT: 0
+MCQ Model Pred: 1 (Incorrect)
+MCQ Humans Pred: [1, 0]
+MCQ If Common Sense: 0 (No)
+..................................................
+BIN Goal: Finish the concrete patio.
+BIN SOl:  Using a float make side to side sweeps across the poured concrete until it is level.
+BIN GT: 1
+BIN Model Pred: 0 (Incorrect)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 0 (No)
+--------------------------------------------------
+MCQ Goal: candy dish
+MCQ Sol1: can be used to store sewing supplies 
+MCQ SOl2: can be used to store carpets 
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: candy dish
+BIN SOl:  can be used to store carpets 
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: How do I make a PB&J?
+MCQ Sol1: Take bread, spread peanut butter on one side and jelly on the other, then place spread sides together.
+MCQ SOl2: Take bread, spread butter on one side and jelly on the other, then place spread sides together.
+MCQ GT: 0
+MCQ Model Pred: 1 (Incorrect)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: How do I make a PB&J?
+BIN SOl:  Take bread, spread butter on one side and jelly on the other, then place spread sides together.
+BIN GT: 0
+BIN Model Pred: 1 (Incorrect)
+BIN Humans Pred: [1, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: How can you use a brick if you have extras when you're done?
+MCQ Sol1: Play catch with them in the backyard.
+MCQ SOl2: Stack them and line your garden with them.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: How can you use a brick if you have extras when you're done?
+BIN SOl:  Play catch with them in the backyard.
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: How to Build a Generic Air Cannon.
+MCQ Sol1: Gather a 2" Pressure-rated PVC pipe, 4" end cap, 3 reducers, Ball valve or solenoid valve, Bushings, and pipe nipples, also gather your tools, Fit Pieces Together of your pipes, make the pressue chamber, Attaching the Valve and Barrel, test and trouble shoot the cannon.
+MCQ SOl2: Gather a 3" Pressure-rated PVC pipe, 3" end cap, 2 reducers, Ball valve or solenoid valve, Bushings, and pipe nipples, also gather your tools, Fit Pieces Together of your pipes, make the pressue chamber, Attaching the Valve and Barrel, test and trouble shoot the cannon.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 0 (No)
+..................................................
+BIN Goal: How to Build a Generic Air Cannon.
+BIN SOl:  Gather a 3" Pressure-rated PVC pipe, 3" end cap, 2 reducers, Ball valve or solenoid valve, Bushings, and pipe nipples, also gather your tools, Fit Pieces Together of your pipes, make the pressue chamber, Attaching the Valve and Barrel, test and trouble shoot the cannon.
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 0 (No)
+--------------------------------------------------
+MCQ Goal: tub
+MCQ Sol1: is shaped like colander 
+MCQ SOl2: is used like colander 
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: tub
+BIN SOl:  is used like colander 
+BIN GT: 0
+BIN Model Pred: 1 (Incorrect)
+BIN Humans Pred: [0, 1]
+BIN If Common Sense: 0 (No)
+--------------------------------------------------
+MCQ Goal: how do you flex?
+MCQ Sol1: show your muscles.
+MCQ SOl2: lay down.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: how do you flex?
+BIN SOl:  lay down.
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: To make a photocopy of a page in a book,
+MCQ Sol1: find the page in the book, place it onto the glass of the photocopier with the page facing up, then press the copy button.
+MCQ SOl2: find the page in the book, place it onto the glass of the photocopier with the page facing down, then press the copy button.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: To make a photocopy of a page in a book,
+BIN SOl:  find the page in the book, place it onto the glass of the photocopier with the page facing up, then press the copy button.
+BIN GT: 0
+BIN Model Pred: 1 (Incorrect)
+BIN Humans Pred: [1, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: How do you make plain toast?
+MCQ Sol1: Gather a slice of bread and a toaster, place the bread on the top of the toaster and push the button down, when the button pops up your toast is ready.
+MCQ SOl2: Gather a slice of bread and a toaster, place the bread into the toaster and push the button down, when the button pops up your toast is ready.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: How do you make plain toast?
+BIN SOl:  Gather a slice of bread and a toaster, place the bread into the toaster and push the button down, when the button pops up your toast is ready.
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: how to identify a square
+MCQ Sol1: A square is a six-sided figure which is created by connecting 4 line segments. The line segments in the square are all of the equal lengths and they come together to form 4 right angles.
+MCQ SOl2: A square is a four-sided figure which is created by connecting 4 line segments. The line segments in the square are all of the equal lengths and they come together to form 4 right angles.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: how to identify a square
+BIN SOl:  A square is a four-sided figure which is created by connecting 4 line segments. The line segments in the square are all of the equal lengths and they come together to form 4 right angles.
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: How do I cool the  cheese roll ?
+MCQ Sol1: Put the cheese roll in a refrigerator for a few hours.
+MCQ SOl2: Put the cheese roll in the oven for a few hours.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: How do I cool the  cheese roll ?
+BIN SOl:  Put the cheese roll in a refrigerator for a few hours.
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: how do you squat in an apartment?
+MCQ Sol1: visit there without permission.
+MCQ SOl2: stay there without permission
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: how do you squat in an apartment?
+BIN SOl:  stay there without permission
+BIN GT: 1
+BIN Model Pred: 0 (Incorrect)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: cotton ball
+MCQ Sol1: can clean penny with peroxide
+MCQ SOl2: can form penny easily
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: cotton ball
+BIN SOl:  can form penny easily
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: how do you recline?
+MCQ Sol1: sit back.
+MCQ SOl2: sit forward.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: how do you recline?
+BIN SOl:  sit back.
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: To protect a workstation when working with paint, you can
+MCQ Sol1: Lay down shredded sheets of newspaper all over the workstation
+MCQ SOl2: Lay down solid sheets of newspaper all over the workstation
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: To protect a workstation when working with paint, you can
+BIN SOl:  Lay down solid sheets of newspaper all over the workstation
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: sweat band
+MCQ Sol1: cover  heads 
+MCQ SOl2: cover  pillows 
+MCQ GT: 0
+MCQ Model Pred: 1 (Incorrect)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: sweat band
+BIN SOl:  cover  pillows 
+BIN GT: 0
+BIN Model Pred: 1 (Incorrect)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 0 (No)
+--------------------------------------------------
+MCQ Goal: protractor
+MCQ Sol1: can stab pill bug 
+MCQ SOl2: can stab leopard 
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: protractor
+BIN SOl:  can stab pill bug 
+BIN GT: 1
+BIN Model Pred: 0 (Incorrect)
+BIN Humans Pred: [0, 1]
+BIN If Common Sense: 0 (No)
+--------------------------------------------------
+MCQ Goal: baby powder
+MCQ Sol1: can be wiped up by ice cream scoop 
+MCQ SOl2: can be wiped up by napkin 
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: baby powder
+BIN SOl:  can be wiped up by ice cream scoop 
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: a shelf
+MCQ Sol1: can hold a book 
+MCQ SOl2: can hold milk 
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: a shelf
+BIN SOl:  can hold a book 
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: Deter mosquitoes from camp fire.
+MCQ Sol1: Burn sage in the fire.
+MCQ SOl2: Burn twigs in the fire.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 0 (No)
+..................................................
+BIN Goal: Deter mosquitoes from camp fire.
+BIN SOl:  Burn twigs in the fire.
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 0 (No)
+--------------------------------------------------
+MCQ Goal: shirt
+MCQ Sol1: can be worn on head always
+MCQ SOl2: can be worn on body always
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: shirt
+BIN SOl:  can be worn on head always
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: What ingredient is left out of fluffy slime that is normally in regular slime?
+MCQ Sol1: Butter
+MCQ SOl2: Borax
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [0, 1]
+MCQ If Common Sense: 0 (No)
+..................................................
+BIN Goal: What ingredient is left out of fluffy slime that is normally in regular slime?
+BIN SOl:  Borax
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 0]
+BIN If Common Sense: 0 (No)
+--------------------------------------------------
+MCQ Goal: How to dye yarn.
+MCQ Sol1: Dip yarn into bucket full of dye.
+MCQ SOl2: Dip yarn into funnel full of dye.
+MCQ GT: 0
+MCQ Model Pred: 1 (Incorrect)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: How to dye yarn.
+BIN SOl:  Dip yarn into bucket full of dye.
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: To use pliers properly.
+MCQ Sol1: Grip the stuck object with the pliers, release, then grip the pliers firmly and pull.
+MCQ SOl2: Grip the stuck object with the pliers, then grip the pliers firmly and pull.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: To use pliers properly.
+BIN SOl:  Grip the stuck object with the pliers, then grip the pliers firmly and pull.
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: How to bend a metal coat hanger
+MCQ Sol1: use scissors to easily shape the wire in a desired orientation.
+MCQ SOl2: use pliers to easily shape the wire in a desired orientation.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: How to bend a metal coat hanger
+BIN SOl:  use pliers to easily shape the wire in a desired orientation.
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: how to choose a watermelon
+MCQ Sol1: Pick it up: Big or small, the watermelon should feel heavy for its size.    Look for the yellow spot: Watermelons develop a splotch where they rest on the ground. When this splotch is creamy yellow, it's ripe.
+MCQ SOl2: Pick it up: Big or small, the watermelon should feel heavy for its size.    Look for the black spot: Watermelons develop a splotch where they rest on the ground. When this splotch is creamy yellow, it's ripe.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [1, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: how to choose a watermelon
+BIN SOl:  Pick it up: Big or small, the watermelon should feel heavy for its size.    Look for the black spot: Watermelons develop a splotch where they rest on the ground. When this splotch is creamy yellow, it's ripe.
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 0 (No)
+--------------------------------------------------
+MCQ Goal: fertilizer
+MCQ Sol1: can be used for  growing plants 
+MCQ SOl2: can be used for  growing rocks 
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: fertilizer
+BIN SOl:  can be used for  growing rocks 
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: Avoid germs from hotel bed.
+MCQ Sol1: Use a bed sheet under hotel bed.
+MCQ SOl2: Use a bed sheet over hotel bed.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: Avoid germs from hotel bed.
+BIN SOl:  Use a bed sheet under hotel bed.
+BIN GT: 0
+BIN Model Pred: 1 (Incorrect)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: How to saute onion.
+MCQ Sol1: Pour small amount of olive oil into baking sheet over hot stove. Add onions and stir occasionally, cooking until transparent.
+MCQ SOl2: Pour small amount of olive oil into frying pan over hot stove. Add onions and stir occasionally, cooking until transparent.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: How to saute onion.
+BIN SOl:  Pour small amount of olive oil into baking sheet over hot stove. Add onions and stir occasionally, cooking until transparent.
+BIN GT: 0
+BIN Model Pred: 1 (Incorrect)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: To join pieces of plastic straws together for curved, polygonal art.
+MCQ Sol1: Run bendable wire through the straws to join pieces.
+MCQ SOl2: Run metal rods through the straws to join pieces.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: To join pieces of plastic straws together for curved, polygonal art.
+BIN SOl:  Run bendable wire through the straws to join pieces.
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: How to make sure your pet is healthy?
+MCQ Sol1: Feed the healthy food, water, food supplements and take them to the vet regularly.
+MCQ SOl2: Feed the healthy protein, water, medical supplements and take them to the zoo regularly.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: How to make sure your pet is healthy?
+BIN SOl:  Feed the healthy food, water, food supplements and take them to the vet regularly.
+BIN GT: 1
+BIN Model Pred: 0 (Incorrect)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: How do you say "I love you" in Swedish?
+MCQ Sol1: You can say "Jag alskar dig" which sounds like "Yell-skah-day".
+MCQ SOl2: You can say "Jag alskar dig" which sounds like "Yell-ski-day".
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 0 (No)
+..................................................
+BIN Goal: How do you say "I love you" in Swedish?
+BIN SOl:  You can say "Jag alskar dig" which sounds like "Yell-ski-day".
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 1]
+BIN If Common Sense: 0 (No)
+--------------------------------------------------
+MCQ Goal: magazine
+MCQ Sol1: can be ruined if they get wet by a mop 
+MCQ SOl2: can be ruined if they get wet by a jar 
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: magazine
+BIN SOl:  can be ruined if they get wet by a mop 
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: How can I easily carry clothes on hangers when I move?
+MCQ Sol1: Take a couple of full heavy duty clothes hangers, then hook several hangers of clothes on Those hangers and carry them all at once.
+MCQ SOl2: Take a couple of empty heavy duty clothes hangers, then hook several hangers of clothes on Those hangers and carry them all at once.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: How can I easily carry clothes on hangers when I move?
+BIN SOl:  Take a couple of empty heavy duty clothes hangers, then hook several hangers of clothes on Those hangers and carry them all at once.
+BIN GT: 1
+BIN Model Pred: 0 (Incorrect)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: Write a message with candles.
+MCQ Sol1: Use small tealight candles to form letters.
+MCQ SOl2: Use matchsticks to form letters.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: Write a message with candles.
+BIN SOl:  Use small tealight candles to form letters.
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: how do you put underwear on?
+MCQ Sol1: pull them up over your legs.
+MCQ SOl2: pull them down over your chest.
+MCQ GT: 0
+MCQ Model Pred: 1 (Incorrect)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: how do you put underwear on?
+BIN SOl:  pull them up over your legs.
+BIN GT: 1
+BIN Model Pred: 0 (Incorrect)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: How to make Tropical Pineapple Tarts at home.
+MCQ Sol1: Combine 1/2 cup peeled chopped Pineapple, 1/4 cup sugar, 1 tbsp. butter, then place in unbaked tart shell, bake for 18 min.  in 375 degree oven, check and remove when browned.
+MCQ SOl2: Combine 1/2 cup chopped Pineapple peels, 1/4 cup sugar, 1 tbsp. butter, then place in unbaked tart shell, bake for 18 min.  in 375 degree oven, check and remove when browned.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: How to make Tropical Pineapple Tarts at home.
+BIN SOl:  Combine 1/2 cup chopped Pineapple peels, 1/4 cup sugar, 1 tbsp. butter, then place in unbaked tart shell, bake for 18 min.  in 375 degree oven, check and remove when browned.
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 1]
+BIN If Common Sense: 0 (No)
+--------------------------------------------------
+MCQ Goal: How to prepare to patch a bicycle tube?
+MCQ Sol1: Once you've isolated the puncture, scrape it smooth with some sandpaper until it is rough and open then apply the patching glue
+MCQ SOl2: Once you've isolated the puncture, scrape it smooth with some sandpaper until it is clean and smooth then apply the patching glue
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: How to prepare to patch a bicycle tube?
+BIN SOl:  Once you've isolated the puncture, scrape it smooth with some sandpaper until it is clean and smooth then apply the patching glue
+BIN GT: 1
+BIN Model Pred: 0 (Incorrect)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 0 (No)
+--------------------------------------------------
+MCQ Goal: To mix other oil paints to create orange,
+MCQ Sol1: squeeze equal amounts of white and red oil paints onto a palette, and mix them with a palette knife blade, adding more of either color to adjust the shade.
+MCQ SOl2: squeeze equal amounts of yellow and red oil paints onto a palette, and mix them with a palette knife blade, adding more of either color to adjust the shade.
+MCQ GT: 1
+MCQ Model Pred: 0 (Incorrect)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: To mix other oil paints to create orange,
+BIN SOl:  squeeze equal amounts of white and red oil paints onto a palette, and mix them with a palette knife blade, adding more of either color to adjust the shade.
+BIN GT: 0
+BIN Model Pred: 1 (Incorrect)
+BIN Humans Pred: [1, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: how do you take pills?
+MCQ Sol1: place the pill on your tongue and swallow with water.
+MCQ SOl2: throw the pill down your throat.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: how do you take pills?
+BIN SOl:  place the pill on your tongue and swallow with water.
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: change a lightbulb in a ceiling fan
+MCQ Sol1: Turn the switch off for the fan and light.Carefully reach up and take hold of the bulb that is blown. If it is hot because it has been on recently, use a cloth to protect your hands. Unscrew the bulb and carefully screw in a new bulb until it breaks in your hand
+MCQ SOl2: Turn the switch off for the fan and light.Carefully reach up and take hold of the bulb that is blown. If it is hot because it has been on recently, use a cloth to protect your hands. Unscrew the bulb and carefully screw in a new bulb until it is tight.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: change a lightbulb in a ceiling fan
+BIN SOl:  Turn the switch off for the fan and light.Carefully reach up and take hold of the bulb that is blown. If it is hot because it has been on recently, use a cloth to protect your hands. Unscrew the bulb and carefully screw in a new bulb until it is tight.
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: how do you use dumbbell bars?
+MCQ Sol1: you lift them with your ankles.
+MCQ SOl2: you life them with your arms.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: how do you use dumbbell bars?
+BIN SOl:  you lift them with your ankles.
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: Make air freshener.
+MCQ Sol1: Spray packing peanuts with gasoline and put in empty jar.
+MCQ SOl2: Spray packing peanuts with perfume and put in empty jar.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: Make air freshener.
+BIN SOl:  Spray packing peanuts with gasoline and put in empty jar.
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: To prepare frappucino bottles to be repurposed as spice storage bottles.
+MCQ Sol1: Take the empty frappucino bottles and peel off the labels using a knife. Wash rubber seal caps thoroughly and let them dry.
+MCQ SOl2: Take the empty frappucino bottles and peel off the labels using a knife. Wash the bottles and rubber seal caps thoroughly and let them dry.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: To prepare frappucino bottles to be repurposed as spice storage bottles.
+BIN SOl:  Take the empty frappucino bottles and peel off the labels using a knife. Wash the bottles and rubber seal caps thoroughly and let them dry.
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: How to apply sunscreen to the face?
+MCQ Sol1: Open the container of sunscreen and put some on your fingers. Rub the product onto every part of skin on your face until it's unevenly distributed.
+MCQ SOl2: Open the container of sunscreen and put some on your fingers. Rub the product onto every part of skin on your face until it's evenly distributed.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: How to apply sunscreen to the face?
+BIN SOl:  Open the container of sunscreen and put some on your fingers. Rub the product onto every part of skin on your face until it's unevenly distributed.
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: how do you play scrabble?
+MCQ Sol1: make words out of the letters you're given that connect with the letters already on the board.
+MCQ SOl2: make a sentence out of the letters you're given that connects with the words already on the board.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: how do you play scrabble?
+BIN SOl:  make a sentence out of the letters you're given that connects with the words already on the board.
+BIN GT: 0
+BIN Model Pred: 1 (Incorrect)
+BIN Humans Pred: [1, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: To cook the kebab meat on a grill
+MCQ Sol1: Place the kebab meat on the grill.
+MCQ SOl2: Skewer the meat and put on grill.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: To cook the kebab meat on a grill
+BIN SOl:  Skewer the meat and put on grill.
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: liquid
+MCQ Sol1: stop fires 
+MCQ SOl2: stop flooding 
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: liquid
+BIN SOl:  stop fires 
+BIN GT: 1
+BIN Model Pred: 0 (Incorrect)
+BIN Humans Pred: [0, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: stand
+MCQ Sol1: can support a television 
+MCQ SOl2: can support soup 
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: stand
+BIN SOl:  can support a television 
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: how do you stack boxes?
+MCQ Sol1: place one box next to another.
+MCQ SOl2: place on box on top of another.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: how do you stack boxes?
+BIN SOl:  place on box on top of another.
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: To increase the flavor intensity in a pot of soup,
+MCQ Sol1: add extra water to the pot at the end.
+MCQ SOl2: cook without a lid so that the water evaporates.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: To increase the flavor intensity in a pot of soup,
+BIN SOl:  cook without a lid so that the water evaporates.
+BIN GT: 1
+BIN Model Pred: 0 (Incorrect)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: Remove odor from microwave
+MCQ Sol1: Crush almonds and place in microwave for a few hours.
+MCQ SOl2: Crush activated charcoal and place in microwave for a few hours.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 0]
+MCQ If Common Sense: 0 (No)
+..................................................
+BIN Goal: Remove odor from microwave
+BIN SOl:  Crush activated charcoal and place in microwave for a few hours.
+BIN GT: 1
+BIN Model Pred: 0 (Incorrect)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 0 (No)
+--------------------------------------------------
+MCQ Goal: To make a hard shelled taco,
+MCQ Sol1: put seasoned beef, cheese, and lettuce onto the hard shell.
+MCQ SOl2: put seasoned beef, cheese, and lettuce into the hard shell.
+MCQ GT: 1
+MCQ Model Pred: 0 (Incorrect)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: To make a hard shelled taco,
+BIN SOl:  put seasoned beef, cheese, and lettuce into the hard shell.
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: peeler
+MCQ Sol1: Can carve neat  edge  on frame
+MCQ SOl2: Can carve neat  jellow affixes on frame
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 0 (No)
+..................................................
+BIN Goal: peeler
+BIN SOl:  Can carve neat  edge  on frame
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [0, 1]
+BIN If Common Sense: 0 (No)
+--------------------------------------------------
+MCQ Goal: To remove permanent marker from clothes
+MCQ Sol1: use hand sanitizer
+MCQ SOl2: use hand soap
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [1, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: To remove permanent marker from clothes
+BIN SOl:  use hand sanitizer
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: strainer
+MCQ Sol1: can go in colander 
+MCQ SOl2: can go in pick 
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 1]
+MCQ If Common Sense: 0 (No)
+..................................................
+BIN Goal: strainer
+BIN SOl:  can go in colander 
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [0, 1]
+BIN If Common Sense: 0 (No)
+--------------------------------------------------
+MCQ Goal: How do I fuse glass for an art pendant?
+MCQ Sol1: To fuse glass for an art pendant, place the kiln base on a metal plate carefully so that the arrangement of your pendant is not disturbed and then cover it with the microwave kiln cover.
+MCQ SOl2: To fuse glass for an art pendant, place the kiln base on the microwave glass plate carefully so that the arrangement of your pendant is not disturbed and then cover it with the microwave kiln cover.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 0 (No)
+..................................................
+BIN Goal: How do I fuse glass for an art pendant?
+BIN SOl:  To fuse glass for an art pendant, place the kiln base on the microwave glass plate carefully so that the arrangement of your pendant is not disturbed and then cover it with the microwave kiln cover.
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 0 (No)
+--------------------------------------------------
+MCQ Goal: How to tie shoes.
+MCQ Sol1: Lace pipecleaner through the eyelets of the shoe and tie in a bow at the top.
+MCQ SOl2: Lace shoe laces through the eyelets of the shoe and tie in a bow at the top.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: How to tie shoes.
+BIN SOl:  Lace pipecleaner through the eyelets of the shoe and tie in a bow at the top.
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: To more easily access popular rides at a theme park,
+MCQ Sol1: go to the theme park a day after a drinking based holiday.
+MCQ SOl2: go to the theme park on a popular holiday instead.
+MCQ GT: 0
+MCQ Model Pred: 1 (Incorrect)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: To more easily access popular rides at a theme park,
+BIN SOl:  go to the theme park a day after a drinking based holiday.
+BIN GT: 1
+BIN Model Pred: 0 (Incorrect)
+BIN Humans Pred: [1, 0]
+BIN If Common Sense: 0 (No)
+--------------------------------------------------
+MCQ Goal: To make the binding for a book, you can
+MCQ Sol1: Use a strong paper that will not easily rip
+MCQ SOl2: Use a weak paper that will easily rip
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: To make the binding for a book, you can
+BIN SOl:  Use a weak paper that will easily rip
+BIN GT: 0
+BIN Model Pred: 1 (Incorrect)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: fist
+MCQ Sol1: grips house 
+MCQ SOl2: grips spoon 
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: fist
+BIN SOl:  grips house 
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 0 (No)
+--------------------------------------------------
+MCQ Goal: How do you prepare paper for papier mache pulp?
+MCQ Sol1: Find old cardboard boxes and make them flat. Cut them with scissors until you have a full bucket of tiny paper pieces.
+MCQ SOl2: Find old newspaper or tissue paper from Christmas. Cut them with scissors until you have a full bucket of tiny paper pieces.
+MCQ GT: 1
+MCQ Model Pred: 0 (Incorrect)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 0 (No)
+..................................................
+BIN Goal: How do you prepare paper for papier mache pulp?
+BIN SOl:  Find old cardboard boxes and make them flat. Cut them with scissors until you have a full bucket of tiny paper pieces.
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [1, 0]
+BIN If Common Sense: 0 (No)
+--------------------------------------------------
+MCQ Goal: Easy bookshelf.
+MCQ Sol1: Two planks of wood, 4 concrete bricks. Place 2 concrete bricks on the floor, as far apart as the planks are long. Place one plank resting on these 2 bricks. Place the next 2 concrete bricks on top, and place the 2nd plank on top. Voila, a sturdy easy book shelf.
+MCQ SOl2: Two planks of wood, 4 concrete bricks. Place 2 concrete bricks on the planks, as far apart as the planks are wide. Place one plank resting on the other 2 bricks. Place the next 2 concrete planks on top, and place the 1st plank on top of the last one. Voila, a sturdy easy book shelf.
+MCQ GT: 0
+MCQ Model Pred: 1 (Incorrect)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: Easy bookshelf.
+BIN SOl:  Two planks of wood, 4 concrete bricks. Place 2 concrete bricks on the planks, as far apart as the planks are wide. Place one plank resting on the other 2 bricks. Place the next 2 concrete planks on top, and place the 1st plank on top of the last one. Voila, a sturdy easy book shelf.
+BIN GT: 0
+BIN Model Pred: 1 (Incorrect)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: how do you find out what's wrong with a car?
+MCQ Sol1: read the codes with a machine.
+MCQ SOl2: ask it what's wrong with it.
+MCQ GT: 0
+MCQ Model Pred: 1 (Incorrect)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: how do you find out what's wrong with a car?
+BIN SOl:  ask it what's wrong with it.
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: container
+MCQ Sol1: can store tin foil 
+MCQ SOl2: can cut tin foil 
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: container
+BIN SOl:  can store tin foil 
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: How to order room service
+MCQ Sol1: Pick up the landline phone in your hotel room or villa. Dial the number provided for room service or zero for the operator. Order from the menu.
+MCQ SOl2: Pick up the landline phone in your hotel room or village. Dial the number provided for room service or zero for the operator. Order from the menu.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: How to order room service
+BIN SOl:  Pick up the landline phone in your hotel room or village. Dial the number provided for room service or zero for the operator. Order from the menu.
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: bowl
+MCQ Sol1: can store soup 
+MCQ SOl2: can store shoes 
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: bowl
+BIN SOl:  can store soup 
+BIN GT: 1
+BIN Model Pred: 0 (Incorrect)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: fingers
+MCQ Sol1: can be wrapped in tin foil 
+MCQ SOl2: can be wrapped in sticks 
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: fingers
+BIN SOl:  can be wrapped in tin foil 
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: Make emergency car cup holder.
+MCQ Sol1: Place cup in hat.
+MCQ SOl2: Place cup in shoe.
+MCQ GT: 1
+MCQ Model Pred: 0 (Incorrect)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: Make emergency car cup holder.
+BIN SOl:  Place cup in shoe.
+BIN GT: 1
+BIN Model Pred: 0 (Incorrect)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: a brush
+MCQ Sol1: helps keep nails clean
+MCQ SOl2: helps keep light clean
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: a brush
+BIN SOl:  helps keep light clean
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: To perform an update on your phone.
+MCQ Sol1: Wait for the phone to prompt you about the update and then do it.
+MCQ SOl2: Go to system settings and choose software update.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: To perform an update on your phone.
+BIN SOl:  Go to system settings and choose software update.
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: To ensure you put the caps on the keyboard back in the right places after dissembling them.
+MCQ Sol1: Take a picture of the intact keyboard.
+MCQ SOl2: Memorize the intact keyboard.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: To ensure you put the caps on the keyboard back in the right places after dissembling them.
+BIN SOl:  Memorize the intact keyboard.
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: To wash clothes in a washing machine.
+MCQ Sol1: Sort the clothes according to colors, put clothes with similar colors in the same load and wash.
+MCQ SOl2: Sort the clothes according to sizes, put clothes with similar sizes in the same load and wash.
+MCQ GT: 0
+MCQ Model Pred: 1 (Incorrect)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: To wash clothes in a washing machine.
+BIN SOl:  Sort the clothes according to sizes, put clothes with similar sizes in the same load and wash.
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: how to keep colors from fading in the wash
+MCQ Sol1: wash clothes inside out, and on cool
+MCQ SOl2: wash clothes inside out, and on a cool dryer
+MCQ GT: 0
+MCQ Model Pred: 1 (Incorrect)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: how to keep colors from fading in the wash
+BIN SOl:  wash clothes inside out, and on a cool dryer
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: To cut the rolled out poptart pie dough
+MCQ Sol1: cut rectangles the size of a poptart,  roughly 3 by 5 inches
+MCQ SOl2: cut triangles the size of a poptart,  roughly 3 by 5 inches
+MCQ GT: 0
+MCQ Model Pred: 1 (Incorrect)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: To cut the rolled out poptart pie dough
+BIN SOl:  cut rectangles the size of a poptart,  roughly 3 by 5 inches
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: how do you smear liquid?
+MCQ Sol1: pour it all over.
+MCQ SOl2: rub it all over.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: how do you smear liquid?
+BIN SOl:  rub it all over.
+BIN GT: 1
+BIN Model Pred: 0 (Incorrect)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: books
+MCQ Sol1: shelved on weights of window
+MCQ SOl2: shelved on ledge of window
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: books
+BIN SOl:  shelved on weights of window
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 0 (No)
+--------------------------------------------------
+MCQ Goal: how to open a lock illegally?
+MCQ Sol1: breask the lock
+MCQ SOl2: use a key to open
+MCQ GT: 0
+MCQ Model Pred: 1 (Incorrect)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: how to open a lock illegally?
+BIN SOl:  breask the lock
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: two wooden mixing spoons
+MCQ Sol1: can beat eggs and other baking items and assessories to make a cake
+MCQ SOl2: can beat up stalks of wheat from the fields to make a cake
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: two wooden mixing spoons
+BIN SOl:  can beat up stalks of wheat from the fields to make a cake
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: How to attract hummingbirds to your garden?
+MCQ Sol1: Hummingbirds are territorial so it is best to have several different feeders or patches of flowers that hummingbirds will be attracted to. Otherwise they might fight and they will leave and not want to return.
+MCQ SOl2: If you hum a tune while you garden, humming birds will want to sing along with you so you don't have to really bother with feeders or special flowers.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: How to attract hummingbirds to your garden?
+BIN SOl:  Hummingbirds are territorial so it is best to have several different feeders or patches of flowers that hummingbirds will be attracted to. Otherwise they might fight and they will leave and not want to return.
+BIN GT: 1
+BIN Model Pred: 0 (Incorrect)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 0 (No)
+--------------------------------------------------
+MCQ Goal: To reshape a steel buckle.
+MCQ Sol1: Heat up the buckle and then heat with hammer to reshape
+MCQ SOl2: To reshape a steel buckle, you have to pull it apart to desired shape.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: To reshape a steel buckle.
+BIN SOl:  Heat up the buckle and then heat with hammer to reshape
+BIN GT: 1
+BIN Model Pred: 0 (Incorrect)
+BIN Humans Pred: [1, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: How do I mix in the flour for butter cookies?
+MCQ Sol1: To make butter cookies, after you cream the butter, sift the flour into the bowl.
+MCQ SOl2: To make butter cookies, after you cream the butter, add the flour into the bowl in one go.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 0 (No)
+..................................................
+BIN Goal: How do I mix in the flour for butter cookies?
+BIN SOl:  To make butter cookies, after you cream the butter, sift the flour into the bowl.
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: How to ignite a gas stove with a tricky igniter?
+MCQ Sol1: Turn on the gas and at the small area near the base light with a tiny match or flame
+MCQ SOl2: Turn off the gas and at the small area near the base light with a large match or flame
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: How to ignite a gas stove with a tricky igniter?
+BIN SOl:  Turn off the gas and at the small area near the base light with a large match or flame
+BIN GT: 0
+BIN Model Pred: 1 (Incorrect)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: how do you butter toast?
+MCQ Sol1: use a knife to grab the butter, and then spread it over a piece of toast.
+MCQ SOl2: dip the toast into a tub of butter.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: how do you butter toast?
+BIN SOl:  dip the toast into a tub of butter.
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: To shape duct tape into a perfect circle.
+MCQ Sol1: Use a gasket punch and a hammer.
+MCQ SOl2: Use a nail and a hammer.
+MCQ GT: 0
+MCQ Model Pred: 1 (Incorrect)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 0 (No)
+..................................................
+BIN Goal: To shape duct tape into a perfect circle.
+BIN SOl:  Use a nail and a hammer.
+BIN GT: 0
+BIN Model Pred: 1 (Incorrect)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: How to properly store kitchen knives?
+MCQ Sol1: Once the knife is clean and dry, place it inside a sheath and into a draw or a alternatively without a sheath in a knifeblock
+MCQ SOl2: Once the knife is clean and dry, place it inside a sheath and into a knifeblock or alternatively without a sheath into drawer
+MCQ GT: 0
+MCQ Model Pred: 1 (Incorrect)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: How to properly store kitchen knives?
+BIN SOl:  Once the knife is clean and dry, place it inside a sheath and into a draw or a alternatively without a sheath in a knifeblock
+BIN GT: 1
+BIN Model Pred: 0 (Incorrect)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: folder
+MCQ Sol1: can hold clothes hangers with clothes on
+MCQ SOl2: can hold paper dolls with clothes on
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: folder
+BIN SOl:  can hold clothes hangers with clothes on
+BIN GT: 0
+BIN Model Pred: 1 (Incorrect)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 0 (No)
+--------------------------------------------------
+MCQ Goal: To remove wrinkles from clothes
+MCQ Sol1: Throw them in a dryer with an old sock for thirty minutes.
+MCQ SOl2: Throw them in a dryer with a wet sock for thirty minutes.
+MCQ GT: 1
+MCQ Model Pred: 0 (Incorrect)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 0 (No)
+..................................................
+BIN Goal: To remove wrinkles from clothes
+BIN SOl:  Throw them in a dryer with an old sock for thirty minutes.
+BIN GT: 0
+BIN Model Pred: 1 (Incorrect)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: Clean soap scum off bathroom tiles.
+MCQ Sol1: Rub a wet dryer sheet on scum spots.
+MCQ SOl2: Rub a dry dryer sheet on scum spots.
+MCQ GT: 0
+MCQ Model Pred: 1 (Incorrect)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 0 (No)
+..................................................
+BIN Goal: Clean soap scum off bathroom tiles.
+BIN SOl:  Rub a wet dryer sheet on scum spots.
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: To make homemade mustard creamier.
+MCQ Sol1: Use a food processor to break up the seeds.
+MCQ SOl2: Use a spoon to break up the seeds.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: To make homemade mustard creamier.
+BIN SOl:  Use a spoon to break up the seeds.
+BIN GT: 0
+BIN Model Pred: 1 (Incorrect)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 0 (No)
+--------------------------------------------------
+MCQ Goal: Cut the sleeves off the shirt
+MCQ Sol1: use scissors and cut along the seam that attaches the sleeves to the shirt
+MCQ SOl2: Use scissors and cut along the seam at the bottom of the sleeve
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: Cut the sleeves off the shirt
+BIN SOl:  Use scissors and cut along the seam at the bottom of the sleeve
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: How to dislike a video on Youtube
+MCQ Sol1: Find the thumbs down button, below and slightly to the right of the video. Left click it once.
+MCQ SOl2: Find the thumbs up button, below and slightly to the right of the video. Right click it once.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: How to dislike a video on Youtube
+BIN SOl:  Find the thumbs up button, below and slightly to the right of the video. Right click it once.
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: sleeves
+MCQ Sol1: Can be cut by sciscors with ease
+MCQ SOl2: Can be cut by a knife with ease
+MCQ GT: 0
+MCQ Model Pred: 1 (Incorrect)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: sleeves
+BIN SOl:  Can be cut by a knife with ease
+BIN GT: 0
+BIN Model Pred: 1 (Incorrect)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: If you want to get money from an ATM or other cash cheaply with no fees what can you do?
+MCQ Sol1: If you want to get cash, simply buy something for .99 like a soda, and get cash back from the cashier that way you have ZERO ATM fees.
+MCQ SOl2: If you want to get cash, simply buy something for 999.99 like a Motorcycle, and get cash back from the cashier that way you have ZERO ATM fees.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: If you want to get money from an ATM or other cash cheaply with no fees what can you do?
+BIN SOl:  If you want to get cash, simply buy something for .99 like a soda, and get cash back from the cashier that way you have ZERO ATM fees.
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [0, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: To make small candles to float in water,
+MCQ Sol1: rub a blue candle on a grater over an ice cube tray and fill the tray with melted candle wax, then stick a wick in each cube wrapped around a pencil, after solid pull them out.
+MCQ SOl2: rub a blue candle on a grater over an ice cube tray and fill the tray with cold pressed olive oil, then stick a wick in each cube wrapped around a pencil, after solid pull them out.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [1, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: To make small candles to float in water,
+BIN SOl:  rub a blue candle on a grater over an ice cube tray and fill the tray with melted candle wax, then stick a wick in each cube wrapped around a pencil, after solid pull them out.
+BIN GT: 1
+BIN Model Pred: 0 (Incorrect)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: bath tub
+MCQ Sol1: can hold a car easily.
+MCQ SOl2: can hold a bowling ball easily.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: bath tub
+BIN SOl:  can hold a bowling ball easily.
+BIN GT: 1
+BIN Model Pred: 0 (Incorrect)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: To clean a thermos without putting it in the dishwasher.
+MCQ Sol1: Fill it with soap water and shake and let it sit on each end for a few hours.
+MCQ SOl2: Fill it with water from a dirty pan and shake and let it sit on each end for a few hours.
+MCQ GT: 0
+MCQ Model Pred: 1 (Incorrect)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: To clean a thermos without putting it in the dishwasher.
+BIN SOl:  Fill it with water from a dirty pan and shake and let it sit on each end for a few hours.
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: How do you dry out a wet honeybee?
+MCQ Sol1: Set the bee in a protected, dry, and sunny area outside to allow its wings to dry. It is best to place it on a flower if possible.
+MCQ SOl2: Set the bee in a protected, damp, and dark area outside to allow its wings to dry. It is best to place it on a flower if possible.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: How do you dry out a wet honeybee?
+BIN SOl:  Set the bee in a protected, dry, and sunny area outside to allow its wings to dry. It is best to place it on a flower if possible.
+BIN GT: 1
+BIN Model Pred: 0 (Incorrect)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: How to beautify a hanging basket.
+MCQ Sol1: Tie skinny ribbons around the plant here and there to add color
+MCQ SOl2: Hang christmas ornaments from the plant.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: How to beautify a hanging basket.
+BIN SOl:  Hang christmas ornaments from the plant.
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [1, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: How to cut out square on Styrofoam ice box.
+MCQ Sol1: Using a marker, mark the square you swish to cut on the box. With a cutter blade, guide the blade where the marked lines are located.
+MCQ SOl2: Using a marker, mark the circle you swish to cut on the box. With a cutter blade, guide the blade where the marked lines are located.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: How to cut out square on Styrofoam ice box.
+BIN SOl:  Using a marker, mark the circle you swish to cut on the box. With a cutter blade, guide the blade where the marked lines are located.
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: straw
+MCQ Sol1: can be lit for fire to stay warm
+MCQ SOl2: can be lit for water to stay warm
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: straw
+BIN SOl:  can be lit for fire to stay warm
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: how do you keep blood circulating in your legs?
+MCQ Sol1: walk around every five hours.
+MCQ SOl2: walk around every hour.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: how do you keep blood circulating in your legs?
+BIN SOl:  walk around every five hours.
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: how do you edit an order at a drive thru?
+MCQ Sol1: tell them the different order at the payment window after paying.
+MCQ SOl2: tell them the different order at the payment window before paying.
+MCQ GT: 1
+MCQ Model Pred: 0 (Incorrect)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: how do you edit an order at a drive thru?
+BIN SOl:  tell them the different order at the payment window after paying.
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: How to quickly cool down a bottled water drink?
+MCQ Sol1: Run the paper towel under some water and wrap a bottle around it then place in the freezer for 20 minutes
+MCQ SOl2: Run the bottle under some water and wrap a paper towel around it then place in the freezer for 20 minutes
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: How to quickly cool down a bottled water drink?
+BIN SOl:  Run the bottle under some water and wrap a paper towel around it then place in the freezer for 20 minutes
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: tongs
+MCQ Sol1: can mix salad 
+MCQ SOl2: can mix dressing 
+MCQ GT: 0
+MCQ Model Pred: 1 (Incorrect)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: tongs
+BIN SOl:  can mix salad 
+BIN GT: 1
+BIN Model Pred: 0 (Incorrect)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: How can I remove a nail from wood?
+MCQ Sol1: Use the claw end of the hammer.
+MCQ SOl2: Use the head of the hammer.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: How can I remove a nail from wood?
+BIN SOl:  Use the claw end of the hammer.
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: To quarter biscuits, you can
+MCQ Sol1: Take the biscuit in your mouth and tear it into quarters
+MCQ SOl2: Take the biscuit in your hand and tear it into quarters
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: To quarter biscuits, you can
+BIN SOl:  Take the biscuit in your mouth and tear it into quarters
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: Why do some people get tongue tied?
+MCQ Sol1: Shyness is a common cause of awkward pauses in communications in certain social settings, or meeting people, but if the tongue is actually tied it may need surgical removal.
+MCQ SOl2: Shyness is the most common cause of becoming tongue tied. Perhaps find a group you feel comfortable with and practice small talk. There are peer groups you can join to help.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: Why do some people get tongue tied?
+BIN SOl:  Shyness is the most common cause of becoming tongue tied. Perhaps find a group you feel comfortable with and practice small talk. There are peer groups you can join to help.
+BIN GT: 1
+BIN Model Pred: 0 (Incorrect)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: How can I pull/push my child in the swing while sitting down and resting?
+MCQ Sol1: Tie a string to the bar at the top of the swing, run the string to where you want to be seated and pull the string to move the child.
+MCQ SOl2: Tie a string to the handle or base of the swing, run the string to where you want to be seated and pull the string to move the child.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: How can I pull/push my child in the swing while sitting down and resting?
+BIN SOl:  Tie a string to the bar at the top of the swing, run the string to where you want to be seated and pull the string to move the child.
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: how do you cheese something?
+MCQ Sol1: sprinkle cheese all over it.
+MCQ SOl2: sprinkle cheese underneath it.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: how do you cheese something?
+BIN SOl:  sprinkle cheese underneath it.
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: To charge a phone while out in public with only the charger,
+MCQ Sol1: ask a friendly looking stranger on the street to charge it.
+MCQ SOl2: take the phone into a coffee shop and use the free power.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: To charge a phone while out in public with only the charger,
+BIN SOl:  ask a friendly looking stranger on the street to charge it.
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: To continue using your phone while eon an airplane,
+MCQ Sol1: make sure the phone is set to the "airplane mode"
+MCQ SOl2: make sure the phone is set to the "transmitting mode"
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: To continue using your phone while eon an airplane,
+BIN SOl:  make sure the phone is set to the "airplane mode"
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: To sharpen the end of a nail, you can
+MCQ Sol1: Run the end of the nail on concrete until it becomes sharp
+MCQ SOl2: Run the end of the nail on mulch until it becomes sharp
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: To sharpen the end of a nail, you can
+BIN SOl:  Run the end of the nail on concrete until it becomes sharp
+BIN GT: 1
+BIN Model Pred: 0 (Incorrect)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: To solve a Rubik's cube,
+MCQ Sol1: twist the cube such that each side is full of the same color.
+MCQ SOl2: twist the cube such that each side is full of the all different colors.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: To solve a Rubik's cube,
+BIN SOl:  twist the cube such that each side is full of the same color.
+BIN GT: 1
+BIN Model Pred: 0 (Incorrect)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: Mark hunting trails.
+MCQ Sol1: Tie strips of colored poncho to bushes.
+MCQ SOl2: Tie strips of newspaper to bushes.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: Mark hunting trails.
+BIN SOl:  Tie strips of colored poncho to bushes.
+BIN GT: 1
+BIN Model Pred: 0 (Incorrect)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: Where can I find good music to listen to
+MCQ Sol1: The best place to find music is on Netflix.com
+MCQ SOl2: The best place to find music is on Youtube.com
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: Where can I find good music to listen to
+BIN SOl:  The best place to find music is on Youtube.com
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: How to teach a child to be responsible?
+MCQ Sol1: Get a dog and teach the child what the dog needs, over time let the child take over the responsibilities themselves
+MCQ SOl2: Get a dog and teach the child what the dog likes, over time let the dog take over the responsibilities themselves
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: How to teach a child to be responsible?
+BIN SOl:  Get a dog and teach the child what the dog needs, over time let the child take over the responsibilities themselves
+BIN GT: 1
+BIN Model Pred: 0 (Incorrect)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: how to make the color orange with paint?
+MCQ Sol1: mix together red and yellow paint
+MCQ SOl2: mix together blue and yellow paint
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: how to make the color orange with paint?
+BIN SOl:  mix together red and yellow paint
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: How to make White Chocolate Mint-tini.
+MCQ Sol1: Gather 16oz Creme de Menthe, 1/2oz Godiva White Chocolate Liqueur, 1/2oz Vanilla Vodka, and Chocolate Sprinkles, Pour ingredients into a blender with ice and blend until blender is frosty, To rim glass, dip into honey last, then into sprinkles first, keep the excess, Strain from shaker into beer glass.
+MCQ SOl2: Gather 1oz Creme de Menthe, 1oz Godiva White Chocolate Liqueur, 1oz Vanilla Vodka, and Chocolate Sprinkles, Pour ingredients into a shaker with ice and shake until shaker is frosty, To rim glass, dip into honey first, then into sprinkles, Wipe of excess, Strain from shaker into cocktail glass.    ,
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 0 (No)
+..................................................
+BIN Goal: How to make White Chocolate Mint-tini.
+BIN SOl:  Gather 1oz Creme de Menthe, 1oz Godiva White Chocolate Liqueur, 1oz Vanilla Vodka, and Chocolate Sprinkles, Pour ingredients into a shaker with ice and shake until shaker is frosty, To rim glass, dip into honey first, then into sprinkles, Wipe of excess, Strain from shaker into cocktail glass.    ,
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 0 (No)
+--------------------------------------------------
+MCQ Goal: What materials are needed to hand sew an article of clothing?
+MCQ Sol1: Thread, needle, scissors, material and ruler
+MCQ SOl2: Thread, needle, knife, material and ruler
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: What materials are needed to hand sew an article of clothing?
+BIN SOl:  Thread, needle, scissors, material and ruler
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: To make corn bread.
+MCQ Sol1: Make bread the old fashioned way and simply mix in frozen corn before putting it in the oven. Then bake for the normal amount of time.
+MCQ SOl2: Purchase a corn bread mix at the store. Jiffy brand is very good. Mix according to the instructions and bake.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: To make corn bread.
+BIN SOl:  Purchase a corn bread mix at the store. Jiffy brand is very good. Mix according to the instructions and bake.
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: When following a recipe that calls for a baking pan, how do you know whether you should use a glass or metal pan?
+MCQ Sol1: If the pan type is not specified in the recipe, the term "baking pan" generally refers to a metal pan, while "baking dish" usually refers to a glass dish.
+MCQ SOl2: If the pan type is not specified in the recipe, the term "baking pan" generally refers to a glass dish, while "baking dish" usually refers to a metal pan.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: When following a recipe that calls for a baking pan, how do you know whether you should use a glass or metal pan?
+BIN SOl:  If the pan type is not specified in the recipe, the term "baking pan" generally refers to a metal pan, while "baking dish" usually refers to a glass dish.
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: how do you scavenge for something?
+MCQ Sol1: you look for it in one place
+MCQ SOl2: you look everwhere for it
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: how do you scavenge for something?
+BIN SOl:  you look everwhere for it
+BIN GT: 1
+BIN Model Pred: 0 (Incorrect)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: how do you walk?
+MCQ Sol1: move around on your feet.
+MCQ SOl2: move around on your hands and knees.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: how do you walk?
+BIN SOl:  move around on your hands and knees.
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: What do you need to make homemade "Blackhead Pore Strips"?
+MCQ Sol1: You will need: 1) water 2) unflavored gelatin 3)  activated charcoal 4) wash cloth 5) paint brush 6) microwave and 7) something to stir with
+MCQ SOl2: You will need: 1) water 2) unflavored gelatin 3)  granulated sugar 4) wash cloth 5) paint brush 6) microwave and 7) something to stir with
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 0 (No)
+..................................................
+BIN Goal: What do you need to make homemade "Blackhead Pore Strips"?
+BIN SOl:  You will need: 1) water 2) unflavored gelatin 3)  activated charcoal 4) wash cloth 5) paint brush 6) microwave and 7) something to stir with
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [0, 1]
+BIN If Common Sense: 0 (No)
+--------------------------------------------------
+MCQ Goal: To keep your pizza crust from getting chewy when you microwave it
+MCQ Sol1: Put a small amount of water in the microwave when you heat the pizza
+MCQ SOl2: Put a small glass of water in the microwave when you heat the pizza
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: To keep your pizza crust from getting chewy when you microwave it
+BIN SOl:  Put a small glass of water in the microwave when you heat the pizza
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 0 (No)
+--------------------------------------------------
+MCQ Goal: Flour
+MCQ Sol1: can make dough when wet
+MCQ SOl2: can make plastic when wet
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: Flour
+BIN SOl:  can make plastic when wet
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: How can I keep paint off my carpet when painting my baseboards?
+MCQ Sol1: Roll out 2-in. wide packing tape so its upper edge rests about 20 in. above the carpeting on the baseboard. The tape should rest lightly on the baseboard so it doesn’t adhere. Then tuck this edge down behind the carpet edge, first with your fingers, then with a wide putty knife. Remove the tape carefully after the paint dries.
+MCQ SOl2: Roll out 2-in. wide packing tape so its upper edge rests about 1/2 in. above the carpeting on the baseboard. The tape should rest lightly on the baseboard so it doesn’t adhere. Then tuck this edge down behind the carpet edge, first with your fingers, then with a wide putty knife. Remove the tape carefully after the paint dries.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: How can I keep paint off my carpet when painting my baseboards?
+BIN SOl:  Roll out 2-in. wide packing tape so its upper edge rests about 1/2 in. above the carpeting on the baseboard. The tape should rest lightly on the baseboard so it doesn’t adhere. Then tuck this edge down behind the carpet edge, first with your fingers, then with a wide putty knife. Remove the tape carefully after the paint dries.
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 0]
+BIN If Common Sense: 0 (No)
+--------------------------------------------------
+MCQ Goal: To combine cake ingredients.
+MCQ Sol1: In a large mixing bowl, combined three egg yolks and half of the white granulated sugar and whisk till it reaches a pale red berry mixture.
+MCQ SOl2: In a large mixing bowl, combined three egg yolks and half of the white granulated sugar and whisk till it reaches a pale lemony yellow mixture.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: To combine cake ingredients.
+BIN SOl:  In a large mixing bowl, combined three egg yolks and half of the white granulated sugar and whisk till it reaches a pale red berry mixture.
+BIN GT: 0
+BIN Model Pred: 1 (Incorrect)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: water
+MCQ Sol1: can drown a man 
+MCQ SOl2: can drown a fish 
+MCQ GT: 0
+MCQ Model Pred: 1 (Incorrect)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: water
+BIN SOl:  can drown a man 
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: How do you talk into a mic without causing distortion.
+MCQ Sol1: Hold the mic close to your mouth but not touching it.
+MCQ SOl2: Hold the mic close to your lips ensure you are touching them.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: How do you talk into a mic without causing distortion.
+BIN SOl:  Hold the mic close to your lips ensure you are touching them.
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: How should I start the assembling process?
+MCQ Sol1: You should organize the pieces first by assembling number.
+MCQ SOl2: You should first start with the bigger pieces and then the small ones.
+MCQ GT: 0
+MCQ Model Pred: 1 (Incorrect)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: How should I start the assembling process?
+BIN SOl:  You should organize the pieces first by assembling number.
+BIN GT: 1
+BIN Model Pred: 0 (Incorrect)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: To measure oats into a measuring cup without making a mess,
+MCQ Sol1: using your measuring cup in your hand, open the lid of the oats and dunk it into the oats, leveling the cup with your finger after you've scooped it back up over the top of the oats.
+MCQ SOl2: using your measuring cup on the countertop, open the lid of the oats and dump the container upside down over the oats, leveling the cup with your finger after you've poured the desired amount of oats into the cup.
+MCQ GT: 0
+MCQ Model Pred: 1 (Incorrect)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: To measure oats into a measuring cup without making a mess,
+BIN SOl:  using your measuring cup in your hand, open the lid of the oats and dunk it into the oats, leveling the cup with your finger after you've scooped it back up over the top of the oats.
+BIN GT: 1
+BIN Model Pred: 0 (Incorrect)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: how do you wear a sweatshirt?
+MCQ Sol1: put it on over your top.
+MCQ SOl2: put it on directly under your top.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [1, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: how do you wear a sweatshirt?
+BIN SOl:  put it on directly under your top.
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [1, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: To reduce the volume of the sounds that can be heard through a wall,
+MCQ Sol1: turn on loud devices outside the room to muffle the volume from the room.
+MCQ SOl2: place egg cartons on the wall to muffle the sounds in the room.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 0 (No)
+..................................................
+BIN Goal: To reduce the volume of the sounds that can be heard through a wall,
+BIN SOl:  place egg cartons on the wall to muffle the sounds in the room.
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [0, 1]
+BIN If Common Sense: 0 (No)
+--------------------------------------------------
+MCQ Goal: To make a pastry crispier after it has gone soft,
+MCQ Sol1: add it to a low temperature oven for a few minutes, or a toaster.
+MCQ SOl2: simply boil the pastry in order to bring more shape and crisp to it.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: To make a pastry crispier after it has gone soft,
+BIN SOl:  simply boil the pastry in order to bring more shape and crisp to it.
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: how do you open a wine bottle?
+MCQ Sol1: take the cork out of the top.
+MCQ SOl2: cut a hole in the cork on top.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: how do you open a wine bottle?
+BIN SOl:  take the cork out of the top.
+BIN GT: 1
+BIN Model Pred: 0 (Incorrect)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: Maximize full toothpaste.
+MCQ Sol1: Attach a binder clip to tube end.
+MCQ SOl2: Attach a clothespin to tube end.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: Maximize full toothpaste.
+BIN SOl:  Attach a binder clip to tube end.
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: to attract blue banded bees to the homemade insect hotel
+MCQ Sol1: Use a wet half sand wood mixture in the hotel
+MCQ SOl2: Use a half/half sand wood mixture in the hotel
+MCQ GT: 1
+MCQ Model Pred: 0 (Incorrect)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 0 (No)
+..................................................
+BIN Goal: to attract blue banded bees to the homemade insect hotel
+BIN SOl:  Use a wet half sand wood mixture in the hotel
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [1, 0]
+BIN If Common Sense: 0 (No)
+--------------------------------------------------
+MCQ Goal: Organize the pantry
+MCQ Sol1: Build shelves in the pantry so that you can hold more; install a can holder that the soup cans can roll out of and install some hanging baskets if possible.
+MCQ SOl2: Put a lot of cardboard boxes in there and throw cans and boxes of pantry goods in those so nothing rolls on the floor when you open up the door to the pantry
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: Organize the pantry
+BIN SOl:  Build shelves in the pantry so that you can hold more; install a can holder that the soup cans can roll out of and install some hanging baskets if possible.
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: How do I remove wrinkles from a new leather jacket that has never been worn
+MCQ Sol1: After taking a hot shower, hang the jacket in the bedroom closet but don't let it touch any water. The steam from the shower should help get rid of the wrinkles.
+MCQ SOl2: After taking a hot shower, hang the jacket in the shower but don't let it touch any water. The steam from the shower should help get rid of the wrinkles.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: How do I remove wrinkles from a new leather jacket that has never been worn
+BIN SOl:  After taking a hot shower, hang the jacket in the bedroom closet but don't let it touch any water. The steam from the shower should help get rid of the wrinkles.
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: To seal an envelope,
+MCQ Sol1: open the flap, inspect it, close the flap, and press where the glue is.
+MCQ SOl2: open the flap, lick it, close the flap, and press where the glue is.
+MCQ GT: 1
+MCQ Model Pred: 0 (Incorrect)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: To seal an envelope,
+BIN SOl:  open the flap, inspect it, close the flap, and press where the glue is.
+BIN GT: 0
+BIN Model Pred: 1 (Incorrect)
+BIN Humans Pred: [1, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: How do I get my coffee to taste less dark?
+MCQ Sol1: Add a little bit of milk or creamer to the coffee.
+MCQ SOl2: Add a little bit of more coffee to the drink.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: How do I get my coffee to taste less dark?
+BIN SOl:  Add a little bit of more coffee to the drink.
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: How to make Oh Henry Candy bar Ice cream at home.
+MCQ Sol1: In a large bowl combine 4 cups half and half (Or light cream)1 1/2 cups sugar, and 1 tablespoon vanilla.  Stir until sugar dissolves.  Stir in 2 cups whipping cream. Chill in refrigerator for 1 hour. Freeze in 4 or 5 quart Ice cream freezer according to manufacturers directions.  After freezing for 20 min. add 4 cups Diced Oh Henry Candy bars.  Return to freezing mode.  Complete freezing process. Serve with Roasted peanuts on top.
+MCQ SOl2: In a large bowl combine 4 cups half and half (Or light cream)1 1/2 cups sugar, and 1 tablespoon vanilla.  Stir until sugar dissolves.  Stir in 2 cups Garlic Butter. Chill in refrigerator for 1 hour. Freeze in 4 or 5 quart Ice cream freezer according to manufacturers directions.  After freezing for 20 min. add 4 cups Diced Oh Henry Cany bars.  Return to freezing mode.  Complete freezing process.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [1, 0]
+MCQ If Common Sense: 0 (No)
+..................................................
+BIN Goal: How to make Oh Henry Candy bar Ice cream at home.
+BIN SOl:  In a large bowl combine 4 cups half and half (Or light cream)1 1/2 cups sugar, and 1 tablespoon vanilla.  Stir until sugar dissolves.  Stir in 2 cups whipping cream. Chill in refrigerator for 1 hour. Freeze in 4 or 5 quart Ice cream freezer according to manufacturers directions.  After freezing for 20 min. add 4 cups Diced Oh Henry Candy bars.  Return to freezing mode.  Complete freezing process. Serve with Roasted peanuts on top.
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 0 (No)
+--------------------------------------------------
+MCQ Goal: To thicken a mixture
+MCQ Sol1: Add corn starch
+MCQ SOl2: Add corn syrup
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 0 (No)
+..................................................
+BIN Goal: To thicken a mixture
+BIN SOl:  Add corn starch
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 0 (No)
+--------------------------------------------------
+MCQ Goal: Make clothes drawer dividers.
+MCQ Sol1: Cut the bottoms off tissue boxes.
+MCQ SOl2: Cut the tops off tissue boxes.
+MCQ GT: 1
+MCQ Model Pred: 0 (Incorrect)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: Make clothes drawer dividers.
+BIN SOl:  Cut the tops off tissue boxes.
+BIN GT: 1
+BIN Model Pred: 0 (Incorrect)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: how do you flush something?
+MCQ Sol1: let it go down the sink drain with water running.
+MCQ SOl2: let it go down the toilet when you flush.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: how do you flush something?
+BIN SOl:  let it go down the toilet when you flush.
+BIN GT: 1
+BIN Model Pred: 0 (Incorrect)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: To increase the power of a vacuum,
+MCQ Sol1: cut out any hairs caught in the suction part.
+MCQ SOl2: leave it running for awhile to build up it's power.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: To increase the power of a vacuum,
+BIN SOl:  cut out any hairs caught in the suction part.
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [0, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: How to sharpen a pencil without a pencil sharpener?
+MCQ Sol1: Take the handle of a scissor and scrape away at the wood at the bottom to reveal more pencil
+MCQ SOl2: Take the edge of a scissor and scrape away at the wood at the tip to reveal more pencil
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: How to sharpen a pencil without a pencil sharpener?
+BIN SOl:  Take the edge of a scissor and scrape away at the wood at the tip to reveal more pencil
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: How do I attached a rubber foot to wood?
+MCQ Sol1: Buy a pack of rubber feet and just set them on without glue.
+MCQ SOl2: Buy a pack of rubber feet that come with sticky backs.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: How do I attached a rubber foot to wood?
+BIN SOl:  Buy a pack of rubber feet that come with sticky backs.
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [0, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: how do you use a draw/erase board?
+MCQ Sol1: draw on it with chalk.
+MCQ SOl2: draw on it with a marker.
+MCQ GT: 1
+MCQ Model Pred: 0 (Incorrect)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: how do you use a draw/erase board?
+BIN SOl:  draw on it with chalk.
+BIN GT: 0
+BIN Model Pred: 1 (Incorrect)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: Get enough rest before a trip.
+MCQ Sol1: Pack late and get full sleep.
+MCQ SOl2: Pack early and get full sleep.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: Get enough rest before a trip.
+BIN SOl:  Pack early and get full sleep.
+BIN GT: 1
+BIN Model Pred: 0 (Incorrect)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: how do you use an eraser?
+MCQ Sol1: hold it over what you want to erase on paper
+MCQ SOl2: rub it on what you want to erase on paper
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: how do you use an eraser?
+BIN SOl:  rub it on what you want to erase on paper
+BIN GT: 1
+BIN Model Pred: 0 (Incorrect)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: how to make coconut-almond truffles
+MCQ Sol1: Combine 3/4 cup almond butter, 1/2 cup each confectioners’ sugar and unsweetened shredded coconut, 3 tablespoons cocoa powder and 1/2 teaspoon vanilla; work into a dough. Roll into balls, then roll in shredded coconut. Chill.
+MCQ SOl2: Combine 3/4 cup almond marzipan paste , 1/2 cup each confectioners’ sugar and unsweetened shredded coconut, 3 tablespoons cocoa powder and 1/2 teaspoon vanilla; work into a dough. Roll into balls, then roll in shredded coconut. Chill.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [1, 0]
+MCQ If Common Sense: 0 (No)
+..................................................
+BIN Goal: how to make coconut-almond truffles
+BIN SOl:  Combine 3/4 cup almond butter, 1/2 cup each confectioners’ sugar and unsweetened shredded coconut, 3 tablespoons cocoa powder and 1/2 teaspoon vanilla; work into a dough. Roll into balls, then roll in shredded coconut. Chill.
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 0 (No)
+--------------------------------------------------
+MCQ Goal: To make hay.
+MCQ Sol1: Cut grass and dry them in the sun.
+MCQ SOl2: dry grass to remove all the water in it to prevent decomposition.
+MCQ GT: 0
+MCQ Model Pred: 1 (Incorrect)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 0 (No)
+..................................................
+BIN Goal: To make hay.
+BIN SOl:  dry grass to remove all the water in it to prevent decomposition.
+BIN GT: 0
+BIN Model Pred: 1 (Incorrect)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: how do you turn on an iphone?
+MCQ Sol1: press the side button for one second and let go.
+MCQ SOl2: press the side button opposite from the volume buttons, and hold it until the apple sign appears.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [0, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: how do you turn on an iphone?
+BIN SOl:  press the side button for one second and let go.
+BIN GT: 0
+BIN Model Pred: 1 (Incorrect)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: How to quickly dry a towel?
+MCQ Sol1: Once the towel is washed, twist and strain it in the bathtub then dry in the dryer and hang outside afterward
+MCQ SOl2: Before the towel is washed, twist and strain it in the bathtub then dry in the dryer and hang outside afterward
+MCQ GT: 0
+MCQ Model Pred: 1 (Incorrect)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: How to quickly dry a towel?
+BIN SOl:  Once the towel is washed, twist and strain it in the bathtub then dry in the dryer and hang outside afterward
+BIN GT: 1
+BIN Model Pred: 0 (Incorrect)
+BIN Humans Pred: [1, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: Plastic wrap
+MCQ Sol1: can keep soda fresh
+MCQ SOl2: can keep fruit fresh
+MCQ GT: 1
+MCQ Model Pred: 0 (Incorrect)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: Plastic wrap
+BIN SOl:  can keep soda fresh
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 1]
+BIN If Common Sense: 0 (No)
+--------------------------------------------------
+MCQ Goal: When working on the electrical components inside a lamp, you should
+MCQ Sol1: Make sure to unplug the lamp
+MCQ SOl2: Make sure to leave the lamp plugged in
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: When working on the electrical components inside a lamp, you should
+BIN SOl:  Make sure to leave the lamp plugged in
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: How to wear a wide brimmed hat?
+MCQ Sol1: Take the hat and place it on your head so that your head goes inside the opening.
+MCQ SOl2: Take the hat and place it on your head so that the hat goes inside out once it's worn.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: How to wear a wide brimmed hat?
+BIN SOl:  Take the hat and place it on your head so that the hat goes inside out once it's worn.
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: Paint your nails with polish.
+MCQ Sol1: Wash your hands and make sure your nails are clean. Pat dry. Get a file and clean up the edges. Wipe with towel and polish carefully.
+MCQ SOl2: Wash your hands and make sure your nails are clean. Pat dry. Decide what color you would like them and start painting. Don't worry about getting color on the edges, Let dry.
+MCQ GT: 0
+MCQ Model Pred: 1 (Incorrect)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: Paint your nails with polish.
+BIN SOl:  Wash your hands and make sure your nails are clean. Pat dry. Decide what color you would like them and start painting. Don't worry about getting color on the edges, Let dry.
+BIN GT: 0
+BIN Model Pred: 1 (Incorrect)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: How to properly dry and clean a knife?
+MCQ Sol1: After rising the knife with water and soap, use a kitchen towel and then a piece of paper towel to dry the knife
+MCQ SOl2: After rising the knife with water and soap, use a standard towel to dry and polish the knife properly
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: How to properly dry and clean a knife?
+BIN SOl:  After rising the knife with water and soap, use a kitchen towel and then a piece of paper towel to dry the knife
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: how do you fill up a bag?
+MCQ Sol1: place items in it until you want to close it.
+MCQ SOl2: place items in it until they reach the top.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [0, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: how do you fill up a bag?
+BIN SOl:  place items in it until they reach the top.
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: watering can
+MCQ Sol1: carry  children to the store
+MCQ SOl2: carry  coins to the store
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: watering can
+BIN SOl:  carry  coins to the store
+BIN GT: 1
+BIN Model Pred: 0 (Incorrect)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: To make bath bombs.
+MCQ Sol1: Put your fragrance and essential oils in fat soluble materials that won't dissolve in water so you can have the scent last a while.
+MCQ SOl2: Put your fragrance and essential oils in water soluble materials that can be packed into a ball.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: To make bath bombs.
+BIN SOl:  Put your fragrance and essential oils in water soluble materials that can be packed into a ball.
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: To design a exercise routine for the lower body you can do at home.
+MCQ Sol1: Do squats and lunges while holding the phones.
+MCQ SOl2: Do squats and lunges while holding the dumbbells.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: To design a exercise routine for the lower body you can do at home.
+BIN SOl:  Do squats and lunges while holding the dumbbells.
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: mirror
+MCQ Sol1: can be broken by a brick if thrown
+MCQ SOl2: can be broken by a shirt if thrown
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: mirror
+BIN SOl:  can be broken by a brick if thrown
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: To open a milk container.
+MCQ Sol1: Twist off the top and remove the seal underneath.
+MCQ SOl2: Twist off the top, discard it, and remove the seal underneath.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: To open a milk container.
+BIN SOl:  Twist off the top, discard it, and remove the seal underneath.
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [1, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: how do you shield someone?
+MCQ Sol1: stand in front of them so that no harm comes their way.
+MCQ SOl2: stand behind them so that no harm comes your way.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: how do you shield someone?
+BIN SOl:  stand in front of them so that no harm comes their way.
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: How to make hole in tin can.
+MCQ Sol1: Use a bobby pin to drill hole into sides of the can.
+MCQ SOl2: Use a drill to drill hole into sides of the can.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: How to make hole in tin can.
+BIN SOl:  Use a drill to drill hole into sides of the can.
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: Remove stench from baseball cap.
+MCQ Sol1: Place dryer sheets inside cap when wearing.
+MCQ SOl2: Place dryer sheets outside cap when wearing.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: Remove stench from baseball cap.
+BIN SOl:  Place dryer sheets inside cap when wearing.
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: container
+MCQ Sol1: can recycle tin foil 
+MCQ SOl2: can contain tin foil 
+MCQ GT: 1
+MCQ Model Pred: 0 (Incorrect)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: container
+BIN SOl:  can contain tin foil 
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: What material is a steel rocking chair made out of?
+MCQ Sol1: The frame is steel and then fabric can be added if you wish.
+MCQ SOl2: The frame is plastic and fabric can be added if you wish
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: What material is a steel rocking chair made out of?
+BIN SOl:  The frame is steel and then fabric can be added if you wish.
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: Is investing in the stock market a good choice?
+MCQ Sol1: Many people lose money in the stock market, and some research stocks and companies and learn about the market before investing. Education is probably the key to growing success in the stock market.
+MCQ SOl2: Many people lose money in the stock market, and some research stocks and companies and learn about the market before investing. Evolution is probably the key to growing success in the stock market.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: Is investing in the stock market a good choice?
+BIN SOl:  Many people lose money in the stock market, and some research stocks and companies and learn about the market before investing. Evolution is probably the key to growing success in the stock market.
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [1, 0]
+BIN If Common Sense: 0 (No)
+--------------------------------------------------
+MCQ Goal: To prevent dust from getting into resin design while it dries.
+MCQ Sol1: Shake the resin periodically while it dries.
+MCQ SOl2: Cover the resin while it dries.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: To prevent dust from getting into resin design while it dries.
+BIN SOl:  Shake the resin periodically while it dries.
+BIN GT: 0
+BIN Model Pred: 1 (Incorrect)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 0 (No)
+--------------------------------------------------
+MCQ Goal: Cut out pages from a book
+MCQ Sol1: Using an x-acto knife open the book and cut along the page near the binding.
+MCQ SOl2: Using a plastic knife open the book and cut along the page near the binding.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: Cut out pages from a book
+BIN SOl:  Using a plastic knife open the book and cut along the page near the binding.
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: Write a children's book
+MCQ Sol1: Go to the library and find a very popular children's book, if you don't know which are which, ask the librarian to help you to get the one that the majority of kids in the target age group tend to check out of the library.     Now check it out and take it home and try to copy it but change a word here and there so that you won't be sued for plagiarism .. find an . illustrator, self publish
+MCQ SOl2: Research what may be needed now in society, concerning children's books. find an illustrator, make a practice book and then sharpen it until it's honed to perfetion, ask for some critique, apply or don't. And publish
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: Write a children's book
+BIN SOl:  Research what may be needed now in society, concerning children's books. find an illustrator, make a practice book and then sharpen it until it's honed to perfetion, ask for some critique, apply or don't. And publish
+BIN GT: 1
+BIN Model Pred: 0 (Incorrect)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: stapler
+MCQ Sol1: can bash open  pumpkin  
+MCQ SOl2: can bash open  bank vault  
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: stapler
+BIN SOl:  can bash open  pumpkin  
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: pan
+MCQ Sol1: can cook bacon 
+MCQ SOl2: can cook dough 
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: pan
+BIN SOl:  can cook bacon 
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: To tidy up the pancake making process
+MCQ Sol1: Put the pancake mix in a used ketchup bottle.
+MCQ SOl2: Put the pancake mix in a clean ketchup bottle.
+MCQ GT: 1
+MCQ Model Pred: 0 (Incorrect)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: To tidy up the pancake making process
+BIN SOl:  Put the pancake mix in a clean ketchup bottle.
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: Save time at baggae claim.
+MCQ Sol1: Wrap dark cloth around luggage handle.
+MCQ SOl2: Wrap bright cloth around luggage handle.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: Save time at baggae claim.
+BIN SOl:  Wrap bright cloth around luggage handle.
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [0, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: How do you dry herbs when making homemade herb oil?
+MCQ Sol1: Place freshly washed and clean herbs in a cold refrigerator.
+MCQ SOl2: Place freshly washed and clean herbs in a food dehydrator.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: How do you dry herbs when making homemade herb oil?
+BIN SOl:  Place freshly washed and clean herbs in a cold refrigerator.
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 0 (No)
+--------------------------------------------------
+MCQ Goal: To add fragrance to glycerin for making soap.
+MCQ Sol1: Add oils after soap has melted.
+MCQ SOl2: Brush oils after soap had been molded.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 0 (No)
+..................................................
+BIN Goal: To add fragrance to glycerin for making soap.
+BIN SOl:  Brush oils after soap had been molded.
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [1, 0]
+BIN If Common Sense: 0 (No)
+--------------------------------------------------
+MCQ Goal: How to search in Yahoo
+MCQ Sol1: Open your desired electronic, click yahoo, then type in what you want to search and click enter
+MCQ SOl2: Open your desired magazine, click yahoo, then type in what you want to search and click enter
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: How to search in Yahoo
+BIN SOl:  Open your desired electronic, click yahoo, then type in what you want to search and click enter
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: How do you make maracas?
+MCQ Sol1: Wash the water bottle and remove the label with Goo Gone.     Fill the bottle with a handful of marbles and beads.     Glue the lid on the bottle with plastic adhesive to make sure those little bits don't ever get out.
+MCQ SOl2: Wash the water bottle and remove the label with Goo Gone.    Fill the bottle with a spoonful of marbles and beads.     Glue the lid on the bottle with plastic adhesive to make sure those little bits don't ever get out.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 0 (No)
+..................................................
+BIN Goal: How do you make maracas?
+BIN SOl:  Wash the water bottle and remove the label with Goo Gone.     Fill the bottle with a handful of marbles and beads.     Glue the lid on the bottle with plastic adhesive to make sure those little bits don't ever get out.
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: Get cheap pizza.
+MCQ Sol1: Call pizza place and ask for a discount on abandoned pizzas.
+MCQ SOl2: Call pizza place and ask for a discount on incomplete cooked pizzas.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: Get cheap pizza.
+BIN SOl:  Call pizza place and ask for a discount on abandoned pizzas.
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [0, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: Deodorize an item.
+MCQ Sol1: Keep item in a trash bag full of kitty litter for a few hours.
+MCQ SOl2: Keep item in a trash bag full of kitty litter for a few weeks.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 1]
+MCQ If Common Sense: 0 (No)
+..................................................
+BIN Goal: Deodorize an item.
+BIN SOl:  Keep item in a trash bag full of kitty litter for a few hours.
+BIN GT: 1
+BIN Model Pred: 0 (Incorrect)
+BIN Humans Pred: [0, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: To keep homemade apple juice from turning brown.
+MCQ Sol1: You can take any vitamin c tablets, and add a small, small amount to the food processor. I chop a 500mg tablet into quarters and add all of them to each processor load.
+MCQ SOl2: You can take any vitamin c tablets, and add a small, small amount to the food processor. I chop a 500mg tablet into quarters and add one of those to each processor load.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 0 (No)
+..................................................
+BIN Goal: To keep homemade apple juice from turning brown.
+BIN SOl:  You can take any vitamin c tablets, and add a small, small amount to the food processor. I chop a 500mg tablet into quarters and add all of them to each processor load.
+BIN GT: 0
+BIN Model Pred: 1 (Incorrect)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 0 (No)
+--------------------------------------------------
+MCQ Goal: how do you inflate a tire?
+MCQ Sol1: let the air out.
+MCQ SOl2: fill it with air.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: how do you inflate a tire?
+BIN SOl:  let the air out.
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: a bucket
+MCQ Sol1: can hold acid 
+MCQ SOl2: can hold paint 
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: a bucket
+BIN SOl:  can hold paint 
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: To attach strips of cardboard to a larger piece of cardboard, you can
+MCQ Sol1: Use a sanding belt to hold the strips of cardboard in place
+MCQ SOl2: Use a hot glue gun to hold the strips of cardboard in place
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: To attach strips of cardboard to a larger piece of cardboard, you can
+BIN SOl:  Use a hot glue gun to hold the strips of cardboard in place
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: How do I turn on a desktop computer?
+MCQ Sol1: You need to insert a screwdriver in an electrical socket while your second hands touches two metal pins on the motherboard.
+MCQ SOl2: Using a metal screwdriver, you need to connect two metal pins on the motherboard (power and ground).
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 0 (No)
+..................................................
+BIN Goal: How do I turn on a desktop computer?
+BIN SOl:  You need to insert a screwdriver in an electrical socket while your second hands touches two metal pins on the motherboard.
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: how do you distract someone?
+MCQ Sol1: keep them occupied with something else.
+MCQ SOl2: keep them on track.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: how do you distract someone?
+BIN SOl:  keep them occupied with something else.
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: folder
+MCQ Sol1: can be put into Christmas stockings 
+MCQ SOl2: can be put into Christmas logs 
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 1]
+MCQ If Common Sense: 0 (No)
+..................................................
+BIN Goal: folder
+BIN SOl:  can be put into Christmas stockings 
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: Get rid of flies indoors.
+MCQ Sol1: Use and electronic paddle swatter a regular fly swatter.
+MCQ SOl2: Use and electronic paddle swatter a regular tennis racquet.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: Get rid of flies indoors.
+BIN SOl:  Use and electronic paddle swatter a regular tennis racquet.
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 0 (No)
+--------------------------------------------------
+MCQ Goal: to depress someone?
+MCQ Sol1: make them angry
+MCQ SOl2: make them sad
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: to depress someone?
+BIN SOl:  make them sad
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: To coat veggies with flour and seasoning, you can
+MCQ Sol1: Use a knife to coat the veggies
+MCQ SOl2: Use a spoon to coat the veggies
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: To coat veggies with flour and seasoning, you can
+BIN SOl:  Use a knife to coat the veggies
+BIN GT: 0
+BIN Model Pred: 1 (Incorrect)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: wire
+MCQ Sol1: can make a hook for a walking stick 
+MCQ SOl2: can make a hook for a coat hanger 
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: wire
+BIN SOl:  can make a hook for a coat hanger 
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: To clean out your dishwasher,
+MCQ Sol1: scrub it all and then run an empty cycle with hot soapy water.
+MCQ SOl2: scrub it all and then run an empty cycle with cold soapy water.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: To clean out your dishwasher,
+BIN SOl:  scrub it all and then run an empty cycle with cold soapy water.
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [1, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: The best nail to use at every crossing of a roofing job
+MCQ Sol1: The use of a 160 mil nail at every crossing is the best.
+MCQ SOl2: The use of any nail available to make the roofing job is advised.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 0 (No)
+..................................................
+BIN Goal: The best nail to use at every crossing of a roofing job
+BIN SOl:  The use of any nail available to make the roofing job is advised.
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 0 (No)
+--------------------------------------------------
+MCQ Goal: how do you floss your teeth with a toothpick?
+MCQ Sol1: use the pick to scrape out any food stuck in your teeth.
+MCQ SOl2: chew on the toothpick
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: how do you floss your teeth with a toothpick?
+BIN SOl:  use the pick to scrape out any food stuck in your teeth.
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: Squeeze a lemon wedge into a drink.
+MCQ Sol1: Taking the lemon wedge in between your hands, hold it over the drink and squeeze your hands together, letting the juice drip out into the drink.
+MCQ SOl2: Taking the lemon wedge lengthwise in between your fingers, hold it over the drink and squeeze the ends inward towards the thicker center.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: Squeeze a lemon wedge into a drink.
+BIN SOl:  Taking the lemon wedge in between your hands, hold it over the drink and squeeze your hands together, letting the juice drip out into the drink.
+BIN GT: 0
+BIN Model Pred: 1 (Incorrect)
+BIN Humans Pred: [1, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: crayon
+MCQ Sol1: can color  the walls nicely
+MCQ SOl2: can color  the paper nicely
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: crayon
+BIN SOl:  can color  the paper nicely
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: How do you tell if a water bottle has been opened?
+MCQ Sol1: Test the cap and see if it breaks the seal to open.
+MCQ SOl2: See if there is any water missing from the bottle.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: How do you tell if a water bottle has been opened?
+BIN SOl:  See if there is any water missing from the bottle.
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: How do you leach acorns via cold process?
+MCQ Sol1: Place the acorns in a jar and pour in just enough water to completely cover the acorns. Let it soak for a day, and then pour out and replace the water with fresh water. Repeat this for one week.
+MCQ SOl2: Place the acorns in a jar and pour in just enough water to completely cover the acorns. Let it soak for a month, and then pour out and replace the water with fresh water. Repeat this for one year.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 0 (No)
+..................................................
+BIN Goal: How do you leach acorns via cold process?
+BIN SOl:  Place the acorns in a jar and pour in just enough water to completely cover the acorns. Let it soak for a month, and then pour out and replace the water with fresh water. Repeat this for one year.
+BIN GT: 0
+BIN Model Pred: 1 (Incorrect)
+BIN Humans Pred: [1, 0]
+BIN If Common Sense: 0 (No)
+--------------------------------------------------
+MCQ Goal: dish towel
+MCQ Sol1: will wipe away dirty grimy and awful stains from the counter
+MCQ SOl2: will wipe away dry and old paint from the counter
+MCQ GT: 0
+MCQ Model Pred: 1 (Incorrect)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: dish towel
+BIN SOl:  will wipe away dry and old paint from the counter
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: How can I get the marker stain out of my t shirt?
+MCQ Sol1: Run it under cold water with a bar of soap. Then use stain remover on it before putting it in the laundry machine.
+MCQ SOl2: Run it under cold water with a bar of soap. Then use stain remover on it before putting it in the dryer.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: How can I get the marker stain out of my t shirt?
+BIN SOl:  Run it under cold water with a bar of soap. Then use stain remover on it before putting it in the dryer.
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: How do I prep my eye glasses if I wanted to paint the frames a different color?
+MCQ Sol1: To prep your eye glass frames for paint, take the lenses out first. Then you will need to take some steel wool and rough up the lenses. Once that is done, put a small amount of elmer's glue on each hinge. Let dry for about 30 minutes.
+MCQ SOl2: To prep your eye glass frames for paint, take the lenses out first. Then you will need to take some steel wool and rough up the frame. Once that is done, put a small amount of elmer's glue on each hinge. Let dry for about 30 minutes.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: How do I prep my eye glasses if I wanted to paint the frames a different color?
+BIN SOl:  To prep your eye glass frames for paint, take the lenses out first. Then you will need to take some steel wool and rough up the lenses. Once that is done, put a small amount of elmer's glue on each hinge. Let dry for about 30 minutes.
+BIN GT: 0
+BIN Model Pred: 1 (Incorrect)
+BIN Humans Pred: [1, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: Wire Racks
+MCQ Sol1: can hold pennies. 
+MCQ SOl2: can hold cups 
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: Wire Racks
+BIN SOl:  can hold cups 
+BIN GT: 1
+BIN Model Pred: 0 (Incorrect)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: how to get perfectly done grilled meat
+MCQ Sol1: move closer to the coals the longer it has been on. when almost finished, move directly on top of the coals.
+MCQ SOl2: Take your meat and fish off the grill a few seconds before it's perfectly done because it cooks an extra 5–10 degrees when resting
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: how to get perfectly done grilled meat
+BIN SOl:  Take your meat and fish off the grill a few seconds before it's perfectly done because it cooks an extra 5–10 degrees when resting
+BIN GT: 1
+BIN Model Pred: 0 (Incorrect)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: To make a good Thank giving food basket for low income people,
+MCQ Sol1: pack the basket with holiday classics like turkey and gravy,
+MCQ SOl2: pack the basket with bulk dry good like beans and rice.
+MCQ GT: 0
+MCQ Model Pred: 1 (Incorrect)
+MCQ Humans Pred: [0, 1]
+MCQ If Common Sense: 0 (No)
+..................................................
+BIN Goal: To make a good Thank giving food basket for low income people,
+BIN SOl:  pack the basket with holiday classics like turkey and gravy,
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: How to install a carseat into the car.
+MCQ Sol1: Follow the instructions and try not to cuss too much.
+MCQ SOl2: Buy a car with a carseat already installed!
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [1, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: How to install a carseat into the car.
+BIN SOl:  Buy a car with a carseat already installed!
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: radio
+MCQ Sol1: can be used to listen to  music if it doesn't have batteries
+MCQ SOl2: can be used to listen to  silence if it doesn't have batteries
+MCQ GT: 1
+MCQ Model Pred: 0 (Incorrect)
+MCQ Humans Pred: [0, 1]
+MCQ If Common Sense: 0 (No)
+..................................................
+BIN Goal: radio
+BIN SOl:  can be used to listen to  music if it doesn't have batteries
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: how do you scan an ar code in a store?
+MCQ Sol1: take a picture of it with your phone camera.
+MCQ SOl2: take a picture of it with your digital camera.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: how do you scan an ar code in a store?
+BIN SOl:  take a picture of it with your phone camera.
+BIN GT: 1
+BIN Model Pred: 0 (Incorrect)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 0 (No)
+--------------------------------------------------
+MCQ Goal: how do I remove a chocolate milk stain?
+MCQ Sol1: Run cold water directly over the carpet stain.    Using a bit of dishwashing detergent and a clean cloth, rub the stain in a circular motion. Then let it sit for a few minutes.    Rinse the area with cold water again and the chocolate stain should disappear
+MCQ SOl2: Run cold water directly over the carpet stain.    Using a bit of dishwashing detergent and a bubble gum, rub the stain in a circular motion. Then let it sit for a few minutes.    Rinse the area with cold water again and the chocolate stain should disappear
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: how do I remove a chocolate milk stain?
+BIN SOl:  Run cold water directly over the carpet stain.    Using a bit of dishwashing detergent and a clean cloth, rub the stain in a circular motion. Then let it sit for a few minutes.    Rinse the area with cold water again and the chocolate stain should disappear
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [0, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: how do you make soup?
+MCQ Sol1: boil it in a crock pot or a pot.
+MCQ SOl2: boil it in a frying pan.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: how do you make soup?
+BIN SOl:  boil it in a crock pot or a pot.
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: How to get water out of coconut.
+MCQ Sol1: Use a hammer and a nail to pierce a few holes in the top of the coconut. Pour into cup.
+MCQ SOl2: Use a hammer and a nail to pierce a few holes in the top of the coconut. Pour into colander.
+MCQ GT: 0
+MCQ Model Pred: 1 (Incorrect)
+MCQ Humans Pred: [0, 1]
+MCQ If Common Sense: 0 (No)
+..................................................
+BIN Goal: How to get water out of coconut.
+BIN SOl:  Use a hammer and a nail to pierce a few holes in the top of the coconut. Pour into colander.
+BIN GT: 0
+BIN Model Pred: 1 (Incorrect)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: How to make Orange Nut fudge at home.
+MCQ Sol1: Mix 3 cups granulated sugar,  3/4 cup margarine, and  2/3 cup evaporated milk in a large, heavy saucepan over medium heat, stirring to dissolve sugar. Bring mixture to a full boil for 5 minutes, stirring constantly.  Remove from heat and stir in 12 ounce semi sweet chocolate chips until melted and thoroughly combined. Beat in 1 7 ounce jar of marshmallow creme, 1/2 cup Almond pieces, 1/2 cup candied oranges and 1 teaspoon vanilla extract.  Transfer fudge to Greased 8 x 13" pan and let cool before cutting into squares.
+MCQ SOl2: Mix 3 cups granulated sugar,  3/4 cup margarine, and  2/3 cup evaporated milk in a large, heavy saucepan over medium heat, stirring to dissolve sugar. Bring mixture to a full boil for 5 minutes, stirring constantly.  Remove from heat and stir in 12 ounce semi sweet chocolate chips until melted and thoroughly combined. Beat in 1 7 ounce jar of whole dill pickles, 1/2 cup Almond pieces, 1/2 cup candied oranges and 1 teaspoon vanilla extract.  Transfer fudge to Greased 8 x 13" pan and let cool before cutting into squares.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: How to make Orange Nut fudge at home.
+BIN SOl:  Mix 3 cups granulated sugar,  3/4 cup margarine, and  2/3 cup evaporated milk in a large, heavy saucepan over medium heat, stirring to dissolve sugar. Bring mixture to a full boil for 5 minutes, stirring constantly.  Remove from heat and stir in 12 ounce semi sweet chocolate chips until melted and thoroughly combined. Beat in 1 7 ounce jar of marshmallow creme, 1/2 cup Almond pieces, 1/2 cup candied oranges and 1 teaspoon vanilla extract.  Transfer fudge to Greased 8 x 13" pan and let cool before cutting into squares.
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 0 (No)
+--------------------------------------------------
+MCQ Goal: blanket
+MCQ Sol1: can cover a sofa from dirt
+MCQ SOl2: can make a sofa invisible
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: blanket
+BIN SOl:  can make a sofa invisible
+BIN GT: 0
+BIN Model Pred: 1 (Incorrect)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: Easy way to maintain a shopping list for groceries.
+MCQ Sol1: Save time by creating your shopping list during the week. Keep a blank piece of paper or use a magnetic message board and as you run out of things, write them down. That way you won't need to waste time thinking about what you ran out of.
+MCQ SOl2: Save time by creating your shopping bag during the week. Keep a blank piece of paper or use a magnetic message board and as you run out of things, put them in the bag. That way you won't need to waste time thinking about what you ran out of.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: Easy way to maintain a shopping list for groceries.
+BIN SOl:  Save time by creating your shopping list during the week. Keep a blank piece of paper or use a magnetic message board and as you run out of things, write them down. That way you won't need to waste time thinking about what you ran out of.
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: to keep from ruining the walls when painting
+MCQ Sol1: Use double-sided tape or hot glue UNDER painter's tape
+MCQ SOl2: Use double-sided tape or hot glue OVER painter's tape
+MCQ GT: 1
+MCQ Model Pred: 0 (Incorrect)
+MCQ Humans Pred: [0, 1]
+MCQ If Common Sense: 0 (No)
+..................................................
+BIN Goal: to keep from ruining the walls when painting
+BIN SOl:  Use double-sided tape or hot glue UNDER painter's tape
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: How can I cut pieces of wood down to the length that I need?
+MCQ Sol1: First measure out the length that you need with a tape measure, then cut with a ax.
+MCQ SOl2: First measure out the length that you need with a tape measure, then cut with a circular saw.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: How can I cut pieces of wood down to the length that I need?
+BIN SOl:  First measure out the length that you need with a tape measure, then cut with a circular saw.
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: To prevent a certain area of a piece of paper from being colored when applying dye, you can
+MCQ Sol1: Place a strip of masking tape on the part that you don't want to be colored
+MCQ SOl2: Place a strip of measuring tape on the part that you don't want to be colored
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: To prevent a certain area of a piece of paper from being colored when applying dye, you can
+BIN SOl:  Place a strip of masking tape on the part that you don't want to be colored
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: To knock out a stone fireplace for a renovation
+MCQ Sol1: Use a 1 lb hammer, hitting the stone until it all falls apart.
+MCQ SOl2: Use a 10 lb sledge hammer, hitting the stone until it all falls apart.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: To knock out a stone fireplace for a renovation
+BIN SOl:  Use a 10 lb sledge hammer, hitting the stone until it all falls apart.
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: To prepare the hotdog base for the hotdog burger
+MCQ Sol1: Cut the hot dogs into inch long chunks and put them into mouth and chew them until chopped meat consistanc
+MCQ SOl2: Cut the hot dogs into inch long chunks and put them into your blender or food processor until chopped meat consistanc
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: To prepare the hotdog base for the hotdog burger
+BIN SOl:  Cut the hot dogs into inch long chunks and put them into mouth and chew them until chopped meat consistanc
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: How to grow a plant.
+MCQ Sol1: Bury seed in sand and add 1 cup of water daily.
+MCQ SOl2: Bury seed in soil and add 1 cup of water daily.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: How to grow a plant.
+BIN SOl:  Bury seed in sand and add 1 cup of water daily.
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: To clean off the blinds in your home.
+MCQ Sol1: Take a duster or a rag even and wipe the dust off the blinds.
+MCQ SOl2: Take a duster or a rag even and wipe the dust into the blinds.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: To clean off the blinds in your home.
+BIN SOl:  Take a duster or a rag even and wipe the dust into the blinds.
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: How to boil pasta
+MCQ Sol1: Boil water in a large pot. To make sure pasta doesn't stick together, use at least 4 quarts of water for every pound of noodles.    Salt the water with at least a pinch—more is fine. The salty water adds flavor to the pasta.    Add pasta. ...    Stir the pasta. ...    Test the pasta by tasting it. ...    Drain the pasta.
+MCQ SOl2: Boil water in a large pot. To make sure pasta doesn't stick together, use at least 4 quarts of water for every pound of noodles.    Salt the water with at least a tablespoon—more is fine. The salty water adds flavor to the pasta.    Add pasta. ...    Stir the pasta. ...    Test the pasta by tasting it. ...    Drain the pasta.
+MCQ GT: 1
+MCQ Model Pred: 0 (Incorrect)
+MCQ Humans Pred: [1, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: How to boil pasta
+BIN SOl:  Boil water in a large pot. To make sure pasta doesn't stick together, use at least 4 quarts of water for every pound of noodles.    Salt the water with at least a tablespoon—more is fine. The salty water adds flavor to the pasta.    Add pasta. ...    Stir the pasta. ...    Test the pasta by tasting it. ...    Drain the pasta.
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: dresser
+MCQ Sol1: can be a stand for a  flower vase  
+MCQ SOl2: can be a stand for a  shoe 
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: dresser
+BIN SOl:  can be a stand for a  shoe 
+BIN GT: 0
+BIN Model Pred: 1 (Incorrect)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: a sponge
+MCQ Sol1: can clean a car properly
+MCQ SOl2: can clean teeth properly
+MCQ GT: 0
+MCQ Model Pred: 1 (Incorrect)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: a sponge
+BIN SOl:  can clean a car properly
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: What is the best way to apply nail polish to a professional result?
+MCQ Sol1: A quick way to apply the nail polish is to use a fairly big brush, and then use flesh-colored nail polish to cover up any places that turned out messy.
+MCQ SOl2: Tape the cuticles with any kind of tape that has been cut to fit snugly around the nail. Then go ahead and paint the nails. Remove the tape and if you still got nail polish on your cuticle or fingers, dip a q-tip in nail polish remover and wipe the excess away.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: What is the best way to apply nail polish to a professional result?
+BIN SOl:  Tape the cuticles with any kind of tape that has been cut to fit snugly around the nail. Then go ahead and paint the nails. Remove the tape and if you still got nail polish on your cuticle or fingers, dip a q-tip in nail polish remover and wipe the excess away.
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: To clean the front grill of your refrigerator
+MCQ Sol1: Remove it from your refrigerator and wash with water from the hose attachment.
+MCQ SOl2: Remove it from your refrigerator and wash in the washing machine.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: To clean the front grill of your refrigerator
+BIN SOl:  Remove it from your refrigerator and wash with water from the hose attachment.
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [0, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: A convenient way to store trash bags.
+MCQ Sol1: After you’ve finished using a container of disinfecting wipes, put your trash bags in it and pull them out as needed.
+MCQ SOl2: After you’ve finished using a container of disinfecting wipes, put your cosmetic bags in it and pull them out as needed.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: A convenient way to store trash bags.
+BIN SOl:  After you’ve finished using a container of disinfecting wipes, put your trash bags in it and pull them out as needed.
+BIN GT: 1
+BIN Model Pred: 0 (Incorrect)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: How to eat a grapefruit.
+MCQ Sol1: Using an orange peeler, remove the rind and then break each section off and enjoy.
+MCQ SOl2: Cut the grapefruit in half and then in chunks . put it into the blender and blend until drinkable and then drink it.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: How to eat a grapefruit.
+BIN SOl:  Using an orange peeler, remove the rind and then break each section off and enjoy.
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: how do you shut off the wifi?
+MCQ Sol1: shut off your devices.
+MCQ SOl2: unplug the router so that there won't be any more connection.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: how do you shut off the wifi?
+BIN SOl:  shut off your devices.
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: how to give pastry's a glossy appearance
+MCQ Sol1: brush tops with an egg wash
+MCQ SOl2: filet tops with an egg wash
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: how to give pastry's a glossy appearance
+BIN SOl:  filet tops with an egg wash
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [0, 0]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: how do you cut a sandwhich in half?
+MCQ Sol1: break it apart into two pieces.
+MCQ SOl2: use a knife to slice through the bread top and bottom of the sandwhich halfway across the sandwich.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: how do you cut a sandwhich in half?
+BIN SOl:  use a knife to slice through the bread top and bottom of the sandwhich halfway across the sandwich.
+BIN GT: 1
+BIN Model Pred: 0 (Incorrect)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: how to measure liquids
+MCQ Sol1: Bend down to get eye level with standard measuring cups and pour. Stop when the meniscus is at the top of the cup.
+MCQ SOl2: Bend down to get eye level with standard measuring cups and pour. Stop when the meniscus is at the bottom of the line
+MCQ GT: 1
+MCQ Model Pred: 0 (Incorrect)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: how to measure liquids
+BIN SOl:  Bend down to get eye level with standard measuring cups and pour. Stop when the meniscus is at the bottom of the line
+BIN GT: 1
+BIN Model Pred: 0 (Incorrect)
+BIN Humans Pred: [0, 1]
+BIN If Common Sense: 0 (No)
+--------------------------------------------------
+MCQ Goal: How to clean a toilet.
+MCQ Sol1: Add cleaner into the toilet and use a toilet brush to scrub around the inside.
+MCQ SOl2: Add cleaner on the toilet and use a toilet brush to scrub around the inside.
+MCQ GT: 0
+MCQ Model Pred: 1 (Incorrect)
+MCQ Humans Pred: [0, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: How to clean a toilet.
+BIN SOl:  Add cleaner into the toilet and use a toilet brush to scrub around the inside.
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: Choosing Better Food for Healthy diet
+MCQ Sol1: Government wildlife and fisheries agencies can be a good source for general nutrition guidelines.
+MCQ SOl2: Government health and food agencies can be a good source for general nutrition guidelines.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: Choosing Better Food for Healthy diet
+BIN SOl:  Government health and food agencies can be a good source for general nutrition guidelines.
+BIN GT: 1
+BIN Model Pred: 0 (Incorrect)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: How do you prepare mashed yams to be cooked?
+MCQ Sol1: Wash, peel, and trim the yams. Place the yams onto a cutting board and use a sharp knife to cut them into large, uniform chunks that are all approximately the same size.
+MCQ SOl2: Wash, peel, and trim the yams. Place the yams onto a cutting board and use a sharp knife to cut them into small, irregular chunks that are all varying  same size.
+MCQ GT: 0
+MCQ Model Pred: 0 (Correct)
+MCQ Humans Pred: [1, 0]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: How do you prepare mashed yams to be cooked?
+BIN SOl:  Wash, peel, and trim the yams. Place the yams onto a cutting board and use a sharp knife to cut them into small, irregular chunks that are all varying  same size.
+BIN GT: 0
+BIN Model Pred: 0 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------
+MCQ Goal: To make an alcohol watermelon.
+MCQ Sol1: Cut up the watermelon and squish it to make a juice and then add alcohol.
+MCQ SOl2: Cut a hole in the watermelon and pour your favorite liquor in and let it sit.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 0 (No)
+..................................................
+BIN Goal: To make an alcohol watermelon.
+BIN SOl:  Cut up the watermelon and squish it to make a juice and then add alcohol.
+BIN GT: 0
+BIN Model Pred: 1 (Incorrect)
+BIN Humans Pred: [1, 0]
+BIN If Common Sense: 0 (No)
+--------------------------------------------------
+MCQ Goal: How do I get the window of my van clean?
+MCQ Sol1: Use some wood cleaner and a rag to clean the window.
+MCQ SOl2: Use some glass cleaner and a rag to clean the window.
+MCQ GT: 1
+MCQ Model Pred: 1 (Correct)
+MCQ Humans Pred: [1, 1]
+MCQ If Common Sense: 1 (Yes)
+..................................................
+BIN Goal: How do I get the window of my van clean?
+BIN SOl:  Use some glass cleaner and a rag to clean the window.
+BIN GT: 1
+BIN Model Pred: 1 (Correct)
+BIN Humans Pred: [1, 1]
+BIN If Common Sense: 1 (Yes)
+--------------------------------------------------

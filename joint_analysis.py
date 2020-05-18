@@ -23,6 +23,8 @@ from nltk.corpus import words
 from nltk.tokenize import word_tokenize
 from nltk import agreement
 
+from scipy.stats import pearsonr
+
 
 # dicts for each categorical selections
 EDUCATION_LEVEL = {
@@ -120,6 +122,10 @@ def get_parser():
     parser.add_argument('--bin_qualt_dict', default=None,
                         help='the processed json files')
     parser.add_argument('--num_examples_to_show', type=int, default=5)
+    parser.add_argument('--mcq_model_preds', nargs="+", default=None,
+                        help='the mcq model predictions')
+    parser.add_argument('--bin_model_preds', nargs="+", default=None,
+                        help='the bin model predictions')
     # for single analysis
     parser.add_argument('--samples_csv', type=str, default=None,
                         help='sampled questions csv file')
@@ -151,6 +157,23 @@ def label_samples(args):
     for line in f:
         labels.append(int(line.strip()))
 
+    preds = None
+    if args.mcq_model_preds is not None or args.bin_model_preds is not None:
+        if args.task == "physicaliqa":
+            curr_model_preds = args.mcq_model_preds
+        elif args.task == "physicalbinqa":
+            curr_model_preds = args.bin_model_preds
+        preds = {}
+        for mcq_model_pred in curr_model_preds:
+            pred_f = os.path.join(mcq_model_pred, "pred.lst")
+            assert os.path.exists(pred_f)
+            model_name = pred_f.split("/")[-2]
+            preds[model_name] = []
+            pred_f = open(pred_f, "r")
+            for line in pred_f:
+                preds[model_name].append(int(line.strip()))
+        pass
+
     # get original data
     qa_pair_dict = {}
     f = open(args.data_jsonl, "r")
@@ -170,6 +193,11 @@ def label_samples(args):
             key = goal + "##" + sol
         else:
             raise NotImplementedError("Not handled yet!")
+
+        if preds is not None:
+            data_raw["model_preds"] = {}
+            for model_name in preds:
+                data_raw["model_preds"][model_name] = preds[model_name][line_cnt]
         
         # store gt labels in
         data_raw["gt_label"] = labels[line_cnt]
@@ -223,7 +251,7 @@ def label_samples(args):
         # store the raw data to each qualtrics id dict
         curr_qualtrics_label = "{}_Q{}".format(start_qa_num, start_block_num)
         qualt_sorted_dict[curr_qualtrics_label] = qa_pair_dict[key]
-        
+
         # qualtrics-id to ai2-id mapping
         id_ = qa_pair_dict[key]["id"]
         qualt_id_ai2_id_mapping[curr_qualtrics_label] = id_
@@ -242,574 +270,6 @@ def label_samples(args):
     return qualt_sorted_dict, qualt_id_ai2_id_mapping, ai2_id_qualt_id_mapping
 
  
-# reading the qualtrics csv files
-def read_qualtric_raw_csv(qualtrics_csv, qualt_sorted_dict, args, pp):
-    print ('-'*50)
-    print ("[INFO] Procssing {} ...".format(qualtrics_csv))
-
-    qualtrics_csv_file = open(qualtrics_csv, "r")
-    csv_reader = csv.DictReader(qualtrics_csv_file)
-
-    if args.start_block is None:
-        start_block = 2
-    else:
-        start_block = max(2, args.start_block)
-
-    if args.end_block is None:
-        end_block = args.num_total_blocks + 2
-    else:
-        end_block = min(args.num_total_blocks + 2, args.end_block)
-    
-    row_cnt = 0
-    for row in csv_reader:
-
-        # the annotated data will have "email" in "DistributionChannel"
-        if row["DistributionChannel"] == "email":
-            row_cnt += 1
-
-            for block_idx in range(start_block, end_block):
-                for question_idx in range(1, args.num_questions_each+1):
-
-                    # annotation dict
-                    qualtric_id = "{}_Q{}".format(question_idx, block_idx)
-                    if "annotations" not in qualt_sorted_dict[qualtric_id]:
-                        qualt_sorted_dict[qualtric_id]["annotations"] = {}
-                    curr_annot_dict = qualt_sorted_dict[qualtric_id]["annotations"]
-
-                    for sub_question_idx in range(2, 10): # question ranging from 2 to 9
-
-                        # qualtric sub id
-                        qualtric_sub_id = "{}_Q{}.{}".format(question_idx, block_idx, sub_question_idx)
-                        qualtric_sub_id_ = "{}_Q{}.{}_1".format(question_idx, block_idx, sub_question_idx)
-                        qualtric_sub_id_TEXT = "{}_Q{}.{}_7_TEXT".format(question_idx, block_idx, sub_question_idx)
-                        assert qualtric_sub_id in row or qualtric_sub_id_ in row
-                        if qualtric_sub_id in row:
-                            answer = row[qualtric_sub_id]
-                        elif qualtric_sub_id_ in row:
-                            answer = row[qualtric_sub_id_]
-                        
-                        # skip if not annotated
-                        if len(answer) <= 0:
-                            continue
-
-                        # for which to choose
-                        if sub_question_idx == 2:
-                            if "1. choice" not in curr_annot_dict:
-                                curr_annot_dict["1. choice"] = []
-                            if args.task == "physicaliqa":
-                                if "sol1" in answer:
-                                    curr_annot_dict["1. choice"].append(0)
-                                elif "sol2" in answer:
-                                    curr_annot_dict["1. choice"].append(1)
-                            elif args.task == "physicalbinqa":
-                                if "Incorrect" in answer:
-                                    curr_annot_dict["1. choice"].append(0)
-                                elif "Correct" in answer:
-                                    curr_annot_dict["1. choice"].append(1)
-
-                        # for confidence level
-                        if sub_question_idx == 3:
-                            if "2. confidence" not in curr_annot_dict:
-                                curr_annot_dict["2. confidence"] = []
-                            curr_annot_dict["2. confidence"].append(float(answer))
-
-                        # for others agreement
-                        if sub_question_idx == 4:
-                            if "3. others agreement" not in curr_annot_dict:
-                                curr_annot_dict["3. others agreement"] = []
-                            curr_annot_dict["3. others agreement"].append(float(answer))
-
-                        # if common sense
-                        if sub_question_idx == 5:
-                            if "4. if common sense" not in curr_annot_dict:
-                                curr_annot_dict["4. if common sense"] = []
-                            if "Yes" in answer:
-                                curr_annot_dict["4. if common sense"].append(1)
-                            elif "No" in answer:
-                                curr_annot_dict["4. if common sense"].append(0)
-
-                        # education level
-                        if sub_question_idx == 6:
-                            if "5. education level" not in curr_annot_dict:
-                                curr_annot_dict["5. education level"] = []
-                            for key in EDUCATION_LEVEL:
-                                if key in answer:
-                                    answer_id = EDUCATION_LEVEL[key]
-                                    curr_annot_dict["5. education level"].append(answer_id)
-
-                        # clearness of the question prompt and solution(s)
-                        if sub_question_idx == 7:
-                            if "6. clearness" not in curr_annot_dict:
-                                curr_annot_dict["6. clearness"] = []
-                            for key in CLEARNESS:
-                                if key in answer:
-                                    answer_id = CLEARNESS[key]
-                                    curr_annot_dict["6. clearness"].append(answer_id)
-
-                        # missing text
-                        if sub_question_idx == 8:
-                            if answer != "N/A":
-                                if "6. clearness" not in curr_annot_dict:
-                                    curr_annot_dict["6. clearness"] = []
-                                    curr_annot_dict["6. clearness"].append(CLEARNESS["None of the above"])
-                                elif "6. clearness" in curr_annot_dict and \
-                                        len(curr_annot_dict["6. clearness"]) == 0:
-                                    curr_annot_dict["6. clearness"].append(CLEARNESS["None of the above"])
-
-                                if "6.1. Missing Words" not in curr_annot_dict:
-                                    curr_annot_dict["6.1. Missing Words"] = []
-                                curr_annot_dict["6.1. Missing Words"].append(answer)
-
-                        # categories of the data instance
-                        if sub_question_idx == 9:
-                            if "7. category" not in curr_annot_dict:
-                                curr_annot_dict["7. category"] = []
-                            answer_ids = []
-                            for key in CATEGORIES:
-                                if key in answer:
-                                    answer_id = CATEGORIES[key]
-                                    answer_ids.append(answer_id)
-                            curr_annot_dict["7. category"].append(answer_ids)
-
-                            # None of the above text field
-                            if qualtric_sub_id_TEXT in row:
-                                if len(row[qualtric_sub_id_TEXT]) > 0:
-                                    answer_ids = [CATEGORIES["None of the above"]]
-                                    curr_annot_dict["7. category"].append(answer_ids)
-                    
-                    # pp.pprint(qualt_sorted_dict[qualtric_id])
-            pass
-            ####
-
-    qualtrics_csv_file.close()
-    print ("[INFO] This part has been annotated by {} annotators".format(row_cnt))
-
-    return qualt_sorted_dict
-
-
-# a function to display categorical data
-def display_categorical(arr, data_type, data_type_str):
-    d = {x: 0 for x in range(len(data_type))}
-    total_cnt = 0
-
-    for ele in arr:
-        d[ele] += 1
-        total_cnt += 1
-    
-    for cat in sorted(d):
-        cat_cnt = d[cat]
-        cat_name = data_type[cat]
-        cat_perc = float(cat_cnt) / float(total_cnt) * 100.0
-        print ("[Analysis] [{}] {}: {}/{} = {:.2f} % ".format(data_type_str,
-            cat_name, cat_cnt, total_cnt, cat_perc))
-
-    return d
-
-
-# some simple statistics function
-def simple_analysis(qualt_sorted_dict, args, pp):
-
-    # generals
-    num_annotators_per_question = 0
-
-    # statistics holders
-    correct_cnt = 0
-    total_cnt = 0
-    confidences = []
-    agreements = []
-    if_common_sense = []
-    edu_level = []
-    clearness = []
-    categories = []
-
-    confidences_when_correct = []
-    confidences_when_wrong = []
-
-    which_correct_iaa = []
-    which_correct_iaa_and_correct = []
-
-    if_common_sense_iaa = []
-    if_common_sense_iaa_cs_and_correct = []
-    if_common_sense_iaa_not_cs_and_correct = []
-    if_common_sense_iaa_cs_confs = []
-    if_common_sense_iaa_not_cs_confs = []
-
-    edu_level_iaa = []
-    edu_level_iaa_counts = []
-    edu_level_iaa_perf = {}
-
-    cat_iaa = {
-        0: {"cnt": 0, "correct": 0},
-        1: {"cnt": 0, "correct": 0},
-        2: {"cnt": 0, "correct": 0},
-        3: {"cnt": 0, "correct": 0},
-        4: {"cnt": 0, "correct": 0},
-        5: {"cnt": 0, "correct": 0},
-    }
-    cat_iaa_1 = {
-        0: {"cnt": 0, "correct": 0},
-        1: {"cnt": 0, "correct": 0},
-        2: {"cnt": 0, "correct": 0},
-        3: {"cnt": 0, "correct": 0},
-        4: {"cnt": 0, "correct": 0},
-        5: {"cnt": 0, "correct": 0},
-    }
-    cat_iaa_ids = {
-        0: [],
-        1: [],
-        2: [],
-        3: [],
-        4: [],
-        5: [],
-    }
-
-    if_cs_ids_f = open(os.path.join(args.out_dir, "{}_common_sense_iaa_ids.txt".format(TASK_ABR[args.task])), "w")
-    if_not_cs_ids_f = open(os.path.join(args.out_dir, "{}_not_common_sense_iaa_ids.txt".format(TASK_ABR[args.task])), "w")
-    if_cs_ids_dict = {}
-    if_not_cs_ids_dict = {}
-
-    # TODO: all categorical data
-    all_cat_data_ids = {
-        "edu": {c: [] for c in EDUCATION_LEVEL_ID},
-        "cat": {c: [] for c in CATEGORIES_ID},
-        "com": {c: [] for c in IF_COMMON_SENSE_ID},
-        "all": []
-    }
-    ai2_ids2data = {}
-
-    missing_words_list = []
-
-    # looping the data
-    for qualt_id in qualt_sorted_dict:
-    
-        # TODO: sometimes we can analyze a range of results
-        if "annotations" not in qualt_sorted_dict[qualt_id]:
-            continue
-
-        curr_annots = qualt_sorted_dict[qualt_id]["annotations"]
-        if len(curr_annots) == 0: # not yet annotated!
-            continue
-
-        gt = qualt_sorted_dict[qualt_id]["gt_label"]
-        id_curr = qualt_sorted_dict[qualt_id]["id"]
-        all_cat_data_ids["all"].append(id_curr)
-
-        ai2_ids2data[id_curr] = {"goal": qualt_sorted_dict[qualt_id]["goal"]}
-        if args.task == "physicaliqa":
-            ai2_ids2data[id_curr]["sol1"] = qualt_sorted_dict[qualt_id]["sol1"]
-            ai2_ids2data[id_curr]["sol2"] = qualt_sorted_dict[qualt_id]["sol2"]
-        elif args.task == "physicalbinqa":
-            ai2_ids2data[id_curr]["sol"] = qualt_sorted_dict[qualt_id]["sol"]
-
-        # human accuracies
-        choices = curr_annots["1. choice"]
-        for choice in choices:
-            if choice ==  gt:
-                correct_cnt += 1
-        total_cnt += len(choices)
-        num_annotators_per_question = max(len(choices), num_annotators_per_question)
-        if len(choices) > 1:
-            which_correct_iaa.append(sum(choices))
-            # FIXME can't be 0.5 in the future
-            if float(sum(choices)) / float(len(choices)) > 0.5:
-                for choice in choices:
-                    if choice == gt:
-                        which_correct_iaa_and_correct.append(1)
-                    else:
-                        which_correct_iaa_and_correct.append(0)
-            elif float(sum(choices)) / float(len(choices)) < 0.5:
-                for choice in choices:
-                    if choice == gt:
-                        which_correct_iaa_and_correct.append(1)
-                    else:
-                        which_correct_iaa_and_correct.append(0)
-
-        # confidences
-        confs = curr_annots["2. confidence"]
-        confidences += confs
-        for choice_idx in range(len(choices)):
-            choice = choices[choice_idx]
-            if choice == gt:
-                confidences_when_correct.append(confs[choice_idx])
-            else:
-                confidences_when_wrong.append(confs[choice_idx])
-
-        # others agreements
-        agrees = curr_annots["3. others agreement"]
-        agreements += agrees
-
-        # if common sense
-        if_cs = curr_annots["4. if common sense"]
-        if_common_sense += if_cs
-        if len(if_cs) > 1:
-            if_common_sense_iaa.append(sum(if_cs))
-            # if IAA >= 50% and answered correctly
-            # FIXME can't be 0.5 in the future
-            if float(sum(if_cs)) / float(len(if_cs)) > 0.5:
-                if id_curr not in if_cs_ids_dict:
-                    if_cs_ids_dict[id_curr] = {"gt": gt, "human_preds": []}
-
-                for choice in choices:
-                    if choice == gt:
-                        if_common_sense_iaa_cs_and_correct.append(1)
-                    else:
-                        if_common_sense_iaa_cs_and_correct.append(0)
-                    if_cs_ids_dict[id_curr]["human_preds"].append(choice)
-                if_cs_ids_f.write(id_curr+'\n')
-                all_cat_data_ids["com"][1].append(id_curr)
-
-                if_common_sense_iaa_cs_confs += confs
-
-            elif float(sum(if_cs)) / float(len(if_cs)) < 0.5:
-                if id_curr not in if_not_cs_ids_dict:
-                    if_not_cs_ids_dict[id_curr] = {"gt": gt, "human_preds": []}
-
-                for choice in choices:
-                    if choice == gt:
-                        if_common_sense_iaa_not_cs_and_correct.append(1)
-                    else:
-                        if_common_sense_iaa_not_cs_and_correct.append(0)
-                    if_not_cs_ids_dict[id_curr]["human_preds"].append(choice)
-                if_not_cs_ids_f.write(id_curr+'\n')
-                all_cat_data_ids["com"][0].append(id_curr)
-
-                if_common_sense_iaa_not_cs_confs += confs
-
-        # educational level
-        edu = curr_annots["5. education level"]
-        edu_level += edu
-        if len(edu) > 1:
-            edu_counter = Counter(edu)
-            edu_iaa_curr = edu_counter.most_common(1)[0]
-            edu_iaa_ele, edu_iaa_cnt = edu_iaa_curr
-            if edu_iaa_cnt > len(edu) // 2:
-                edu_level_iaa.append(edu_iaa_ele)
-                edu_level_iaa_counts.append(1)
-                all_cat_data_ids["edu"][edu_iaa_ele].append(id_curr)
-                for choice in choices:
-                    if choice == gt:
-                        if edu_iaa_ele not in edu_level_iaa_perf:
-                            edu_level_iaa_perf[edu_iaa_ele] = 1
-                        else:
-                            edu_level_iaa_perf[edu_iaa_ele] += 1
-            else:
-                edu_level_iaa_counts.append(0)
-
-        # question clearness
-        if "6. clearness" in curr_annots:
-            clr = curr_annots["6. clearness"]
-            clearness += clr
-
-        # categories
-        if "7. category" in curr_annots:
-            ctrg = curr_annots["7. category"]
-            ctrg_curr = []
-            for ctrg_user in ctrg:
-                categories += ctrg_user
-                ctrg_curr += ctrg_user
-
-            if len(ctrg) > 1:
-                ctrg_curr = Counter(ctrg_curr)
-                for ctrg_num in ctrg_curr:
-                    ctrg_num_cnt = ctrg_curr[ctrg_num]
-                    if ctrg_num_cnt > len(ctrg) // 2:
-                        cat_iaa[ctrg_num]["cnt"] += 1
-                        all_cat_data_ids["cat"][ctrg_num].append(id_curr)
-                        cat_iaa_ids[ctrg_num].append(id_curr)
-                        for choice in choices:
-                            if choice == gt:
-                                cat_iaa[ctrg_num]["correct"] += 1
-                    if ctrg_num_cnt == len(ctrg) // 2:
-                        cat_iaa_1[ctrg_num]["cnt"] += 1
-                        for choice in choices:
-                            if choice == gt:
-                                cat_iaa_1[ctrg_num]["correct"] += 1
-
-        pass
-
-        if "6.1. Missing Words" in curr_annots:
-            for missing_words_curr in curr_annots["6.1. Missing Words"]:
-                if 'n/a' not in missing_words_curr and 'N/a' not in missing_words_curr:
-                    missing_words_list.append(missing_words_curr)
-        
-        pass
-
-    ###########################################################################
-
-    # post processing
-    confidences = np.asarray(confidences)
-    agreements = np.asarray(agreements)
-    if_common_sense = np.asarray(if_common_sense)
-    edu_level = np.asarray(edu_level)
-    clearness = np.asarray(clearness)
-    categories = np.asarray(categories)
-    confidences_when_correct = np.asarray(confidences_when_correct)
-    confidences_when_wrong = np.asarray(confidences_when_wrong)
-    if_common_sense_iaa_cs_confs = np.asarray(if_common_sense_iaa_cs_confs)
-    if_common_sense_iaa_not_cs_confs = np.asarray(if_common_sense_iaa_not_cs_confs)
-
-    # results
-    human_acc = float(correct_cnt) / float(total_cnt) * 100.0
-    mean_confidences = np.mean(confidences)
-    mean_agreements = np.mean(agreements)
-    mean_if_cs = np.mean(if_common_sense) * 100.0
-    mean_conf_when_correct = np.mean(confidences_when_correct)
-    mean_conf_when_wrong = np.mean(confidences_when_wrong)
-    mean_if_cs_iaa_cs_confs = np.mean(if_common_sense_iaa_cs_confs)
-    mean_if_cs_iaa_not_cs_confs = np.mean(if_common_sense_iaa_not_cs_confs)
-
-    print ("[Analysis] Human Accuracy: {:.2f} %".format(human_acc))
-    print ("[Analysis] Mean Confidence: {:.2f} %".format(mean_confidences))
-    print ("[Analysis] Mean Others Agree: {:.2f} %".format(mean_agreements))
-    print ("[Analysis] Mean If Common Sense: {:.2f} %".format(mean_if_cs))
-    print ("[Analysis] Mean Confidence when Correct: {:.2f} %".format(mean_conf_when_correct))
-    print ("[Analysis] Mean Confidence when Wrong: {:.2f} %".format(mean_conf_when_wrong))
-    print ("[Analysis] Mean Confidence Common Sense: {:.2f} %".format(mean_if_cs_iaa_cs_confs))
-    print ("[Analysis] Mean Confidence Not Common Sense: {:.2f} %".format(mean_if_cs_iaa_not_cs_confs))
-
-    # display histograms of categorical data
-    print ('.'*50)
-    display_categorical(edu_level, EDUCATION_LEVEL_ID, "EDUCATION_LEVEL")
-    print ('.'*50)
-    display_categorical(clearness, CLEARNESS_ID, "CLEARNESS")
-    print ('.'*50)
-    display_categorical(categories, CATEGORIES_ID, "CATEGORIES")
-
-    print ('-'*50)
-    print ('[IAA]')
-    print ("Num Annotators per Question: {}".format(num_annotators_per_question))
-    if_cs_bins = list(range(0, num_annotators_per_question+2))
-    if_cs_hist, _ = np.histogram(if_common_sense_iaa, bins=if_cs_bins)
-    print (if_cs_hist, _)
-    print (if_cs_hist / np.sum(if_cs_hist) * 100.)
-    if_common_sense_iaa_cs_and_correct = np.asarray(if_common_sense_iaa_cs_and_correct)
-    if_common_sense_iaa_cs_and_correct_acc = np.mean(if_common_sense_iaa_cs_and_correct)
-    if_common_sense_iaa_not_cs_and_correct = np.asarray(if_common_sense_iaa_not_cs_and_correct)
-    if_common_sense_iaa_not_cs_and_correct_acc = np.mean(if_common_sense_iaa_not_cs_and_correct)
-    print (len(if_common_sense_iaa_cs_and_correct))
-    print (if_common_sense_iaa_cs_and_correct_acc)
-    print (len(if_common_sense_iaa_not_cs_and_correct))
-    print (if_common_sense_iaa_not_cs_and_correct_acc)
-    print ('-'*50)
-
-    which_correct_bins = list(range(0, num_annotators_per_question+2))
-    which_correct_hist, _ = np.histogram(which_correct_iaa, bins=which_correct_bins)
-    print (which_correct_hist, _)
-    print (which_correct_hist / np.sum(which_correct_hist) * 100.)
-    which_correct_iaa_and_correct = np.asarray(which_correct_iaa_and_correct)
-    which_correct_iaa_and_correct_acc = np.mean(which_correct_iaa_and_correct)
-    print (len(which_correct_iaa_and_correct))
-    print (which_correct_iaa_and_correct_acc)
-    print ('-'*50)
-
-    print (len(edu_level_iaa))
-    edu_level_bins = list(range(0, len(EDUCATION_LEVEL_ID)+2))
-    edu_level_hist, _ = np.histogram(edu_level_iaa, bins=edu_level_bins)
-    print (edu_level_hist, _)
-    print (edu_level_hist / np.sum(edu_level_hist) * 100.)
-    print (float(sum(edu_level_iaa_counts)) / float(len(edu_level_iaa_counts))* 100.)
-    pp.pprint(edu_level_iaa_perf)
-    edu_level_iaa_perf_l = [edu_level_iaa_perf[c] for c in sorted(edu_level_iaa_perf)]
-    edu_level_iaa_perf_l = np.asarray(edu_level_iaa_perf_l) / num_annotators_per_question
-    edu_level_hist_l = np.asarray([x for x in edu_level_hist if x > 0])
-    edu_level_hist_acc = edu_level_iaa_perf_l / edu_level_hist_l * 100.0
-    print (edu_level_hist_acc)
-
-    print ('-'*50)
-    pp.pprint(cat_iaa)
-    pp.pprint(cat_iaa_1)
-    cat_counts_l = np.asarray([cat_iaa[cat]["cnt"] for cat in cat_iaa])
-    cat_corrects_l = np.asarray([cat_iaa[cat]["correct"] for cat in cat_iaa])
-    cat_corrects_l = cat_corrects_l / num_annotators_per_question
-    cat_corrects_acc = cat_corrects_l / cat_counts_l * 100.0
-    print (cat_corrects_acc)
-
-    # close files
-    if_cs_ids_f.close()
-    if_not_cs_ids_f.close()
-
-    # dump files
-    json.dump(cat_iaa_ids, open(os.path.join("files", "{}_cat_ids.json".format(args.task)), "w"))
-    if_cs_ids_json = open(os.path.join(args.out_dir, "{}_common_sense_iaa_ids.json".format(TASK_ABR[args.task])), "w")
-    if_not_cs_ids_json = open(os.path.join(args.out_dir, "{}_not_common_sense_iaa_ids.json".format(TASK_ABR[args.task])), "w")
-    json.dump(if_cs_ids_dict, if_cs_ids_json)
-    json.dump(if_not_cs_ids_dict, if_not_cs_ids_json)
-
-    # plotting top-k words histograms
-    top_k_words_hist(all_cat_data_ids, ai2_ids2data, args, tags_prefix=['N', 'V'])
-
-    # saving all the categorical ids file
-    json.dump(all_cat_data_ids, open(os.path.join(args.out_dir, "{}_all_cat_ids.json".format(TASK_ABR[args.task])), "w"))
-    
-    # missing terms
-    pp.pprint(missing_words_list)
-
-    return None
-
-
-def top_k_words_hist(d, ai2_ids2data, args, tags_prefix=None):
-    print ('-'*50)
-    print ("Saving various figures to {}".format(args.figs_dir))
-
-    if args.start_k is None:
-        start_k = 0
-    else:
-        start_k = max(0, args.start_k)
-    if args.end_k is None:
-        end_k = args.top_k_words
-    else:
-        end_k = args.end_k
-
-    cat_keys = ["com", "edu", "cat"]
-    for cat_key in cat_keys:
-        figs_root = os.path.join(args.figs_dir, args.task, cat_key)
-        if not os.path.exists(figs_root):
-            os.makedirs(figs_root)
-
-        for cat in sorted(d[cat_key]):
-            cat_words_list = []
-            for id_ in d[cat_key][cat]:
-                sents = []
-                goal = ai2_ids2data[id_]["goal"]
-                if args.task == "physicaliqa":
-                    sol1 = ai2_ids2data[id_]["sol1"]
-                    sol2 = ai2_ids2data[id_]["sol2"]
-                    sents = [goal, sol1, sol2]
-                elif args.task == "physicalbinqa":
-                    sol = ai2_ids2data[id_]["sol"]
-                    sents = [goal, sol]
-
-                # FIXME: currently only doing simple word tokenize, can do
-                # ner/pos tag in the future as well, if more informative
-                for sent in sents:
-                    tokens = word_tokenize(sent)
-                    tokens_and_tags = nltk.pos_tag(tokens)
-                    if tags_prefix is not None:
-                        tokens = [w for w, t in tokens_and_tags if t[0] in tags_prefix]
-                    cat_words_list += tokens
-
-            cat_words_dict = Counter(cat_words_list)
-            top_k_words = cat_words_dict.most_common(len(cat_words_dict))
-            top_k_words = top_k_words[start_k:end_k]
-            values = [v for (w, v) in top_k_words]
-            tokens = [w for (w, v) in top_k_words]
-
-            # TODO: plotting
-            fig = plt.figure(figsize=(20, 10))
-            plt.bar(range(len(values)), values, align='center')
-            plt.xticks(range(len(tokens)), tokens)
-            plt.xticks(rotation=90, fontsize=14)
-            title = CAT_NAMES[cat_key] + ": " + CAT_ID_DICTS[cat_key][cat]
-            plt.title(title)
-            print (title)
-            save_name = cat_key + "_" + str(cat) + ".png"
-            save_path = os.path.join(figs_root, save_name)
-            fig.savefig(save_path, bbox_inches="tight")
-            plt.close(fig)
-
-    return None
-
-
 def joint_qualitative_if_cs(mcq_res_ids, bin_res_ids, mqc_qualt_sorted_dict, 
                             bin_qualt_sorted_dict, ai2_id_qualt_id_mapping,
                             mcq_qualt_dict, bin_qualt_dict,
@@ -1015,12 +475,400 @@ def computer_iaas(mcq_qualt_dict, bin_qualt_dict, args, mode="mcq"):
         joint_not_cs_correct_mcq_acc = float(joint_not_cs_correct_mcq) / float(joint_not_cs_cnt) * 100.
         joint_cs_correct_bin_acc = float(joint_cs_correct_bin) / float(joint_cs_cnt) * 100.
         joint_not_cs_correct_bin_acc = float(joint_not_cs_correct_bin) / float(joint_not_cs_cnt) * 100.
-        print ("Joint CS MCQ Correct =     {}/{} = {}%".format(joint_cs_correct_mcq, joint_cs_cnt, joint_cs_correct_mcq_acc))
-        print ("Joint Not CS MCQ Correct = {}/{} = {}%".format(joint_not_cs_correct_mcq, joint_not_cs_cnt, joint_not_cs_correct_mcq_acc))
-        print ("Joint CS BIN Correct =     {}/{} = {}%".format(joint_cs_correct_bin, joint_cs_cnt, joint_cs_correct_bin_acc))
-        print ("Joint Not CS BIN Correct = {}/{} = {}%".format(joint_not_cs_correct_bin, joint_not_cs_cnt, joint_cs_correct_bin_acc))
+        print ("Joint CS MCQ Correct =     {}/{} = {}%".format(
+            joint_cs_correct_mcq, joint_cs_cnt, joint_cs_correct_mcq_acc))
+        print ("Joint Not CS MCQ Correct = {}/{} = {}%".format(
+            joint_not_cs_correct_mcq, joint_not_cs_cnt, joint_not_cs_correct_mcq_acc))
+        print ("Joint CS BIN Correct =     {}/{} = {}%".format(
+            joint_cs_correct_bin, joint_cs_cnt, joint_cs_correct_bin_acc))
+        print ("Joint Not CS BIN Correct = {}/{} = {}%".format(
+            joint_not_cs_correct_bin, joint_not_cs_cnt, joint_cs_correct_bin_acc))
 
     print ('-'*50)
+
+    return None
+
+
+def bin_vs_mcq_inspect(mcq_qualt_dict, bin_qualt_dict, ai2_id_qualt_id_mapping,
+                       mcq_res_ids, bin_res_ids, args=None):
+
+    # TODO: new way to compute bin accuracy
+    bin_labels = []
+    bin_preds = []
+    bin_new_preds = {}
+    bin_labels_f = open(args.bin_data_lst, "r")
+    bin_preds_f = open(os.path.join(args.bin_model_preds[0], "pred.lst"), "r")
+    for line in bin_labels_f:
+        bin_labels.append(int(line.strip()))
+    for line in bin_preds_f:
+        bin_preds.append(int(line.strip()))
+    bin_labels = np.asarray(bin_labels)
+    bin_preds = np.asarray(bin_preds)
+    bin_model_acc_org = np.mean(bin_labels==bin_preds)
+    print ("BIN-Models Original Acc: {:.4f}".format(bin_model_acc_org))
+    bin_data_f = open(args.bin_data_jsonl, "r")
+    bin_idx = 0
+    bin_new_acc = 0
+    for line in bin_data_f:
+        data_raw = json.loads(line.strip())
+        id_curr = data_raw["id"]
+        if id_curr in bin_new_preds:
+            continue
+        bin_pred1 = bin_preds[bin_idx]
+        bin_pred2 = bin_preds[bin_idx+1]
+        bin_gt1 = bin_labels[bin_idx]
+        bin_gt2 = bin_labels[bin_idx+1]
+        if bin_pred1 == bin_gt1 and bin_pred2 == bin_gt2:
+            bin_new_preds[id_curr] = True
+            bin_new_acc += 1
+        else:
+            bin_new_preds[id_curr] = False
+        bin_idx += 2
+
+    bin_new_acc = float(bin_new_acc) / len(bin_new_preds)
+    print ("BIN-Models New Acc: {:.4f}".format(bin_new_acc))
+
+    # decide the number of annotators
+    num_annotators_per_question = 0
+    len_data = len(mcq_qualt_dict)
+    assert len(mcq_qualt_dict) == len(bin_qualt_dict)
+
+    for key in mcq_qualt_dict:
+        annots = mcq_qualt_dict[key]["annotations"]["1. choice"]
+        num_annots = len(annots)
+        num_annotators_per_question = max(num_annotators_per_question, num_annots)
+
+    num_iaas = num_annotators_per_question * 2
+
+    # TODO:
+    qualt_ids = sorted(mcq_qualt_dict.keys())
+    assert qualt_ids == sorted(bin_qualt_dict.keys())
+
+    mcq_bin_perf_f = open(os.path.join(args.out_dir, "mcq_bin_performances_details.txt"), "w")
+    mcq_bin_perf_f.write('-'*50+'\n')
+
+    humans_mcq_y_bin_n_if_cs = []
+    humans_mcq_y_bin_y_if_cs = []
+    humans_mcq_n_bin_y_if_cs = []
+    humans_mcq_n_bin_n_if_cs = []
+
+    model_mcq_y_bin_n_if_cs = []
+    model_mcq_y_bin_y_if_cs = []
+    model_mcq_n_bin_y_if_cs = []
+    model_mcq_n_bin_n_if_cs = []
+    
+    mcq_choice_iaa_if_cs_iaa_pred = []
+    mcq_choice_iaa_if_cs_iaa_if_cs = []
+    mcq_model_if_cs_iaa_pred = []
+    mcq_model_if_cs_iaa_if_cs = []
+
+    bin_choice_iaa_if_cs_iaa_pred = []
+    bin_choice_iaa_if_cs_iaa_if_cs = []
+    bin_model_if_cs_iaa_pred = []
+    bin_model_if_cs_iaa_if_cs = []
+
+    bin_model_correct_cond_mcq_model_correct = []
+    mcq_model_correct_cond_bin_model_correct = []
+
+    mcq_humans_perf_if_cs_iaa = []
+    bin_humans_perf_if_cs_iaa = []
+    mcq_models_perf_if_cs_iaa = []
+    bin_models_perf_if_cs_iaa = []
+    bin_models_new_perf_if_cs_iaa = []
+
+    for qualt_id in qualt_ids:
+
+        id_curr = mcq_qualt_dict[qualt_id]["id"]
+        assert id_curr == bin_qualt_dict[qualt_id]["id"]
+
+        mcq_data = mcq_qualt_dict[qualt_id]
+        bin_data = bin_qualt_dict[qualt_id]
+        mcq_annots = mcq_data["annotations"]
+        bin_annots = bin_data["annotations"]
+
+        mcq_gt = mcq_data["gt_label"]
+        bin_gt = bin_data["gt_label"]
+
+        mcq_choices = mcq_annots["1. choice"]
+        bin_choices = bin_annots["1. choice"]
+        mcq_choices_counter = Counter(mcq_choices)
+        bin_choices_counter = Counter(bin_choices)
+        mcq_choice, mcq_choice_cnt = mcq_choices_counter.most_common(1)[0]
+        bin_choice, bin_choice_cnt = bin_choices_counter.most_common(1)[0]
+
+        mcq_if_css = mcq_annots["4. if common sense"]
+        bin_if_css = bin_annots["4. if common sense"]
+        mcq_if_css_counter = Counter(mcq_if_css)
+        bin_if_css_counter = Counter(bin_if_css)
+        mcq_if_cs, mcq_if_cs_cnt = mcq_if_css_counter.most_common(1)[0]
+        bin_if_cs, bin_if_cs_cnt = bin_if_css_counter.most_common(1)[0]
+
+        if "model_preds" in mcq_data and "model_preds" in bin_data:
+            assert len(mcq_data["model_preds"]) == 1
+            assert len(bin_data["model_preds"]) == 1
+            mcq_model_name = list(mcq_data["model_preds"].keys())[0]
+            bin_model_name = list(bin_data["model_preds"].keys())[0]
+            mcq_model_choice = mcq_data["model_preds"][mcq_model_name]
+            bin_model_choice = bin_data["model_preds"][bin_model_name]
+
+            # if_cs iaa
+            if mcq_if_cs_cnt > num_annotators_per_question // 2:
+                mcq_model_if_cs_iaa_pred.append(mcq_model_choice==mcq_gt)
+                mcq_model_if_cs_iaa_if_cs.append(mcq_if_cs)
+            if bin_if_cs_cnt > num_annotators_per_question // 2:
+                bin_model_if_cs_iaa_pred.append(bin_model_choice==bin_gt)
+                bin_model_if_cs_iaa_if_cs.append(bin_if_cs)
+
+            if mcq_if_cs_cnt > num_annotators_per_question // 2 \
+                    and bin_if_cs_cnt > num_annotators_per_question // 2:
+                mcq_goal = mcq_data["goal"]
+                mcq_sol1 = mcq_data["sol1"]
+                mcq_sol2 = mcq_data["sol2"]
+                bin_goal = bin_data["goal"]
+                assert mcq_goal == bin_goal
+                bin_sol  = bin_data["sol"]
+                assert bin_sol == mcq_sol1 or bin_sol == mcq_sol2
+
+                # if common sense
+                if mcq_if_cs == 1 and bin_if_cs == 1:
+                    if mcq_model_choice == mcq_gt:
+                        if bin_model_choice == bin_gt:
+                            bin_model_correct_cond_mcq_model_correct.append(1)
+                        else:
+                           bin_model_correct_cond_mcq_model_correct.append(0)
+                    if bin_model_choice == bin_gt:
+                        if mcq_model_choice == mcq_gt:
+                            mcq_model_correct_cond_bin_model_correct.append(1)
+                        else:
+                            mcq_model_correct_cond_bin_model_correct.append(0)
+                    if mcq_model_choice == mcq_gt:
+                        mcq_models_perf_if_cs_iaa.append(1)
+                    else:
+                        mcq_models_perf_if_cs_iaa.append(0)
+                    if bin_model_choice == bin_gt:
+                        bin_models_perf_if_cs_iaa.append(1)
+                    else:
+                        bin_models_perf_if_cs_iaa.append(0)
+                    if bin_new_preds[id_curr]:
+                        bin_models_new_perf_if_cs_iaa.append(1)
+                    else:
+                        bin_models_new_perf_if_cs_iaa.append(0)
+
+                    if mcq_choice_cnt > num_annotators_per_question // 2:
+                        mcq_humans_perf_if_cs_iaa.append(mcq_choice==mcq_gt)
+                    if bin_choice_cnt > num_annotators_per_question // 2:
+                        bin_humans_perf_if_cs_iaa.append(bin_choice==bin_gt)
+
+                mcq_humans_pred_str = "MCQ Humans Pred: {}".format(mcq_choices)
+                bin_humans_pred_str = "BIN Humans Pred: {}".format(bin_choices)
+
+                mcq_bin_perf_f.write("MCQ Goal: {}\n".format(mcq_goal))
+                mcq_bin_perf_f.write("MCQ Sol1: {}\n".format(mcq_sol1))
+                mcq_bin_perf_f.write("MCQ SOl2: {}\n".format(mcq_sol2))
+                mcq_gt_str = "MCQ GT: {}".format(mcq_gt)
+                mcq_pred_str = "MCQ Model Pred: {} ({})".format(
+                    mcq_model_choice, "Correct" if mcq_model_choice==mcq_gt else "Incorrect")
+                mcq_if_cs_str = "MCQ If Common Sense: {} ({})".format(
+                    mcq_if_cs, "Yes" if mcq_if_cs==1 else "No")
+                mcq_bin_perf_f.write(mcq_gt_str+"\n")
+                mcq_bin_perf_f.write(mcq_pred_str+"\n")
+                mcq_bin_perf_f.write(mcq_humans_pred_str+"\n")
+                mcq_bin_perf_f.write(mcq_if_cs_str+"\n")
+                mcq_bin_perf_f.write('.'*50+'\n')
+
+                mcq_bin_perf_f.write("BIN Goal: {}\n".format(bin_goal))
+                mcq_bin_perf_f.write("BIN SOl:  {}\n".format(bin_sol))
+                bin_gt_str = "BIN GT: {}".format(bin_gt)
+                bin_pred_str = "BIN Model Pred: {} ({})".format(
+                    bin_model_choice, "Correct" if bin_model_choice==bin_gt else "Incorrect")
+                bin_if_cs_str = "BIN If Common Sense: {} ({})".format(
+                    bin_if_cs, "Yes" if bin_if_cs==1 else "No")
+                mcq_bin_perf_f.write(bin_gt_str+"\n")
+                mcq_bin_perf_f.write(bin_pred_str+"\n")
+                mcq_bin_perf_f.write(bin_humans_pred_str+"\n")
+                mcq_bin_perf_f.write(bin_if_cs_str+"\n")
+                mcq_bin_perf_f.write('-'*50+'\n')
+
+            # mcq_y_bin_n
+            if mcq_model_choice == mcq_gt and bin_model_choice != bin_gt:
+                if mcq_if_cs_cnt > num_annotators_per_question // 2:
+                    if mcq_if_cs == 1:
+                        model_mcq_y_bin_n_if_cs.append(1)
+                    else:
+                        model_mcq_y_bin_n_if_cs.append(0)
+            # mcq_y_bin_y
+            if mcq_model_choice == mcq_gt and bin_model_choice == bin_gt:
+                if mcq_if_cs_cnt > num_annotators_per_question // 2:
+                    if mcq_if_cs == 1:
+                        model_mcq_y_bin_y_if_cs.append(1)
+                    else:
+                        model_mcq_y_bin_y_if_cs.append(0)
+            # mcq_n_bin_y
+            if mcq_model_choice != mcq_gt and bin_model_choice == bin_gt:
+                if mcq_if_cs_cnt > num_annotators_per_question // 2:
+                    if mcq_if_cs == 1:
+                        model_mcq_n_bin_y_if_cs.append(1)
+                    else:
+                        model_mcq_n_bin_y_if_cs.append(0)
+            # mcq_n_bin_n
+            if mcq_model_choice != mcq_gt and bin_model_choice != bin_gt:
+                if mcq_if_cs_cnt > num_annotators_per_question // 2:
+                    if mcq_if_cs == 1:
+                        model_mcq_n_bin_n_if_cs.append(1)
+                    else:
+                        model_mcq_n_bin_n_if_cs.append(0)
+
+        # choice iaa if_cs iaa
+        if mcq_choice_cnt > num_annotators_per_question // 2 \
+                and mcq_if_cs_cnt > num_annotators_per_question // 2:
+            mcq_choice_iaa_if_cs_iaa_pred.append(mcq_choice==mcq_gt)
+            mcq_choice_iaa_if_cs_iaa_if_cs.append(mcq_if_cs)
+        if bin_choice_cnt > num_annotators_per_question // 2 \
+                and bin_if_cs_cnt > num_annotators_per_question // 2:
+            bin_choice_iaa_if_cs_iaa_pred.append(bin_choice==bin_gt)
+            bin_choice_iaa_if_cs_iaa_if_cs.append(bin_if_cs)
+                
+        # individual IAA
+        if mcq_choice_cnt > num_annotators_per_question // 2 \
+                and bin_choice_cnt > num_annotators_per_question // 2:
+            
+            # mcq_y_bin_n
+            if mcq_choice == mcq_gt and bin_choice != bin_gt:
+                if mcq_if_cs_cnt > num_annotators_per_question // 2:
+                    if mcq_if_cs == 1:
+                        humans_mcq_y_bin_n_if_cs.append(1)
+                    else:
+                        humans_mcq_y_bin_n_if_cs.append(0)
+            # mcq_y_bin_y
+            if mcq_choice == mcq_gt and bin_choice == bin_gt:
+                if mcq_if_cs_cnt > num_annotators_per_question // 2:
+                    if mcq_if_cs == 1:
+                        humans_mcq_y_bin_y_if_cs.append(1)
+                    else:
+                        humans_mcq_y_bin_y_if_cs.append(0)
+            # mcq_n_bin_y
+            if mcq_choice != mcq_gt and bin_choice == bin_gt:
+                if bin_if_cs_cnt > num_annotators_per_question // 2:
+                    if bin_if_cs == 1:
+                        humans_mcq_n_bin_y_if_cs.append(1)
+                    else:
+                        humans_mcq_n_bin_y_if_cs.append(0)
+            # mcq_n_bin_n
+            if mcq_choice != mcq_gt and bin_choice != bin_gt:
+                if mcq_if_cs_cnt > num_annotators_per_question // 2:
+                    if mcq_if_cs == 1:
+                        humans_mcq_n_bin_n_if_cs.append(1)
+                    else:
+                        humans_mcq_n_bin_n_if_cs.append(0)
+
+    humans_mcq_y_bin_n_if_cs = np.asarray(humans_mcq_y_bin_n_if_cs)
+    humans_mcq_y_bin_y_if_cs = np.asarray(humans_mcq_y_bin_y_if_cs)
+    humans_mcq_n_bin_y_if_cs = np.asarray(humans_mcq_n_bin_y_if_cs)
+    humans_mcq_n_bin_n_if_cs = np.asarray(humans_mcq_n_bin_n_if_cs)
+
+    humans_mcq_y_bin_n_if_cs_acc = np.mean(humans_mcq_y_bin_n_if_cs)
+    humans_mcq_y_bin_y_if_cs_acc = np.mean(humans_mcq_y_bin_y_if_cs)
+    humans_mcq_n_bin_y_if_cs_acc = np.mean(humans_mcq_n_bin_y_if_cs)
+    humans_mcq_n_bin_n_if_cs_acc = np.mean(humans_mcq_n_bin_n_if_cs)
+
+    model_mcq_y_bin_n_if_cs = np.asarray(model_mcq_y_bin_n_if_cs)
+    model_mcq_y_bin_y_if_cs = np.asarray(model_mcq_y_bin_y_if_cs)
+    model_mcq_n_bin_y_if_cs = np.asarray(model_mcq_n_bin_y_if_cs)
+    model_mcq_n_bin_n_if_cs = np.asarray(model_mcq_n_bin_n_if_cs)
+
+    model_mcq_y_bin_n_if_cs_acc = np.mean(model_mcq_y_bin_n_if_cs)
+    model_mcq_y_bin_y_if_cs_acc = np.mean(model_mcq_y_bin_y_if_cs)
+    model_mcq_n_bin_y_if_cs_acc = np.mean(model_mcq_n_bin_y_if_cs)
+    model_mcq_n_bin_n_if_cs_acc = np.mean(model_mcq_n_bin_n_if_cs)
+
+    print ("MCQ_Y_BIN_N_CS: {} (of {})".format(humans_mcq_y_bin_n_if_cs_acc,
+        len(humans_mcq_y_bin_n_if_cs)))
+    print ("MCQ_Y_BIN_Y_CS: {} (of {})".format(humans_mcq_y_bin_y_if_cs_acc,
+        len(humans_mcq_y_bin_y_if_cs)))
+    print ("MCQ_N_BIN_Y_CS: {} (of {})".format(humans_mcq_n_bin_y_if_cs_acc,
+        len(humans_mcq_n_bin_y_if_cs)))
+    print ("MCQ_N_BIN_N_CS: {} (of {})".format(humans_mcq_n_bin_n_if_cs_acc,
+        len(humans_mcq_n_bin_n_if_cs)))
+
+    print ('.'*50)
+    print ("Model_MCQ_Y_BIN_N_CS: {} (of {})".format(model_mcq_y_bin_n_if_cs_acc,
+        len(model_mcq_y_bin_n_if_cs)))
+    print ("Model_MCQ_Y_BIN_Y_CS: {} (of {})".format(model_mcq_y_bin_y_if_cs_acc,
+        len(model_mcq_y_bin_y_if_cs)))
+    print ("Model_MCQ_N_BIN_Y_CS: {} (of {})".format(model_mcq_n_bin_y_if_cs_acc,
+        len(model_mcq_n_bin_y_if_cs)))
+    print ("Model_MCQ_N_BIN_N_CS: {} (of {})".format(model_mcq_n_bin_n_if_cs_acc,
+        len(model_mcq_n_bin_n_if_cs)))
+
+    # TODO Pearson Correlation:
+    mcq_choice_iaa_if_cs_iaa_pred = np.asarray(mcq_choice_iaa_if_cs_iaa_pred) * 1.
+    mcq_choice_iaa_if_cs_iaa_if_cs = np.asarray(mcq_choice_iaa_if_cs_iaa_if_cs) * 1.
+    mcq_model_if_cs_iaa_pred = np.asarray(mcq_model_if_cs_iaa_pred) * 1.
+    mcq_model_if_cs_iaa_if_cs = np.asarray(mcq_model_if_cs_iaa_if_cs) * 1.
+
+    bin_choice_iaa_if_cs_iaa_pred = np.asarray(bin_choice_iaa_if_cs_iaa_pred) * 1.
+    bin_choice_iaa_if_cs_iaa_if_cs = np.asarray(bin_choice_iaa_if_cs_iaa_if_cs) * 1.
+    bin_model_if_cs_iaa_pred = np.asarray(bin_model_if_cs_iaa_pred) * 1.
+    bin_model_if_cs_iaa_if_cs = np.asarray(bin_model_if_cs_iaa_pred) * 1.
+
+    mcq_correct_if_cs_pr = pearsonr(mcq_choice_iaa_if_cs_iaa_pred, mcq_choice_iaa_if_cs_iaa_if_cs)
+    mcq_model_correct_if_cs_pr = pearsonr(mcq_model_if_cs_iaa_pred, mcq_model_if_cs_iaa_if_cs)
+    bin_correct_if_cs_pr = pearsonr(bin_choice_iaa_if_cs_iaa_pred, bin_choice_iaa_if_cs_iaa_if_cs)
+    bin_model_correct_if_cs_pr = pearsonr(bin_model_if_cs_iaa_pred, bin_model_if_cs_iaa_if_cs)
+
+    print ('.'*50)
+    print ("MCQ-Humans, Correct vs. Common Sense Pearson: {:.3f}".format(mcq_correct_if_cs_pr[0]))
+    print ("MCQ-Models, Correct vs. Common Sense Pearson: {:.3f}".format(mcq_model_correct_if_cs_pr[0]))
+    print ("BIN-Humans, Correct vs. Common Sense Pearson: {:.3f}".format(bin_correct_if_cs_pr[0]))
+    print ("BIN-Models, Correct vs. Common Sense Pearson: {:.3f}".format(bin_model_correct_if_cs_pr[0]))
+    
+    print ('.'*50)
+    mcq_if_cs_indices = mcq_choice_iaa_if_cs_iaa_if_cs==1
+    bin_if_cs_indices = bin_choice_iaa_if_cs_iaa_if_cs==1
+    mcq_model_if_cs_indices = mcq_model_if_cs_iaa_if_cs==1
+    bin_model_if_cs_indices = bin_model_if_cs_iaa_if_cs==1
+    # Compute
+    mcq_correct_cond_if_cs = np.mean(mcq_choice_iaa_if_cs_iaa_pred[mcq_if_cs_indices]==mcq_choice_iaa_if_cs_iaa_if_cs[mcq_if_cs_indices])
+    mcq_model_correct_cond_if_cs = np.mean(mcq_model_if_cs_iaa_pred[mcq_model_if_cs_indices]==mcq_model_if_cs_iaa_if_cs[mcq_model_if_cs_indices])
+    bin_correct_cond_if_cs = np.mean(bin_choice_iaa_if_cs_iaa_pred[bin_if_cs_indices]==bin_choice_iaa_if_cs_iaa_if_cs[bin_if_cs_indices])
+    bin_model_correct_cond_if_cs = np.mean(bin_model_if_cs_iaa_pred[bin_model_if_cs_indices]==bin_model_if_cs_iaa_if_cs[bin_model_if_cs_indices])
+    print ("MCQ-Humans, Correct conditioned on Common Sense: {:.3f}".format(mcq_correct_cond_if_cs))
+    print ("MCQ-Models, Correct conditioned on Common Sense: {:.3f}".format(mcq_model_correct_cond_if_cs))
+    print ("BIN-Humans, Correct conditioned on Common Sense: {:.3f}".format(bin_correct_cond_if_cs))
+    print ("BIN-Models, Correct conditioned on Common Sense: {:.3f}".format(bin_model_correct_cond_if_cs))
+
+    bin_model_correct_cond_mcq_model_correct = np.asarray(bin_model_correct_cond_mcq_model_correct)
+    mcq_model_correct_cond_bin_model_correct = np.asarray(mcq_model_correct_cond_bin_model_correct)
+
+    bin_model_correct_cond_mcq_model_correct_acc = np.mean(bin_model_correct_cond_mcq_model_correct)
+    mcq_model_correct_cond_bin_model_correct_acc = np.mean(mcq_model_correct_cond_bin_model_correct)
+
+    print ('.'*50)
+    print (len(mcq_model_correct_cond_bin_model_correct))
+    print (len(bin_model_correct_cond_mcq_model_correct))
+    print ("MCQ Model Correct Conditioned on BIN Model Correct: {:.4f}".format(mcq_model_correct_cond_bin_model_correct_acc))
+    print ("BIN Model Correct Conditioned on MCQ Model Correct: {:.4f}".format(bin_model_correct_cond_mcq_model_correct_acc))
+
+    print ('.'*50)
+    mcq_humans_perf_if_cs_iaa = np.asarray(mcq_humans_perf_if_cs_iaa)
+    bin_humans_perf_if_cs_iaa = np.asarray(bin_humans_perf_if_cs_iaa)
+    mcq_humans_perf_if_cs_iaa_acc = np.mean(mcq_humans_perf_if_cs_iaa)
+    bin_humans_perf_if_cs_iaa_acc = np.mean(bin_humans_perf_if_cs_iaa)
+    mcq_models_perf_if_cs_iaa = np.asarray(mcq_models_perf_if_cs_iaa)
+    bin_models_perf_if_cs_iaa = np.asarray(bin_models_perf_if_cs_iaa)
+    mcq_models_perf_if_cs_iaa_acc = np.mean(mcq_models_perf_if_cs_iaa)
+    bin_models_perf_if_cs_iaa_acc = np.mean(bin_models_perf_if_cs_iaa)
+    bin_models_new_perf_if_cs_iaa = np.asarray(bin_models_new_perf_if_cs_iaa)
+    bin_models_new_perf_if_cs_iaa_acc = np.mean(bin_models_new_perf_if_cs_iaa)
+    print (len(mcq_humans_perf_if_cs_iaa))
+    print (len(bin_humans_perf_if_cs_iaa))
+    print (len(mcq_models_perf_if_cs_iaa))
+    print (len(bin_models_perf_if_cs_iaa))
+    print ("MCQ Humans Both MCQ-BIN-CS: {:.4f}".format(mcq_humans_perf_if_cs_iaa_acc))
+    print ("BIN Humans Both MCQ-BIN-CS: {:.4f}".format(bin_humans_perf_if_cs_iaa_acc))
+    print ("MCQ Models Both MCQ-BIN-CS: {:.4f}".format(mcq_models_perf_if_cs_iaa_acc))
+    print ("BIN Models Both MCQ-BIN-CS: {:.4f}".format(bin_models_perf_if_cs_iaa_acc))
+    print ("BIN Models Both MCQ-BIN-CS: {:.4f} (New)".format(bin_models_new_perf_if_cs_iaa_acc))
 
     return None
 
@@ -1051,20 +899,15 @@ def analyze_pipeline(args):
     args.samples_csv = args.bin_samples_csv
     bin_qualt_sorted_dict, _, _ = label_samples(args)
 
-    # looping over the given qualtrics csv files
-    # for qualtrics_csv in args.input_csv_files:
-    #     qualt_sorted_dict = read_qualtric_raw_csv(qualtrics_csv,
-    #         qualt_sorted_dict, args, pp)
-    
-    # print ('-'*50)
-    # print ("[INFO] Showing one examplar processed data instance ...")
-    # exp_key = sorted(list(qualt_sorted_dict.keys()))[0]
-    # print ("Qualtric ID: {}".format(exp_key))
-    # pp.pprint(qualt_sorted_dict[exp_key])
-    # print ('-'*50)
-
-    # get some quick statistics
-    # simple_analysis(qualt_sorted_dict, args, pp)
+    # merge with model preds
+    if args.mcq_model_preds is not None and args.bin_model_preds is not None:
+        for qualt_id  in mqc_qualt_sorted_dict:
+            if qualt_id not in mcq_qualt_dict:
+                continue
+            if qualt_id not in bin_qualt_dict:
+                continue
+            mcq_qualt_dict[qualt_id]["model_preds"] = mqc_qualt_sorted_dict[qualt_id]["model_preds"]
+            bin_qualt_dict[qualt_id]["model_preds"] = bin_qualt_sorted_dict[qualt_id]["model_preds"]
 
     # TODO: Main joint analysis
     mcq_res_ids = json.load(open(args.mcq_processed_ids_json_file, "r"))
@@ -1079,6 +922,10 @@ def analyze_pipeline(args):
     computer_iaas(mcq_qualt_dict, bin_qualt_dict, args, mode="mcq")
     computer_iaas(mcq_qualt_dict, bin_qualt_dict, args, mode="bin")
     computer_iaas(mcq_qualt_dict, bin_qualt_dict, args, mode="joint")
+
+    # BIN vs. MCQ Inspection
+    bin_vs_mcq_inspect(mcq_qualt_dict, bin_qualt_dict,
+                       ai2_id_qualt_id_mapping, mcq_res_ids, bin_res_ids, args)
 
     # TODO: add models performances here
     pass
