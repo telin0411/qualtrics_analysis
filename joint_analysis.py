@@ -989,6 +989,69 @@ def bin_vs_mcq_inspect(mcq_qualt_dict, bin_qualt_dict, ai2_id_qualt_id_mapping,
     return None
 
 
+def sample_compl_binpiqa(ai2_id_qualt_id_mapping, mcq_qualt_dict, bin_qualt_dict, args=None):
+    qualt_ids = sorted(list(mcq_qualt_dict.keys()))
+    assert qualt_ids == sorted(list(bin_qualt_dict.keys()))
+
+    csv_out = open(os.path.join(args.out_dir, "binpiqa_survey_sampels_complementary.csv"), "w")
+    fieldnames = ["goal", "sol", "gt", "ai2id", "qualtid_org", "qualtid_new"]
+    wr = csv.DictWriter(csv_out, fieldnames=fieldnames)
+    wr.writeheader()
+
+    samples_cnt = 1
+    qualt_block = 2
+    qualt_block_org_start = 2
+    qualt_block_org_end = len(qualt_ids) // 30
+
+    for qualt_block_org in range(qualt_block_org_start, qualt_block_org_end):
+        for qualt_ques_idx in range(1, 31):
+            qualt_id = "{}_Q{}".format(qualt_ques_idx, qualt_block_org)
+            mcq_data = mcq_qualt_dict[qualt_id]
+            bin_data = bin_qualt_dict[qualt_id]
+            mcq_goal = mcq_data["goal"]
+            mcq_sol1 = mcq_data["sol1"]
+            mcq_sol2 = mcq_data["sol2"]
+            mcq_id   = mcq_data["id"]
+            mcq_gt   = mcq_data["gt_label"]
+            bin_goal = bin_data["goal"]
+            bin_sol  = bin_data["sol"]
+            bin_id   = bin_data["id"]
+            bin_gt   = bin_data["gt_label"]
+            assert bin_sol == mcq_sol1 or bin_sol == mcq_sol2
+            assert mcq_id == bin_id
+            bin_annots = bin_data["annotations"]
+            bin_choices = bin_annots["1. choice"]
+            
+            bin_choices_counter = Counter(bin_choices)
+            bin_choice, bin_choice_cnt = bin_choices_counter.most_common(1)[0]
+
+            if samples_cnt > 30:
+                samples_cnt = 1
+                qualt_block += 1
+                row = {"goal":"", "sol":"", "gt":"", "ai2id":"", "qualtid_org":"", "qualtid_new":""}
+                wr.writerow(row)
+
+            if bin_choice == bin_gt and bin_choice_cnt > len(bin_choices) // 2:
+                new_bon_goal = bin_goal
+                new_bin_sol = mcq_sol1 if bin_sol == mcq_sol2 else mcq_sol2
+                new_bin_gt = 1 - bin_gt
+                new_bin_ai2id = bin_id
+                qualtid_org = qualt_id
+                qualtid_new = "{}_Q{}".format(samples_cnt, qualt_block)
+                samples_cnt += 1
+                row = {
+                    "goal": new_bon_goal,
+                    "sol": new_bin_sol,
+                    "gt": new_bin_gt,
+                    "ai2id": new_bin_ai2id,
+                    "qualtid_org": qualtid_org,
+                    "qualtid_new": qualtid_new,
+                }
+                wr.writerow(row)
+
+    return None
+
+
 # the main function
 def analyze_pipeline(args):
     pp = pprint.PrettyPrinter(indent=2)
@@ -1014,6 +1077,10 @@ def analyze_pipeline(args):
     args.data_lst = args.bin_data_lst
     args.samples_csv = args.bin_samples_csv
     bin_qualt_sorted_dict, _, _ = label_samples(args)
+
+    # sample complementary bin-piqa
+    # sample_compl_binpiqa(ai2_id_qualt_id_mapping, mcq_qualt_dict, bin_qualt_dict, args)
+    # raise
 
     # merge with model preds
     if args.mcq_model_preds is not None and args.bin_model_preds is not None:
