@@ -576,6 +576,22 @@ def bin_vs_mcq_inspect(mcq_qualt_dict, bin_qualt_dict, ai2_id_qualt_id_mapping,
     bin_models_perf_if_cs_iaa = []
     bin_models_new_perf_if_cs_iaa = []
 
+    mcq_humans_perf_if_not_cs_iaa = []
+    bin_humans_perf_if_not_cs_iaa = []
+    mcq_models_perf_if_not_cs_iaa = []
+    bin_models_perf_if_not_cs_iaa = []
+    bin_models_new_perf_if_not_cs_iaa = []
+
+    mcq_humans_perf_ties_iaa = []
+    bin_humans_perf_ties_iaa = []
+    mcq_models_perf_ties_iaa = []
+    bin_models_perf_ties_iaa = []
+    bin_models_new_perf_ties_iaa = []
+
+    both_mcq_bin_if_cs_cnt = 0
+    both_mcq_bin_if_not_cs_cnt = 0
+    either_mcq_bin_if_cs_cnt = 0
+
     for qualt_id in qualt_ids:
 
         id_curr = mcq_qualt_dict[qualt_id]["id"]
@@ -603,6 +619,9 @@ def bin_vs_mcq_inspect(mcq_qualt_dict, bin_qualt_dict, ai2_id_qualt_id_mapping,
         mcq_if_cs, mcq_if_cs_cnt = mcq_if_css_counter.most_common(1)[0]
         bin_if_cs, bin_if_cs_cnt = bin_if_css_counter.most_common(1)[0]
 
+        mcq_bin_if_css_counter = Counter(mcq_if_css+bin_if_css)
+        mcq_bin_if_cs, mcq_bin_if_cs_cnt = mcq_bin_if_css_counter.most_common(1)[0]
+
         if "model_preds" in mcq_data and "model_preds" in bin_data:
             assert len(mcq_data["model_preds"]) == 1
             assert len(bin_data["model_preds"]) == 1
@@ -619,8 +638,29 @@ def bin_vs_mcq_inspect(mcq_qualt_dict, bin_qualt_dict, ai2_id_qualt_id_mapping,
                 bin_model_if_cs_iaa_pred.append(bin_model_choice==bin_gt)
                 bin_model_if_cs_iaa_if_cs.append(bin_if_cs)
 
-            if mcq_if_cs_cnt > num_annotators_per_question // 2 \
-                    and bin_if_cs_cnt > num_annotators_per_question // 2:
+            if mcq_bin_if_cs_cnt == num_annotators_per_question:
+                if mcq_model_choice == mcq_gt:
+                    mcq_models_perf_ties_iaa.append(1)
+                else:
+                    mcq_models_perf_ties_iaa.append(0)
+                if bin_model_choice == bin_gt:
+                    bin_models_perf_ties_iaa.append(1)
+                else:
+                    bin_models_perf_ties_iaa.append(0)
+                if bin_new_preds[id_curr]:
+                    bin_models_new_perf_ties_iaa.append(1)
+                else:
+                    bin_models_new_perf_ties_iaa.append(0)
+                if mcq_choice_cnt > num_annotators_per_question // 2:
+                    mcq_humans_perf_ties_iaa.append(mcq_choice==mcq_gt)
+                if bin_choice_cnt > num_annotators_per_question // 2:
+                    bin_humans_perf_ties_iaa.append(bin_choice==bin_gt)
+
+                either_mcq_bin_if_cs_cnt += 1
+                
+            # if mcq_if_cs_cnt > num_annotators_per_question // 2 \
+            #         and bin_if_cs_cnt > num_annotators_per_question // 2:
+            if mcq_bin_if_cs_cnt > num_annotators_per_question:
                 mcq_goal = mcq_data["goal"]
                 mcq_sol1 = mcq_data["sol1"]
                 mcq_sol2 = mcq_data["sol2"]
@@ -630,7 +670,8 @@ def bin_vs_mcq_inspect(mcq_qualt_dict, bin_qualt_dict, ai2_id_qualt_id_mapping,
                 assert bin_sol == mcq_sol1 or bin_sol == mcq_sol2
 
                 # if common sense
-                if mcq_if_cs == 1 and bin_if_cs == 1:
+                # if mcq_if_cs == 1 and bin_if_cs == 1:
+                if mcq_bin_if_cs == 1:
                     if mcq_model_choice == mcq_gt:
                         if bin_model_choice == bin_gt:
                             bin_model_correct_cond_mcq_model_correct.append(1)
@@ -653,11 +694,39 @@ def bin_vs_mcq_inspect(mcq_qualt_dict, bin_qualt_dict, ai2_id_qualt_id_mapping,
                         bin_models_new_perf_if_cs_iaa.append(1)
                     else:
                         bin_models_new_perf_if_cs_iaa.append(0)
-
                     if mcq_choice_cnt > num_annotators_per_question // 2:
                         mcq_humans_perf_if_cs_iaa.append(mcq_choice==mcq_gt)
                     if bin_choice_cnt > num_annotators_per_question // 2:
                         bin_humans_perf_if_cs_iaa.append(bin_choice==bin_gt)
+
+                    both_mcq_bin_if_cs_cnt += 1
+
+                # if mcq_if_cs == 0 and bin_if_cs == 0:
+                if mcq_bin_if_cs == 0:
+                    both_mcq_bin_if_not_cs_cnt += 1
+                # if mcq_if_cs != bin_if_cs:
+                #     either_mcq_bin_if_cs_cnt += 1
+
+                # if not common sense
+                # if mcq_if_cs == 0 and bin_if_cs == 0:
+                # if mcq_if_cs != bin_if_cs or (mcq_if_cs == 0 and bin_if_cs == 0):
+                if mcq_bin_if_cs == 0:
+                    if mcq_model_choice == mcq_gt:
+                        mcq_models_perf_if_not_cs_iaa.append(1)
+                    else:
+                        mcq_models_perf_if_not_cs_iaa.append(0)
+                    if bin_model_choice == bin_gt:
+                        bin_models_perf_if_not_cs_iaa.append(1)
+                    else:
+                        bin_models_perf_if_not_cs_iaa.append(0)
+                    if bin_new_preds[id_curr]:
+                        bin_models_new_perf_if_not_cs_iaa.append(1)
+                    else:
+                        bin_models_new_perf_if_not_cs_iaa.append(0)
+                    if mcq_choice_cnt > num_annotators_per_question // 2:
+                        mcq_humans_perf_if_not_cs_iaa.append(mcq_choice==mcq_gt)
+                    if bin_choice_cnt > num_annotators_per_question // 2:
+                        bin_humans_perf_if_not_cs_iaa.append(bin_choice==bin_gt)
 
                 mcq_humans_pred_str = "MCQ Humans Pred: {}".format(mcq_choices)
                 bin_humans_pred_str = "BIN Humans Pred: {}".format(bin_choices)
@@ -869,6 +938,53 @@ def bin_vs_mcq_inspect(mcq_qualt_dict, bin_qualt_dict, ai2_id_qualt_id_mapping,
     print ("MCQ Models Both MCQ-BIN-CS: {:.4f}".format(mcq_models_perf_if_cs_iaa_acc))
     print ("BIN Models Both MCQ-BIN-CS: {:.4f}".format(bin_models_perf_if_cs_iaa_acc))
     print ("BIN Models Both MCQ-BIN-CS: {:.4f} (New)".format(bin_models_new_perf_if_cs_iaa_acc))
+
+    print ('.'*50)
+    mcq_humans_perf_if_not_cs_iaa = np.asarray(mcq_humans_perf_if_not_cs_iaa)
+    bin_humans_perf_if_not_cs_iaa = np.asarray(bin_humans_perf_if_not_cs_iaa)
+    mcq_humans_perf_if_not_cs_iaa_acc = np.mean(mcq_humans_perf_if_not_cs_iaa)
+    bin_humans_perf_if_not_cs_iaa_acc = np.mean(bin_humans_perf_if_not_cs_iaa)
+    mcq_models_perf_if_not_cs_iaa = np.asarray(mcq_models_perf_if_not_cs_iaa)
+    bin_models_perf_if_not_cs_iaa = np.asarray(bin_models_perf_if_not_cs_iaa)
+    mcq_models_perf_if_not_cs_iaa_acc = np.mean(mcq_models_perf_if_not_cs_iaa)
+    bin_models_perf_if_not_cs_iaa_acc = np.mean(bin_models_perf_if_not_cs_iaa)
+    bin_models_new_perf_if_not_cs_iaa = np.asarray(bin_models_new_perf_if_not_cs_iaa)
+    bin_models_new_perf_if_not_cs_iaa_acc = np.mean(bin_models_new_perf_if_not_cs_iaa)
+    print (len(mcq_humans_perf_if_not_cs_iaa))
+    print (len(bin_humans_perf_if_not_cs_iaa))
+    print (len(mcq_models_perf_if_not_cs_iaa))
+    print (len(bin_models_perf_if_not_cs_iaa))
+    print ("MCQ Humans Neither MCQ-BIN-CS: {:.4f}".format(mcq_humans_perf_if_not_cs_iaa_acc))
+    print ("BIN Humans Neither MCQ-BIN-CS: {:.4f}".format(bin_humans_perf_if_not_cs_iaa_acc))
+    print ("MCQ Models Neither MCQ-BIN-CS: {:.4f}".format(mcq_models_perf_if_not_cs_iaa_acc))
+    print ("BIN Models Neither MCQ-BIN-CS: {:.4f}".format(bin_models_perf_if_not_cs_iaa_acc))
+    print ("BIN Models Neither MCQ-BIN-CS: {:.4f} (New)".format(bin_models_new_perf_if_not_cs_iaa_acc))
+
+    print ('.'*50)
+    mcq_humans_perf_ties_iaa = np.asarray(mcq_humans_perf_ties_iaa)
+    bin_humans_perf_ties_iaa = np.asarray(bin_humans_perf_ties_iaa)
+    mcq_humans_perf_ties_iaa_acc = np.mean(mcq_humans_perf_ties_iaa)
+    bin_humans_perf_ties_iaa_acc = np.mean(bin_humans_perf_ties_iaa)
+    mcq_models_perf_ties_iaa = np.asarray(mcq_models_perf_ties_iaa)
+    bin_models_perf_ties_iaa = np.asarray(bin_models_perf_ties_iaa)
+    mcq_models_perf_ties_iaa_acc = np.mean(mcq_models_perf_ties_iaa)
+    bin_models_perf_ties_iaa_acc = np.mean(bin_models_perf_ties_iaa)
+    bin_models_new_perf_ties_iaa = np.asarray(bin_models_new_perf_ties_iaa)
+    bin_models_new_perf_ties_iaa_acc = np.mean(bin_models_new_perf_ties_iaa)
+    print (len(mcq_humans_perf_ties_iaa))
+    print (len(bin_humans_perf_ties_iaa))
+    print (len(mcq_models_perf_ties_iaa))
+    print (len(bin_models_perf_ties_iaa))
+    print ("MCQ Humans Ties MCQ-BIN-CS: {:.4f}".format(mcq_humans_perf_ties_iaa_acc))
+    print ("BIN Humans Ties MCQ-BIN-CS: {:.4f}".format(bin_humans_perf_ties_iaa_acc))
+    print ("MCQ Models Ties MCQ-BIN-CS: {:.4f}".format(mcq_models_perf_ties_iaa_acc))
+    print ("BIN Models Ties MCQ-BIN-CS: {:.4f}".format(bin_models_perf_ties_iaa_acc))
+    print ("BIN Models Ties MCQ-BIN-CS: {:.4f} (New)".format(bin_models_new_perf_ties_iaa_acc))
+
+    print ('.'*50)
+    print ("Both MCQ-BIN-CS Count:       ", both_mcq_bin_if_cs_cnt)
+    print ("Neither MCQ-BIN-Not-CS Count:", both_mcq_bin_if_not_cs_cnt)
+    print ("Ties MCQ-BIN-CS Count:       ", either_mcq_bin_if_cs_cnt)
 
     return None
 
