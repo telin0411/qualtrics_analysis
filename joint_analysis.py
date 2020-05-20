@@ -402,6 +402,8 @@ def computer_iaas(mcq_qualt_dict, bin_qualt_dict, args, mode="mcq"):
     joint_cs_cnt = 0
     joint_not_cs_cnt = 0
 
+    bin_if_cs_iaa_cnts = []
+
     if mode == "mcq" or mode == "joint":
         
         for i in range(len_data):
@@ -429,6 +431,9 @@ def computer_iaas(mcq_qualt_dict, bin_qualt_dict, args, mode="mcq"):
                 continue
             res_choice = np.asarray(res_choice)
             res_if_com = np.asarray(res_if_com)
+
+            bin_if_cs_iaa_cnts.append(sum(res_if_com))
+
             if mode == "bin":
                 choices[i, :bin_num_annotators_per_question] = res_choice
                 if_cs[i, :bin_num_annotators_per_question] = res_if_com
@@ -493,6 +498,9 @@ def computer_iaas(mcq_qualt_dict, bin_qualt_dict, args, mode="mcq"):
             joint_not_cs_correct_bin, joint_not_cs_cnt, joint_cs_correct_bin_acc))
 
     print ('-'*50)
+
+    bin_if_cs_iaa_cnts = Counter(bin_if_cs_iaa_cnts)
+    print (bin_if_cs_iaa_cnts)
 
     return None
 
