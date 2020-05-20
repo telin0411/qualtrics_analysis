@@ -361,23 +361,31 @@ def computer_iaas(mcq_qualt_dict, bin_qualt_dict, args, mode="mcq"):
     assert mode in ["mcq", "bin", "joint"]
 
     # decide the number of annotators
-    num_annotators_per_question = 0
+    mcq_num_annotators_per_question = 0
+    bin_num_annotators_per_question = 0
     len_data = len(mcq_qualt_dict)
     assert len(mcq_qualt_dict) == len(bin_qualt_dict)
 
     for key in mcq_qualt_dict:
         annots = mcq_qualt_dict[key]["annotations"]["1. choice"]
         num_annots = len(annots)
-        num_annotators_per_question = max(num_annotators_per_question, num_annots)
+        mcq_num_annotators_per_question = max(mcq_num_annotators_per_question, num_annots)
+
+    for key in bin_qualt_dict:
+        annots = bin_qualt_dict[key]["annotations"]["1. choice"]
+        num_annots = len(annots)
+        bin_num_annotators_per_question = max(bin_num_annotators_per_question, num_annots)
 
     if mode == "joint":
-        num_iaas = num_annotators_per_question * 2
-    else:
-        num_iaas = num_annotators_per_question
+        num_iaas = mcq_num_annotators_per_question + bin_num_annotators_per_question
+    elif mode == "mcq":
+        num_iaas = mcq_num_annotators_per_question
+    elif mode == "bin":
+        num_iaas = bin_num_annotators_per_question
 
     print ()
     print ('-'*50)
-    print ("Number of Annotators: {}".format(num_annotators_per_question))
+    print ("Number of Annotators: {}".format(num_iaas))
     print ("IAA of mode: {}".format(mode))
 
     choices = np.zeros((len_data, num_iaas))
@@ -401,12 +409,12 @@ def computer_iaas(mcq_qualt_dict, bin_qualt_dict, args, mode="mcq"):
             mcq_annots = mcq_qualt_dict[qualt_id]
             res_choice = mcq_annots["annotations"]["1. choice"]
             res_if_com = mcq_annots["annotations"]["4. if common sense"]
-            if len(res_choice) < num_annotators_per_question:
+            if len(res_choice) < mcq_num_annotators_per_question:
                 continue
             res_choice = np.asarray(res_choice)
             res_if_com = np.asarray(res_if_com)
-            choices[i, :num_annotators_per_question] = res_choice
-            if_cs[i, :num_annotators_per_question] = res_if_com
+            choices[i, :mcq_num_annotators_per_question] = res_choice
+            if_cs[i, :mcq_num_annotators_per_question] = res_if_com
 
         pass
 
@@ -417,29 +425,29 @@ def computer_iaas(mcq_qualt_dict, bin_qualt_dict, args, mode="mcq"):
             bin_annots = bin_qualt_dict[qualt_id]
             res_choice = bin_annots["annotations"]["1. choice"]
             res_if_com = bin_annots["annotations"]["4. if common sense"]
-            if len(res_choice) < num_annotators_per_question:
+            if len(res_choice) < bin_num_annotators_per_question:
                 continue
             res_choice = np.asarray(res_choice)
             res_if_com = np.asarray(res_if_com)
             if mode == "bin":
-                choices[i, :num_annotators_per_question] = res_choice
-                if_cs[i, :num_annotators_per_question] = res_if_com
+                choices[i, :bin_num_annotators_per_question] = res_choice
+                if_cs[i, :bin_num_annotators_per_question] = res_if_com
             elif mode == "joint":
-                choices[i, num_annotators_per_question:] = res_choice
-                if_cs[i, num_annotators_per_question:] = res_if_com
+                choices[i, mcq_num_annotators_per_question:] = res_choice
+                if_cs[i, mcq_num_annotators_per_question:] = res_if_com
 
                 mcq_gt = mcq_qualt_dict[qualt_id]["gt_label"]
                 bin_gt = bin_qualt_dict[qualt_id]["gt_label"]
                 if sum(if_cs[i]) == num_iaas * 1:
-                    if sum(choices[i, :num_annotators_per_question]) == num_annotators_per_question * mcq_gt:
+                    if sum(choices[i, :mcq_num_annotators_per_question]) == mcq_num_annotators_per_question * mcq_gt:
                         joint_cs_correct_mcq += 1
-                    if sum(choices[i, num_annotators_per_question:]) == num_annotators_per_question * bin_gt:
+                    if sum(choices[i, mcq_num_annotators_per_question:]) == bin_num_annotators_per_question * bin_gt:
                         joint_cs_correct_bin += 1
                     joint_cs_cnt += 1
                 elif sum(if_cs[i]) == num_iaas * 0:
-                    if sum(choices[i, :num_annotators_per_question]) == num_annotators_per_question * mcq_gt:
+                    if sum(choices[i, :mcq_num_annotators_per_question]) == mcq_num_annotators_per_question * mcq_gt:
                         joint_not_cs_correct_mcq += 1
-                    if sum(choices[i, num_annotators_per_question:]) == num_annotators_per_question * bin_gt:
+                    if sum(choices[i, mcq_num_annotators_per_question:]) == bin_num_annotators_per_question * bin_gt:
                         joint_not_cs_correct_bin += 1
                     joint_not_cs_cnt += 1
 
