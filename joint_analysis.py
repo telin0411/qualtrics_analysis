@@ -24,6 +24,7 @@ from nltk.tokenize import word_tokenize
 from nltk import agreement
 
 from scipy.stats import pearsonr
+from sklearn.metrics import cohen_kappa_score
 
 
 # dicts for each categorical selections
@@ -366,12 +367,39 @@ def computer_iaas(mcq_qualt_dict, bin_qualt_dict, args, mode="mcq"):
     len_data = len(mcq_qualt_dict)
     assert len(mcq_qualt_dict) == len(bin_qualt_dict)
 
+    gt_sol1_600 = 0
+    gt_sol2_600 = 0
+    gt_sol1_120 = 0
+    gt_sol2_120 = 0
+
     for key in mcq_qualt_dict:
+        if "annotations" not in mcq_qualt_dict[key]:
+            continue
         annots = mcq_qualt_dict[key]["annotations"]["1. choice"]
+
+        if int(key.split("Q")[-1]) >= 22:
+            if mcq_qualt_dict[key]["gt_label"] == 0:
+                gt_sol1_120 += 1
+            else:
+                gt_sol2_120 += 1
+        else:
+            if mcq_qualt_dict[key]["gt_label"] == 0:
+                gt_sol1_600 += 1
+            else:
+                gt_sol2_600 += 1
+
         num_annots = len(annots)
         mcq_num_annotators_per_question = max(mcq_num_annotators_per_question, num_annots)
 
+    # print ("gt_sol1_600:", gt_sol1_600)
+    # print ("gt_sol2_600:", gt_sol2_600)
+    # print ("gt_sol1_120:", gt_sol1_120)
+    # print ("gt_sol2_120:", gt_sol2_120)
+    # raise
+
     for key in bin_qualt_dict:
+        if "annotations" not in bin_qualt_dict[key]:
+            continue
         annots = bin_qualt_dict[key]["annotations"]["1. choice"]
         num_annots = len(annots)
         bin_num_annotators_per_question = max(bin_num_annotators_per_question, num_annots)
@@ -409,6 +437,8 @@ def computer_iaas(mcq_qualt_dict, bin_qualt_dict, args, mode="mcq"):
         for i in range(len_data):
             qualt_id = qualt_ids[i]
             mcq_annots = mcq_qualt_dict[qualt_id]
+            if "annotations" not in mcq_annots:
+                continue
             res_choice = mcq_annots["annotations"]["1. choice"]
             res_if_com = mcq_annots["annotations"]["4. if common sense"]
             if len(res_choice) < mcq_num_annotators_per_question:
@@ -425,6 +455,8 @@ def computer_iaas(mcq_qualt_dict, bin_qualt_dict, args, mode="mcq"):
         for i in range(len_data):
             qualt_id = qualt_ids[i]
             bin_annots = bin_qualt_dict[qualt_id]
+            if "annotations" not in bin_annots:
+                continue
             res_choice = bin_annots["annotations"]["1. choice"]
             res_if_com = bin_annots["annotations"]["4. if common sense"]
             if len(res_choice) < bin_num_annotators_per_question:
@@ -461,6 +493,11 @@ def computer_iaas(mcq_qualt_dict, bin_qualt_dict, args, mode="mcq"):
     choices = np.transpose(choices).astype(np.int32)
     if_cs = np.transpose(if_cs).astype(np.int32)
 
+    if_cs_y1 = if_cs[0]
+    if_cs_y2 = if_cs[1]
+    skkappa = cohen_kappa_score(if_cs_y1, if_cs_y2)
+    print (skkappa)
+
     taskdata_choices = []
     taskdata_if_cs = []
     for i in range(num_iaas):
@@ -476,11 +513,12 @@ def computer_iaas(mcq_qualt_dict, bin_qualt_dict, args, mode="mcq"):
     print ("Choices:")
     print ("kappa: {}".format(rating_choices.kappa()))
     print ("fleiss: {}".format(rating_choices.multi_kappa()))
-    # print ("alpha: {}".format(rating_choices.alpha()))
+    print ("alpha: {}".format(rating_choices.alpha()))
     # print ("scotts: {}".format(rating_choices.pi()))
     print ("If Common Sense:")
     print ("kappa: {}".format(rating_if_cs.kappa()))
     print ("fleiss: {}".format(rating_if_cs.multi_kappa()))
+    print ("alpha: {}".format(rating_if_cs.alpha()))
 
     if mode == "joint":
         print ('.'*50)
