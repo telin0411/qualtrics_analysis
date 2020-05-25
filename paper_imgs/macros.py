@@ -32,8 +32,9 @@ CATEGORIES_ID = {v: u for u, v in CATEGORIES.items()}
 
 
 IF_COMMON_SENSE = {
-    "Yes": 1,
-    "No": 0,
+    "Common Sense": 1,
+    "Not Common Sense": -1,
+    "Neutral": 0,
 }
 IF_COMMON_SENSE_ID = {v: u for u, v in IF_COMMON_SENSE.items()}
 

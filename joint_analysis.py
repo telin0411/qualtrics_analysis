@@ -271,7 +271,7 @@ def label_samples(args):
     return qualt_sorted_dict, qualt_id_ai2_id_mapping, ai2_id_qualt_id_mapping
 
  
-def joint_qualitative_if_cs(mcq_res_ids, bin_res_ids, mqc_qualt_sorted_dict, 
+def joint_qualitative_if_cs(mcq_res_ids, bin_res_ids, mcq_qualt_sorted_dict, 
                             bin_qualt_sorted_dict, ai2_id_qualt_id_mapping,
                             mcq_qualt_dict, bin_qualt_dict,
                             args=None):
@@ -303,17 +303,17 @@ def joint_qualitative_if_cs(mcq_res_ids, bin_res_ids, mqc_qualt_sorted_dict,
         if show_cnt > args.num_examples_to_show:
             break
         qualt_id = ai2_id_qualt_id_mapping[id_]
-        goal_mcq = mqc_qualt_sorted_dict[qualt_id]["goal"]
+        goal_mcq = mcq_qualt_sorted_dict[qualt_id]["goal"]
         goal_bin = bin_qualt_sorted_dict[qualt_id]["goal"]
         assert goal_mcq == goal_bin
-        sol1 = mqc_qualt_sorted_dict[qualt_id]["sol1"]
-        sol2 = mqc_qualt_sorted_dict[qualt_id]["sol2"]
+        sol1 = mcq_qualt_sorted_dict[qualt_id]["sol1"]
+        sol2 = mcq_qualt_sorted_dict[qualt_id]["sol2"]
         sol = bin_qualt_sorted_dict[qualt_id]["sol"]
         print ('{}: {}'.format(show_cnt, goal_mcq))
         print ('mcq_sol1: {}'.format(sol1))
         print ('mcq_sol2: {}'.format(sol2))
         print ('bin_sol:  {}'.format(sol))
-        print ('mcq_gt:   sol{}'.format(mqc_qualt_sorted_dict[qualt_id]["gt_label"]+1))
+        print ('mcq_gt:   sol{}'.format(mcq_qualt_sorted_dict[qualt_id]["gt_label"]+1))
         print ('mcq_pred: {}'.format(mcq_qualt_dict[qualt_id]["annotations"]["1. choice"]))
         print ('bin_pred: {}'.format(bin_qualt_dict[qualt_id]["annotations"]["1. choice"]))
         print ('.'*50)
@@ -327,17 +327,17 @@ def joint_qualitative_if_cs(mcq_res_ids, bin_res_ids, mqc_qualt_sorted_dict,
         if show_cnt > args.num_examples_to_show:
             break
         qualt_id = ai2_id_qualt_id_mapping[id_]
-        goal_mcq = mqc_qualt_sorted_dict[qualt_id]["goal"]
+        goal_mcq = mcq_qualt_sorted_dict[qualt_id]["goal"]
         goal_bin = bin_qualt_sorted_dict[qualt_id]["goal"]
         assert goal_mcq == goal_bin
-        sol1 = mqc_qualt_sorted_dict[qualt_id]["sol1"]
-        sol2 = mqc_qualt_sorted_dict[qualt_id]["sol2"]
+        sol1 = mcq_qualt_sorted_dict[qualt_id]["sol1"]
+        sol2 = mcq_qualt_sorted_dict[qualt_id]["sol2"]
         sol = bin_qualt_sorted_dict[qualt_id]["sol"]
         print ('{}: {}'.format(show_cnt, goal_mcq))
         print ('mcq_sol1: {}'.format(sol1))
         print ('mcq_sol2: {}'.format(sol2))
         print ('bin_sol:  {}'.format(sol))
-        print ('mcq_gt:   sol{}'.format(mqc_qualt_sorted_dict[qualt_id]["gt_label"]+1))
+        print ('mcq_gt:   sol{}'.format(mcq_qualt_sorted_dict[qualt_id]["gt_label"]+1))
         print ('mcq_pred: {}'.format(mcq_qualt_dict[qualt_id]["annotations"]["1. choice"]))
         print ('bin_pred: {}'.format(bin_qualt_dict[qualt_id]["annotations"]["1. choice"]))
         print ('.'*50)
@@ -1123,7 +1123,7 @@ def analyze_pipeline(args):
     args.data_jsonl = args.mcq_data_jsonl
     args.data_lst = args.mcq_data_lst
     args.samples_csv = args.mcq_samples_csv
-    mqc_qualt_sorted_dict, qualt_id_ai2_id_mapping, ai2_id_qualt_id_mapping = label_samples(args)
+    mcq_qualt_sorted_dict, qualt_id_ai2_id_mapping, ai2_id_qualt_id_mapping = label_samples(args)
     
     # bin
     args.task = "physicalbinqa"
@@ -1138,12 +1138,12 @@ def analyze_pipeline(args):
 
     # merge with model preds
     if args.mcq_model_preds is not None and args.bin_model_preds is not None:
-        for qualt_id  in mqc_qualt_sorted_dict:
+        for qualt_id  in mcq_qualt_sorted_dict:
             if qualt_id not in mcq_qualt_dict:
                 continue
             if qualt_id not in bin_qualt_dict:
                 continue
-            mcq_qualt_dict[qualt_id]["model_preds"] = mqc_qualt_sorted_dict[qualt_id]["model_preds"]
+            mcq_qualt_dict[qualt_id]["model_preds"] = mcq_qualt_sorted_dict[qualt_id]["model_preds"]
             bin_qualt_dict[qualt_id]["model_preds"] = bin_qualt_sorted_dict[qualt_id]["model_preds"]
 
     # TODO: Main joint analysis
@@ -1151,7 +1151,7 @@ def analyze_pipeline(args):
     bin_res_ids = json.load(open(args.bin_processed_ids_json_file, "r"))
 
     # TODO: if common sense
-    joint_qualitative_if_cs(mcq_res_ids, bin_res_ids, mqc_qualt_sorted_dict,
+    joint_qualitative_if_cs(mcq_res_ids, bin_res_ids, mcq_qualt_sorted_dict,
                             bin_qualt_sorted_dict, ai2_id_qualt_id_mapping,
                             mcq_qualt_dict, bin_qualt_dict, args)
 
