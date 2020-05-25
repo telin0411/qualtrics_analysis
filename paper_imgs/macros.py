@@ -26,7 +26,7 @@ CATEGORIES = {
     "Spatial Relationships": 2,
     "Definitional Attributes": 3,
     "Everyday Knowledge": 4,
-    "None of the above": 5,
+    # "None of the above": 5,
 }
 CATEGORIES_ID = {v: u for u, v in CATEGORIES.items()}
 
