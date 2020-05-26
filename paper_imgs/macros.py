@@ -3,7 +3,7 @@ EDUCATION_LEVEL = {
     "Most 10 year olds": 0,
     "Not most 10 year olds": 1,
     "Only domain experts": 2,
-    "No one": 3,
+    # "No one": 3,
     "Not sure": 4,
 }
 EDUCATION_LEVEL_ID = {v: u for u, v in EDUCATION_LEVEL.items()}
@@ -52,9 +52,10 @@ TASK_ABR = {
 
 
 CAT_NAMES = {
-    "edu": "Educational Levels",
+    "edu": "Demographics",
     "cat": "Physical Common Sense Categories",
     "com": "If Common Sense",
+    "mcq_com": "If Common Sense",
     "clearness": "Clearness of Questions",
     "overall": "Overall Performances"
 }
@@ -62,6 +63,7 @@ CAT_ID_DICTS = {
     "edu": EDUCATION_LEVEL_ID,
     "cat": CATEGORIES_ID,
     "com": IF_COMMON_SENSE_ID,
+    "mcq_com": IF_COMMON_SENSE_ID,
     "clearness": CLEARNESS_ID,
     "overall": OVERALL_ID,
 }

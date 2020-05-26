@@ -646,6 +646,11 @@ def bin_vs_mcq_inspect(mcq_qualt_dict, bin_qualt_dict, ai2_id_qualt_id_mapping,
     both_mcq_bin_if_not_cs_cnt = 0
     either_mcq_bin_if_cs_cnt = 0
 
+    mcq_if_cs_cnt = []
+    bin_if_cs_cnt = []
+    mcq_if_correct = []
+    bin_if_correct = []
+
     for qualt_id in qualt_ids:
 
         id_curr = mcq_qualt_dict[qualt_id]["id"]
@@ -1036,9 +1041,14 @@ def bin_vs_mcq_inspect(mcq_qualt_dict, bin_qualt_dict, ai2_id_qualt_id_mapping,
     print ("BIN Models Ties MCQ-BIN-CS: {:.4f} (New)".format(bin_models_new_perf_ties_iaa_acc))
 
     print ('.'*50)
-    print ("Both MCQ-BIN-CS Count:       ", both_mcq_bin_if_cs_cnt)
-    print ("Neither MCQ-BIN-Not-CS Count:", both_mcq_bin_if_not_cs_cnt)
-    print ("Ties MCQ-BIN-CS Count:       ", either_mcq_bin_if_cs_cnt)
+    total_counts = both_mcq_bin_if_cs_cnt + both_mcq_bin_if_not_cs_cnt + \
+        either_mcq_bin_if_cs_cnt
+    print ("Both MCQ-BIN-CS Count:        {} ({}%)".format(
+        both_mcq_bin_if_cs_cnt, both_mcq_bin_if_cs_cnt/total_counts*100.))
+    print ("Neither MCQ-BIN-Not-CS Count: {} ({}%)".format(
+        both_mcq_bin_if_not_cs_cnt, both_mcq_bin_if_not_cs_cnt/total_counts*100.))
+    print ("Ties MCQ-BIN-CS Count:        {} ({}%)".format(
+        either_mcq_bin_if_cs_cnt, either_mcq_bin_if_cs_cnt/total_counts*100.))
 
     return None
 
