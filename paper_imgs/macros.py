@@ -54,8 +54,8 @@ TASK_ABR = {
 CAT_NAMES = {
     "edu": "Demographics",
     "cat": "Physical Common Sense Categories",
-    "com": "If Common Sense",
-    "mcq_com": "If Common Sense",
+    "com": "Is Common Sense",
+    "mcq_com": "Is Common Sense",
     "clearness": "Clearness of Questions",
     "overall": "Overall Performances"
 }
