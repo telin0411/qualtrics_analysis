@@ -10,11 +10,11 @@ EDUCATION_LEVEL_ID = {v: u for u, v in EDUCATION_LEVEL.items()}
 
 
 CLEARNESS = {
-    "everything": 0,
-    "did not understand": 1,
-    "did not make any sense": 2,
-    "underspecified": 3,
-    "not sure": 4,
+    "Everything": 0,
+    "Did not understand": 1,
+    "Did not make any sense": 2,
+    "Underspecified": 3,
+    "Not sure": 4,
     "None of the above": 5,
 }
 CLEARNESS_ID = {v: u for u, v in CLEARNESS.items()}
@@ -27,6 +27,7 @@ CATEGORIES = {
     "Definitional Attributes": 3,
     "Everyday Knowledge": 4,
     # "None of the above": 5,
+    "Not sure": 5,
 }
 CATEGORIES_ID = {v: u for u, v in CATEGORIES.items()}
 
@@ -58,6 +59,14 @@ CAT_NAMES = {
     "mcq_com": "Is Common Sense",
     "clearness": "Clearness of Questions",
     "overall": "Overall Performances"
+}
+CAT_DICTS = {
+    "edu": EDUCATION_LEVEL,
+    "cat": CATEGORIES,
+    "com": IF_COMMON_SENSE,
+    "mcq_com": IF_COMMON_SENSE,
+    "clearness": CLEARNESS,
+    "overall": OVERALL,
 }
 CAT_ID_DICTS = {
     "edu": EDUCATION_LEVEL_ID,
