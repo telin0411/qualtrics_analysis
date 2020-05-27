@@ -72,7 +72,15 @@ def label_samples(args):
             data_raw["model_preds"] = {}
             for model_name in preds:
                 data_raw["model_preds"][model_name] = preds[model_name][line_cnt]
-        
+            if args.task == "physicalbinqa":
+                data_raw["model_preds_compl"] = {}
+                for model_name in preds:
+                    if line_cnt % 2 == 0:
+                        compl_pred = preds[model_name][line_cnt+1]
+                    else:
+                        compl_pred = preds[model_name][line_cnt-1]
+                    data_raw["model_preds_compl"][model_name] = compl_pred
+
         # store gt labels in
         data_raw["gt_label"] = labels[line_cnt]
         qa_pair_dict[key] = data_raw
