@@ -57,6 +57,7 @@ CAT_NAMES = {
     "cat": "Physical Common Sense Categories",
     "com": "Is Common Sense",
     "mcq_com": "Is Common Sense",
+    "bin_com": "Is Common Sense",
     "clearness": "Clearness of Questions",
     "overall": "Overall Performances"
 }
@@ -65,6 +66,7 @@ CAT_DICTS = {
     "cat": CATEGORIES,
     "com": IF_COMMON_SENSE,
     "mcq_com": IF_COMMON_SENSE,
+    "bin_com": IF_COMMON_SENSE,
     "clearness": CLEARNESS,
     "overall": OVERALL,
 }
@@ -73,6 +75,7 @@ CAT_ID_DICTS = {
     "cat": CATEGORIES_ID,
     "com": IF_COMMON_SENSE_ID,
     "mcq_com": IF_COMMON_SENSE_ID,
+    "bin_com": IF_COMMON_SENSE_ID,
     "clearness": CLEARNESS_ID,
     "overall": OVERALL_ID,
 }

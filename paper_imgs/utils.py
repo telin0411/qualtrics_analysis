@@ -35,13 +35,16 @@ def label_samples(args):
     if args.mcq_model_preds is not None or args.bin_model_preds is not None:
         if args.task == "physicaliqa":
             curr_model_preds = args.mcq_model_preds
+            prefix = "mcq"
         elif args.task == "physicalbinqa":
             curr_model_preds = args.bin_model_preds
+            prefix = "bin"
         preds = {}
         for mcq_model_pred in curr_model_preds:
             pred_f = os.path.join(mcq_model_pred, "pred.lst")
             assert os.path.exists(pred_f)
             model_name = pred_f.split("/")[-2]
+            model_name = prefix + "_" + model_name
             preds[model_name] = []
             pred_f = open(pred_f, "r")
             for line in pred_f:
