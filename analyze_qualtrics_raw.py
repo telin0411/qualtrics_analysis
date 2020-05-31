@@ -208,8 +208,8 @@ def label_samples(args):
 
     print ("[INFO] Num Each Block:   {}".format(end_qa_num-1))
     print ("[INFO] Num Total Blocks: {}".format(start_block_num-2))
-    assert start_block_num - 2 == args.num_total_blocks
-    assert end_qa_num - 1 == args.num_questions_each
+    # assert start_block_num - 2 == args.num_total_blocks
+    # assert end_qa_num - 1 == args.num_questions_each
     
     f.close()
     return qualt_sorted_dict, qualt_id_ai2_id_mapping
@@ -241,6 +241,10 @@ def read_qualtric_raw_csv(qualtrics_csv, qualt_sorted_dict, args, pp):
             row_cnt += 1
 
             for block_idx in range(start_block, end_block):
+                # if block_idx >= 18:
+                #     args.num_questions_each = 36
+                # else:
+                #     args.num_questions_each = 30
                 for question_idx in range(1, args.num_questions_each+1):
 
                     # annotation dict
