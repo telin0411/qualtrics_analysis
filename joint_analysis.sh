@@ -1,8 +1,8 @@
 python3 joint_analysis.py \
     --mcq_processed_ids_json_file "./outputs/piqa_all_cat_ids.json" \
     --bin_processed_ids_json_file "./outputs/binpiqa_all_cat_ids.json" \
-    --mcq_samples_csv ./files/piqa_survey_sampels.csv \
-    --bin_samples_csv ./files/binpiqa_survey_sampels.csv \
+    --mcq_samples_csv ./files/piqa_survey_sampels_all.csv \
+    --bin_samples_csv ./files/binpiqa_survey_sampels_all.csv \
     --mcq_qualt_dict "./outputs/piqa_qualt_sorted_dict.json" \
     --bin_qualt_dict "./outputs/binpiqa_qualt_sorted_dict.json" \
     --mcq_model_preds "../ai2_light_telin/outputs/physicaliqa_ablated/large_roberta_bz4_accu2" \
@@ -13,6 +13,6 @@ python3 joint_analysis.py \
     --bin_data_lst ./files/bin-dev-labels.lst \
     --verbose False \
     --num_examples_to_show 0 \
-    --num_total_blocks 20 \
-    # --start_block 22 \
-    # --end_block 26 \
+    --num_total_blocks 24 \
+    --start_block 22 \
+    --end_block 26 \

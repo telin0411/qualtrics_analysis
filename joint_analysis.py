@@ -261,7 +261,7 @@ def label_samples(args):
 
     print ("[INFO] Num Each Block:   {}".format(end_qa_num-1))
     print ("[INFO] Num Total Blocks: {}".format(start_block_num-2))
-    assert start_block_num - 2 == args.num_total_blocks
+    # assert start_block_num - 2 == args.num_total_blocks
     assert end_qa_num - 1 == args.num_questions_each
 
     f.close()
@@ -1056,8 +1056,9 @@ def bin_vs_mcq_inspect(mcq_qualt_dict, bin_qualt_dict, ai2_id_qualt_id_mapping,
 def sample_compl_binpiqa(ai2_id_qualt_id_mapping, mcq_qualt_dict, bin_qualt_dict, args=None):
     qualt_ids = sorted(list(mcq_qualt_dict.keys()))
     assert qualt_ids == sorted(list(bin_qualt_dict.keys()))
+    print (len(qualt_ids))
 
-    csv_out = open(os.path.join(args.out_dir, "binpiqa_survey_sampels_complementary.csv"), "w")
+    csv_out = open(os.path.join(args.out_dir, "binpiqa_survey_sampels_complementary_new.csv"), "w")
     fieldnames = ["goal", "sol", "gt", "ai2id", "qualtid_org", "qualtid_new"]
     wr = csv.DictWriter(csv_out, fieldnames=fieldnames)
     wr.writeheader()
@@ -1065,7 +1066,8 @@ def sample_compl_binpiqa(ai2_id_qualt_id_mapping, mcq_qualt_dict, bin_qualt_dict
     samples_cnt = 1
     qualt_block = 2
     qualt_block_org_start = 2
-    qualt_block_org_end = len(qualt_ids) // 30
+    qualt_block_org_end = len(qualt_ids) // 30 + 2
+    cnt = 0
 
     for qualt_block_org in range(qualt_block_org_start, qualt_block_org_end):
         for qualt_ques_idx in range(1, 31):
@@ -1112,6 +1114,9 @@ def sample_compl_binpiqa(ai2_id_qualt_id_mapping, mcq_qualt_dict, bin_qualt_dict
                     "qualtid_new": qualtid_new,
                 }
                 wr.writerow(row)
+                cnt += 1
+
+    print (cnt)
 
     return None
 
@@ -1143,7 +1148,7 @@ def analyze_pipeline(args):
     bin_qualt_sorted_dict, _, _ = label_samples(args)
 
     # sample complementary bin-piqa
-    # sample_compl_binpiqa(ai2_id_qualt_id_mapping, mcq_qualt_dict, bin_qualt_dict, args)
+    sample_compl_binpiqa(ai2_id_qualt_id_mapping, mcq_qualt_dict, bin_qualt_dict, args)
     # raise
 
     # merge with model preds
