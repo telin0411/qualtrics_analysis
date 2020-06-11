@@ -239,6 +239,7 @@ def read_qualtric_raw_csv(qualtrics_csv, qualt_sorted_dict, args, pp):
         # the annotated data will have "email" in "DistributionChannel"
         if row["DistributionChannel"] == "email":
             row_cnt += 1
+            annot_email = row["RecipientEmail"]
 
             for block_idx in range(start_block, end_block):
                 # if block_idx >= 18:
@@ -278,11 +279,21 @@ def read_qualtric_raw_csv(qualtrics_csv, qualt_sorted_dict, args, pp):
                                     curr_annot_dict["1. choice"].append(0)
                                 elif "sol2" in answer:
                                     curr_annot_dict["1. choice"].append(1)
+                                if "sol1" in answer or "sol2" in answer:
+                                    # record the email
+                                    if "0. identity" not in curr_annot_dict:
+                                        curr_annot_dict["0. identity"] = []
+                                    curr_annot_dict["0. identity"].append(annot_email)
                             elif args.task == "physicalbinqa":
                                 if "Incorrect" in answer:
                                     curr_annot_dict["1. choice"].append(0)
                                 elif "Correct" in answer:
                                     curr_annot_dict["1. choice"].append(1)
+                                if "Incorrect" in answer or "Correct" in answer:
+                                    # record the email
+                                    if "0. identity" not in curr_annot_dict:
+                                        curr_annot_dict["0. identity"] = []
+                                    curr_annot_dict["0. identity"].append(annot_email)
 
                         # for confidence level
                         if sub_question_idx == 3:
